@@ -1,4 +1,5 @@
 :root {
+  /* Base step values from utopia */
   --step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
   --step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
   --step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
@@ -7,4 +8,14 @@
   --step-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
   --step-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
   --step-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
+
+  /* Text-specific step references */
+  --text-step--2: var(--step--2);
+  --text-step--1: var(--step--1);
+  --text-step-0: var(--step-0);
+  --text-step-1: var(--step-1);
+  --text-step-2: var(--step-2);
+  --text-step-3: var(--step-3);
+  --text-step-4: var(--step-4);
+  --text-step-5: var(--step-5);
 }

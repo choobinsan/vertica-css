@@ -1,9 +1,9 @@
 body {
   background: var(--color-gray-100);
   color: var(--color-black);
-  font-size: var(--size-step-1);
+  font-size: var(--text-step-0);
   font-family: var(--font-base);
-  line-height: var(--leading-standard,  1.4);
+  line-height: 1.4;
   font-size-adjust: from-font;
   margin: 0;
 }
