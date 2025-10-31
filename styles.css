@@ -1,0 +1,3 @@
+@layer base, components, utilities;
+@import "./styles/variables/index.css" layer(base);
+@import "./styles/global/index.css" layer(base);

@@ -1,0 +1,13 @@
+:root{
+    --color-white: #ffffff;
+    --color-gray-100: #f6f6f6;
+    --color-gray-200: #eeeeee;
+    --color-gray-300: #dddddd;
+    --color-gray-400: #cccccc;
+    --color-gray-500: #bbbbbb;
+    --color-gray-600: #aaaaaa;
+    --color-gray-700: #666666;
+    --color-gray-800: #555555;
+    --color-gray-900: #444444;
+    --color-black: #222222;
+}
