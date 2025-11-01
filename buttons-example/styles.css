@@ -1,0 +1,21 @@
+@import "../styles.css";
+
+.container {
+  --color-dark: var(--color-black);
+  --color-primary: pink;
+
+  display: flex;
+  padding-block: var(--gutter);
+  gap: var(--gutter);
+
+  .button[data-button-variant="alt"] {
+    --button-bg: var(--color-dark);
+    --button-text: var(--color-primary);
+    --button-radius: 0.5rem;
+    --focus-color: var(--color-dark);
+  }
+
+  .card .button {
+    --button-bg: yellow;
+  }
+}

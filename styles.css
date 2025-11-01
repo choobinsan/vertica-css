@@ -2,3 +2,4 @@
 @import "./styles/variables/index.css" layer(base);
 @import "./styles/global/index.css" layer(base);
 @import "./styles/compositions/index.css" layer(base);
+@import "./styles/components/index.css" layer(components);
