@@ -1,0 +1,57 @@
+@import "../styles.css";
+@import "../styles/tailwind-classes.css" layer(utility);
+.content-grid {
+  --content-width: min(calc(100% - var(--gutter) * 2), 80ch);
+
+  display: grid;
+
+  grid-template-columns:
+    [full-width-start] minmax(var(--gutter), 1fr) 
+    [break-out-start] minmax(0, 5ch)
+    [content-start] var(--content-width) [content-end] 
+    minmax(0, 5ch) [break-out-end]
+     minmax(
+      var(--gutter),
+      1fr
+    )
+    [full-width-end];
+
+  & > * {
+    grid-column: content;
+  }
+
+  & > .break-out {
+    grid-column: break-out;
+  }
+
+  & > .full-width {
+    grid-column: full-width;
+  }
+}
+
+.banner {
+    display: grid;
+    grid-template-areas: "stack";
+    place-items: center;
+    
+    & > * {
+      grid-area: stack;
+    }
+    
+    & > picture {
+      filter: brightness(0.5);
+      z-index: -1;
+    }
+  }
+  
+  .banner-content {
+    border: 1px solid var(--color-white);
+    padding: var(--gutter);
+    color: var(--color-white);
+    text-align: center;
+    text-shadow: 0 0 3px rgba(black, 0.7);
+  
+    & > * {
+      margin: 0;
+    }
+  }

@@ -1,0 +1,25 @@
+@import "../styles.css";
+@import "../styles/tailwind-classes.css" layer(utility);
+
+.container {
+  display: flex;
+  padding-block: var(--gutter);
+  gap: var(--gutter);
+
+  .button[data-button-variant="alt"] {
+    --button-bg: var(--color-black);
+    --button-text: var(--color-primary);
+    --button-radius: 0.5rem;
+    --focus-color: var(--color-black);
+  }
+
+  .card {
+    padding: var(--gutter);
+    background-color: var(--color-gray-400);
+    border-radius: 0.5rem;
+    
+    .button {
+      --button-bg: yellow;
+    }
+  }
+}

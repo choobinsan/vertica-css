@@ -65,11 +65,15 @@ a:not([class]) {
   color: currentColor;
 }
 
-/* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-style: italic;
+    shape-margin: 1rem;
+    vertical-align: middle;
 }
 
 /* Inherit fonts for inputs and buttons */
