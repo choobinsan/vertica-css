@@ -1,0 +1,26 @@
+:root {
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+}
+
+body {
+    margin: 0;
+    background: #0f172a;
+    height: 100vh;
+}
+
+
+
+.dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    pointer-events: none;
+    background-color: pink;
+    transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translate(var(--mouse-x), var(--mouse-y));
+}
+

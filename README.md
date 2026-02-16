@@ -8,7 +8,6 @@
 - layers
   - nested layers
   - the modern hierarchy
-  - the animation override trick
 - global styling
   - write less code
 - css units rem/em ch/ex
