@@ -27,7 +27,7 @@ Move beyond the percent-based mindset. Master the three sizing keywords that all
 ## 4. Container Query Logic
 In 2026, media queries are for global changes; container queries are for the toolbelt. This is the skill of designing a component that changes its layout based on the space it occupies, not the size of the whole screen.
 
-## 5. Two-Dimensional Choreography (Grid + Subgrid)
+## 5. Grid + Subgrid
 Grid isn’t just for “big” layouts anymore. Mastering Subgrid allows you to align items inside nested components to a parent grid. This choreography ensures that even if a card’s description is three lines longer than the one next to it, the footers still line up perfectly.
 
 ## 6. Aspect Ratio Management

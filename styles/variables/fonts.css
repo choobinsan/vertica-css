@@ -2,4 +2,5 @@
 
 :root {
     --font-base: "Quicksand", sans-serif;
+    --font-mono: "SF Mono", SF Mono Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }

@@ -22,11 +22,67 @@ h3 {
   font-size: var(--text-step-2);
 }
 
+small {
+  font-size: var(--size-step-0);
+}
+
+ins {
+  text-decoration: none;
+  background: var(--color-primary);
+  color: var(--color-black);
+  padding-inline: 0.3em;
+}
+
+:is(code, kbd, samp) {
+  font-family: var(--font-mono);
+  padding: 0.2em 0.2em 0.05em 0.2em;
+  hyphens: none;
+  tab-size: 2;
+  text-align: left;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  box-decoration-break: clone;
+}
+
+/* This is quite a new property, so we want code styles to at least, not be huge or tiny */
+@supports not (font-size-adjust: from-font) {
+  :is(code, kbd, samp) {
+    font-size: 0.8em;
+  }
+}
+
+pre:has(code) {
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+kbd {
+  border: 1px solid;
+  padding-block-end: 0.1em;
+}
+
+var {
+  font-style: normal;
+  font-weight: var(--font-weight-medium);
+}
+
+q {
+  font-style: italic;
+}
 
 ul:not([class]) {
   padding-inline-start: 1.7ch;
   list-style-type: disc;
 }
+
 
 ul:not([class]) > li {
   padding-inline-start: var(--spacing-xs);
@@ -42,5 +98,62 @@ ul ::marker {
 
 ol ::marker {
   font-size: 1em;
-  font-weight: var(--font-bold);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Lists with classes and roles will be out of standard flow, so remove the default spacing */
+[role='list'][class],
+[role='tablist'][class] {
+  margin-block: 0;
+  padding: 0;
+}
+
+dt {
+  font-weight: var(--font-weight-medium);
+}
+
+dt + dd {
+  margin-block-start: var(--space-xs);
+}
+
+dd + dt {
+  margin-block-start: var(--space-s);
+}
+
+dd {
+  margin-inline-start: 1.5ch;
+}
+
+blockquote {
+  margin-inline: 0;
+  color: var(--color-gray-700);
+}
+
+blockquote footer {
+  margin-block-start: var(--space-s);
+  color: var(--color-gray-600);
+  font-size: var(--text-step-0);
+}
+
+blockquote q {
+  font-style: normal;
+}
+
+figcaption {
+  padding-block-start: 0.5em;
+  font-size: var(--text-step-0);
+  font-family: var(--font-mono);
+}
+
+a:not([class]):hover {
+  text-underline-offset: 0.2lh;
+}
+
+:is(h1, h2, h3, h4) a:not([class]) {
+  text-decoration-thickness: 0.1ex;
+  text-underline-offset: 0.2ex;
+}
+
+:is(h1, h2, h3, h4) a:not([class]):hover {
+  text-underline-offset: 0.3ex;
 }

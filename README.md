@@ -1,5 +1,10 @@
 # vertica-css
-
+- basics
+  - Inheritance
+  - Pseudo classes
+  - Text properties
+  - Height and width
+  - Margin kollapse
 - css variables
   - declarative vs reactive
   - theming example
@@ -10,4 +15,8 @@
   - the modern hierarchy
 - global styling
   - write less code
-- css units rem/em ch/ex
+  - Styling on body
+  - css units rem/em ch/ex
+- grid
+  - breakout layout 
+  
