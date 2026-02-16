@@ -1,5 +1,4 @@
 @import "../styles.css";
-@import "../styles/tailwind-classes.css" layer(utility);
 .content-grid {
   --content-width: min(calc(100% - var(--gutter) * 2), 80ch);
 

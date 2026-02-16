@@ -1,5 +1,4 @@
 @import "../styles.css";
-@import "../styles/tailwind-classes.css" layer(utility);
 
 .container {
   display: flex;

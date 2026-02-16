@@ -1,0 +1,11 @@
+@layers base components utility;
+main {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+}
+
+p{
+    padding: 2rem;
+    background-color: pink;
+}
