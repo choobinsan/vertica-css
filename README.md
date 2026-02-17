@@ -13,10 +13,11 @@
 - layers
   - nested layers
   - the modern hierarchy
+  - scope
 - global styling
   - write less code
   - Styling on body
   - css units rem/em ch/ex
 - grid
   - breakout layout 
-  
+
