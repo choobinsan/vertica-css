@@ -1,5 +1,5 @@
-@layer base, components, utilities;
+@layer base, global, components, utilities;
 @import "./styles/variables/index.css" layer(base);
-@import "./styles/global/index.css" layer(base);
-@import "./styles/compositions/index.css" layer(base);
+@import "./styles/global/index.css" layer(global);
+@import "./styles/compositions/index.css" layer(global);
 @import "./styles/components/index.css" layer(components);
