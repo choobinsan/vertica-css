@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Areas</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Grid Template Areas</h1>
+        <p class="intro">Name grid areas for intuitive layouts 🗺️</p>
+
+        <section>
+            <h2>1. What are Grid Areas?</h2>
+            <p class="description">Grid template areas let you name sections of your grid and create layouts using those names, making your CSS more readable and maintainable.</p>
+
+            <div class="explanation-box">
+                <strong>Visual approach:</strong> Instead of using line numbers, you draw your layout using named areas!
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Basic Syntax</h2>
+
+            <pre><code>.grid {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+header { grid-area: header; }
+nav    { grid-area: nav; }
+main   { grid-area: main; }
+aside  { grid-area: aside; }
+footer { grid-area: footer; }</code></pre>
+
+            <div class="note-box">
+                <strong>💡 Tip:</strong> Each string represents a row, and each word represents a cell in that row.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Classic Page Layout</h2>
+            <p class="description">A traditional website layout with header, nav, main content, sidebar, and footer.</p>
+
+            <div class="demo-container">
+                <div class="layout-demo">
+                    <div class="layout-header">Header</div>
+                    <div class="layout-nav">Nav</div>
+                    <div class="layout-main">Main Content</div>
+                    <div class="layout-aside">Sidebar</div>
+                    <div class="layout-footer">Footer</div>
+                </div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Layout structure:</strong> Header spans full width, nav/main/aside in middle row, footer spans full width.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Visual Grid Template</h2>
+            <p class="description">Here's how the grid-template-areas string maps to the layout:</p>
+
+            <div class="visual-grid">
+                <div class="grid-row">
+                    <div class="grid-cell header-cell">"header</div>
+                    <div class="grid-cell header-cell">header</div>
+                    <div class="grid-cell header-cell">header"</div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell nav-cell">"nav</div>
+                    <div class="grid-cell main-cell">main</div>
+                    <div class="grid-cell aside-cell">aside"</div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell footer-cell">"footer</div>
+                    <div class="grid-cell footer-cell">footer</div>
+                    <div class="grid-cell footer-cell">footer"</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Different Layout Patterns</h2>
+
+            <div class="patterns-grid">
+                <div class="pattern-card">
+                    <h3>Holy Grail Layout</h3>
+                    <div class="pattern-visual holy-grail">
+                        <div class="p-header">H</div>
+                        <div class="p-left">L</div>
+                        <div class="p-main">Main</div>
+                        <div class="p-right">R</div>
+                        <div class="p-footer">F</div>
+                    </div>
+                    <pre><code>"header header header"
+"left   main   right"
+"footer footer footer"</code></pre>
+                </div>
+
+                <div class="pattern-card">
+                    <h3>Sidebar Layout</h3>
+                    <div class="pattern-visual sidebar-layout">
+                        <div class="p-header">Header</div>
+                        <div class="p-sidebar">Sidebar</div>
+                        <div class="p-content">Content</div>
+                    </div>
+                    <pre><code>"header  header"
+"sidebar content"</code></pre>
+                </div>
+
+                <div class="pattern-card">
+                    <h3>Magazine Layout</h3>
+                    <div class="pattern-visual magazine">
+                        <div class="p-hero">Hero</div>
+                        <div class="p-article1">A1</div>
+                        <div class="p-article2">A2</div>
+                        <div class="p-article3">A3</div>
+                    </div>
+                    <pre><code>"hero hero"
+"a1   a2"
+"a1   a3"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Empty Cells with Dots</h2>
+            <p class="description">Use a dot (.) to create empty cells in your grid.</p>
+
+            <pre><code>.grid {
+  grid-template-areas:
+    "header header header"
+    ".      main   ."
+    "footer footer footer";
+  /* Middle cells on left and right are empty */
+}</code></pre>
+
+            <div class="demo-container">
+                <div class="empty-cells-demo">
+                    <div class="ec-header">Header</div>
+                    <div class="ec-main">Main (centered with empty cells on sides)</div>
+                    <div class="ec-footer">Footer</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Responsive Layouts</h2>
+            <p class="description">Easily reorganize your layout for different screen sizes by changing grid-template-areas.</p>
+
+            <pre><code>/* Desktop */
+.grid {
+  grid-template-areas:
+    "header header"
+    "nav    main"
+    "footer footer";
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+  }
+}</code></pre>
+
+            <div class="note-box">
+                <strong>💡 Pro tip:</strong> The same grid-area names work across breakpoints - just rearrange the template!
+            </div>
+        </section>
+
+        <section>
+            <h2>8. Advantages</h2>
+
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <span class="icon">📖</span>
+                    <h3>Readable</h3>
+                    <p>Layout structure is visible in the CSS</p>
+                </div>
+                <div class="advantage-card">
+                    <span class="icon">🔄</span>
+                    <h3>Flexible</h3>
+                    <p>Easy to reorganize for responsive design</p>
+                </div>
+                <div class="advantage-card">
+                    <span class="icon">🎯</span>
+                    <h3>Semantic</h3>
+                    <p>Named areas are more meaningful than numbers</p>
+                </div>
+                <div class="advantage-card">
+                    <span class="icon">⚡</span>
+                    <h3>Maintainable</h3>
+                    <p>Changes are easier to understand and implement</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

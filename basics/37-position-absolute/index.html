@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Absolute</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Position: Absolute</h1>
+        <p class="intro">Remove elements from flow and position precisely 🎯</p>
+
+        <section>
+            <h2>1. What is position: absolute?</h2>
+            <p class="description">Absolute positioning removes an element from the normal document flow and positions it relative to its nearest positioned ancestor.</p>
+
+            <div class="explanation-box">
+                <strong>Key behavior:</strong> The element is removed from the flow (doesn't take up space) and positioned relative to the nearest ancestor with position: relative, absolute, fixed, or sticky.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Positioning Context</h2>
+
+            <div class="context-demo">
+                <div class="context-card">
+                    <h3>❌ No Positioned Ancestor</h3>
+                    <p>Positioned relative to the <code>&lt;body&gt;</code> or viewport</p>
+                </div>
+                <div class="context-card">
+                    <h3>✅ Has Positioned Ancestor</h3>
+                    <p>Positioned relative to the nearest ancestor with <code>position: relative</code> (or absolute/fixed/sticky)</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Basic Example</h2>
+            <p class="description">The green box is absolutely positioned within its parent.</p>
+
+            <div class="demo-container">
+                <div class="parent-box">
+                    <div class="parent-label">Parent (position: relative)</div>
+                    <div class="absolute-box">Absolute Child<br>top: 20px<br>right: 20px</div>
+                    <p>This is content in the parent. Notice the absolute child doesn't affect the layout of this text.</p>
+                </div>
+            </div>
+
+            <pre><code>.parent {
+  position: relative; /* Creates positioning context */
+}
+
+.child {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  /* Removed from document flow */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. All Four Corners</h2>
+            <p class="description">Position elements in any corner using top/bottom and left/right.</p>
+
+            <div class="demo-container">
+                <div class="corners-demo">
+                    <div class="corner top-left">top: 0<br>left: 0</div>
+                    <div class="corner top-right">top: 0<br>right: 0</div>
+                    <div class="corner bottom-left">bottom: 0<br>left: 0</div>
+                    <div class="corner bottom-right">bottom: 0<br>right: 0</div>
+                    <div class="center-content">
+                        <p>Parent Container</p>
+                        <p>(position: relative)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Centering with Absolute</h2>
+            <p class="description">A classic technique for centering elements.</p>
+
+            <div class="demo-container">
+                <div class="centering-demo">
+                    <div class="centered-box">Perfectly Centered!</div>
+                </div>
+            </div>
+
+            <pre><code>.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Centers element perfectly */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Stretching to Fill</h2>
+            <p class="description">Set all four properties to 0 to stretch an element to fill its parent.</p>
+
+            <div class="demo-container">
+                <div class="stretch-demo">
+                    <div class="stretched-box">
+                        Stretched to fill parent<br>
+                        (top, right, bottom, left all = 0)
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.stretched {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Fills entire parent */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>7. Common Use Cases</h2>
+
+            <div class="use-cases-grid">
+                <div class="use-case">
+                    <span class="icon">🏷️</span>
+                    <h3>Badges</h3>
+                    <p>Notification badges on icons</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">❌</span>
+                    <h3>Close Buttons</h3>
+                    <p>Top-right close buttons on modals</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">🖼️</span>
+                    <h3>Overlays</h3>
+                    <p>Full-screen overlays and modals</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">💬</span>
+                    <h3>Tooltips</h3>
+                    <p>Positioned tooltips near elements</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">📍</span>
+                    <h3>Dropdowns</h3>
+                    <p>Dropdown menus positioned below buttons</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">🎨</span>
+                    <h3>Decorations</h3>
+                    <p>Decorative elements positioned precisely</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>8. Important Notes</h2>
+
+            <div class="warning-box">
+                <strong>⚠️ Removed from flow:</strong> Absolute elements don't take up space in the document. Other elements will flow as if the absolute element doesn't exist.
+            </div>
+
+            <div class="note-box" style="margin-top: 1rem;">
+                <strong>💡 Positioning context:</strong> Always set <code>position: relative</code> on the parent if you want the absolute child positioned relative to it.
+            </div>
+
+            <div class="note-box" style="margin-top: 1rem;">
+                <strong>🎯 Z-index:</strong> Absolute elements can overlap. Use <code>z-index</code> to control stacking order.
+            </div>
+        </section>
+    </div>
+</body>
+</html>

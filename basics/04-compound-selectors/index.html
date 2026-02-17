@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound and Descendant Selectors</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Compound & Descendant Selectors</h1>
+        <p class="intro">Combine selectors to target elements more precisely 🎯</p>
+
+        <section>
+            <h2>1. Compound Selectors</h2>
+            <p class="description">Combine element and class selectors (no space) to target specific elements with a class.</p>
+
+            <div class="demo-container">
+                <h3 class="main-title">Main Title (h3.main-title)</h3>
+                <h3 class="secondary-title">Secondary Title (h3.secondary-title)</h3>
+                <p class="main-title">Paragraph with main-title class (not selected)</p>
+            </div>
+
+            <pre><code>/* Selects only h3 elements with class "main-title" */
+h3.main-title {
+  color: #667eea;
+}
+
+/* Selects only h3 elements with class "secondary-title" */
+h3.secondary-title {
+  color: #764ba2;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> No space between selectors means "element WITH this class". The paragraph with class "main-title" is NOT selected because it's not an h3.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Descendant Selectors</h2>
+            <p class="description">Use a space between selectors to target elements inside other elements (at any depth).</p>
+
+            <div class="demo-container">
+                <div class="container">
+                    <p>Direct child paragraph</p>
+                    <div class="inner-container">
+                        <p>Nested paragraph (inside inner-container)</p>
+                        <div class="deep-container">
+                            <p>Deeply nested paragraph</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>/* Selects ALL p elements inside .container (any depth) */
+.container p {
+  background: #f0f4ff;
+  padding: 1rem;
+}
+
+/* More specific: p inside .inner-container */
+.inner-container p {
+  border: 2px solid #667eea;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> Descendant selectors work at ANY depth. All paragraphs inside .container are selected, whether direct children or deeply nested.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Combining Both</h2>
+            <p class="description">You can combine compound and descendant selectors for very specific targeting.</p>
+
+            <div class="demo-container">
+                <div class="special-container">
+                    <p class="highlight">Highlighted paragraph in special container</p>
+                    <p>Regular paragraph in special container</p>
+                    <div class="nested">
+                        <p class="highlight">Nested highlighted paragraph</p>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>/* Selects p elements with class "highlight" inside .special-container */
+.special-container p.highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Specificity Matters</h2>
+
+            <div class="note-box">
+                <strong>Specificity increases with:</strong><br>
+                • More specific selectors (compound selectors)<br>
+                • Longer descendant chains<br>
+                • IDs (highest specificity)<br><br>
+                <code>div p</code> is less specific than <code>.container p.highlight</code>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

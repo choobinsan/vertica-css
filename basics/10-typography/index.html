@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Typography</h1>
+        <p class="intro">Control how text appears on your page 📝</p>
+
+        <section>
+            <h2>1. Font Family</h2>
+            <p class="description">Specify which typeface to use, with fallbacks.</p>
+
+            <div class="demo-container">
+                <p class="font-serif">This uses a serif font (Georgia)</p>
+                <p class="font-sans">This uses a sans-serif font (Arial)</p>
+                <p class="font-mono">This uses a monospace font (Monaco)</p>
+                <p class="font-system">This uses the system font stack</p>
+            </div>
+
+            <pre><code>.serif {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.sans-serif {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.monospace {
+  font-family: Monaco, 'Courier New', monospace;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Always provide fallbacks:</strong> List multiple fonts in case the first isn't available.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Font Size Units</h2>
+            <p class="description">Different units for sizing text, each with different behaviors.</p>
+
+            <div class="demo-container">
+                <div class="size-comparison">
+                    <p class="size-px">16px - Fixed pixel size</p>
+                    <p class="size-em">1.2em - Relative to parent</p>
+                    <p class="size-rem">1.2rem - Relative to root</p>
+                    <p class="size-percent">120% - Percentage of parent</p>
+                </div>
+            </div>
+
+            <pre><code>.px-size { font-size: 16px; }
+.em-size { font-size: 1.2em; }
+.rem-size { font-size: 1.2rem; }
+.percent-size { font-size: 120%; }</code></pre>
+
+            <div class="note-box">
+                <strong>Best practice:</strong> Use <code>rem</code> for most text sizing - it's relative to the root font size and more predictable than <code>em</code>.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Font Weight</h2>
+            <p class="description">Control the thickness/boldness of text.</p>
+
+            <div class="demo-container">
+                <p class="weight-100">100 - Thin</p>
+                <p class="weight-300">300 - Light</p>
+                <p class="weight-400">400 - Normal (default)</p>
+                <p class="weight-600">600 - Semi-bold</p>
+                <p class="weight-700">700 - Bold</p>
+                <p class="weight-900">900 - Black</p>
+            </div>
+
+            <pre><code>.bold {
+  font-weight: 700; /* or 'bold' */
+}
+
+.normal {
+  font-weight: 400; /* or 'normal' */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Text Styling</h2>
+            <p class="description">Various properties to style text appearance.</p>
+
+            <div class="demo-container">
+                <p class="text-italic">font-style: italic</p>
+                <p class="text-underline">text-decoration: underline</p>
+                <p class="text-line-through">text-decoration: line-through</p>
+                <p class="text-uppercase">text-transform: uppercase</p>
+                <p class="text-capitalize">text-transform: capitalize (each word)</p>
+                <p class="text-lowercase">TEXT-TRANSFORM: LOWERCASE</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Text Alignment</h2>
+            <p class="description">Control horizontal alignment of text.</p>
+
+            <div class="demo-container">
+                <div class="align-demo">
+                    <p class="align-left">text-align: left (default)</p>
+                    <p class="align-center">text-align: center</p>
+                    <p class="align-right">text-align: right</p>
+                    <p class="align-justify">text-align: justify - This text is justified which means it stretches to fill the full width of the container, creating even edges on both sides.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Line Height & Spacing</h2>
+            <p class="description">Control vertical spacing and letter/word spacing.</p>
+
+            <div class="demo-container">
+                <div class="spacing-grid">
+                    <div class="spacing-demo">
+                        <h3>line-height: 1.0</h3>
+                        <p class="line-height-tight">This text has tight line height. Notice how the lines are close together. This can make text harder to read.</p>
+                    </div>
+                    <div class="spacing-demo">
+                        <h3>line-height: 1.6</h3>
+                        <p class="line-height-normal">This text has normal line height. This is comfortable to read and is a common default value.</p>
+                    </div>
+                    <div class="spacing-demo">
+                        <h3>line-height: 2.0</h3>
+                        <p class="line-height-loose">This text has loose line height. The lines are spaced far apart, which can be useful for emphasis.</p>
+                    </div>
+                </div>
+
+                <div class="spacing-grid">
+                    <div class="spacing-demo">
+                        <h3>letter-spacing: 3px</h3>
+                        <p class="letter-spacing-wide">Widely spaced letters</p>
+                    </div>
+                    <div class="spacing-demo">
+                        <h3>word-spacing: 10px</h3>
+                        <p class="word-spacing-wide">Widely spaced words here</p>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.readable {
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>7. Quick Reference</h2>
+
+            <div class="reference-grid">
+                <div class="ref-card">
+                    <h3>font-family</h3>
+                    <p>Typeface</p>
+                </div>
+                <div class="ref-card">
+                    <h3>font-size</h3>
+                    <p>Text size</p>
+                </div>
+                <div class="ref-card">
+                    <h3>font-weight</h3>
+                    <p>Boldness (100-900)</p>
+                </div>
+                <div class="ref-card">
+                    <h3>font-style</h3>
+                    <p>italic, normal</p>
+                </div>
+                <div class="ref-card">
+                    <h3>text-align</h3>
+                    <p>left, center, right</p>
+                </div>
+                <div class="ref-card">
+                    <h3>text-decoration</h3>
+                    <p>underline, etc.</p>
+                </div>
+                <div class="ref-card">
+                    <h3>text-transform</h3>
+                    <p>uppercase, etc.</p>
+                </div>
+                <div class="ref-card">
+                    <h3>line-height</h3>
+                    <p>Line spacing</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

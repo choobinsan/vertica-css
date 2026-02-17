@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Inheritance</h1>
+        <p class="intro">Some CSS properties are inherited by child elements, others are not 🧬</p>
+
+        <section>
+            <h2>1. What is Inheritance?</h2>
+            <p class="description">Child elements automatically inherit certain CSS properties from their parent elements.</p>
+
+            <div class="demo-container">
+                <div class="parent-demo">
+                    <p>This paragraph inherits color and font-family from its parent.</p>
+                    <div class="child-demo">
+                        <p>This nested paragraph also inherits from the parent.</p>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.parent {
+  color: #667eea;
+  font-family: Georgia, serif;
+}
+
+/* Children automatically inherit color and font-family */</code></pre>
+        </section>
+
+        <section>
+            <h2>2. Inherited Properties</h2>
+            <p class="description">These properties are typically inherited by default:</p>
+
+            <div class="property-grid">
+                <div class="property-card inherited">
+                    <h3>✓ color</h3>
+                    <p>Text color</p>
+                </div>
+                <div class="property-card inherited">
+                    <h3>✓ font-family</h3>
+                    <p>Font typeface</p>
+                </div>
+                <div class="property-card inherited">
+                    <h3>✓ font-size</h3>
+                    <p>Text size</p>
+                </div>
+                <div class="property-card inherited">
+                    <h3>✓ font-weight</h3>
+                    <p>Text boldness</p>
+                </div>
+                <div class="property-card inherited">
+                    <h3>✓ line-height</h3>
+                    <p>Line spacing</p>
+                </div>
+                <div class="property-card inherited">
+                    <h3>✓ text-align</h3>
+                    <p>Text alignment</p>
+                </div>
+                <div class="property-card inherited">
+                    <h3>✓ letter-spacing</h3>
+                    <p>Character spacing</p>
+                </div>
+                <div class="property-card inherited">
+                    <h3>✓ visibility</h3>
+                    <p>Element visibility</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Non-Inherited Properties</h2>
+            <p class="description">These properties are NOT inherited by default:</p>
+
+            <div class="property-grid">
+                <div class="property-card not-inherited">
+                    <h3>✗ margin</h3>
+                    <p>Outer spacing</p>
+                </div>
+                <div class="property-card not-inherited">
+                    <h3>✗ padding</h3>
+                    <p>Inner spacing</p>
+                </div>
+                <div class="property-card not-inherited">
+                    <h3>✗ border</h3>
+                    <p>Element border</p>
+                </div>
+                <div class="property-card not-inherited">
+                    <h3>✗ background</h3>
+                    <p>Background styles</p>
+                </div>
+                <div class="property-card not-inherited">
+                    <h3>✗ width</h3>
+                    <p>Element width</p>
+                </div>
+                <div class="property-card not-inherited">
+                    <h3>✗ height</h3>
+                    <p>Element height</p>
+                </div>
+                <div class="property-card not-inherited">
+                    <h3>✗ display</h3>
+                    <p>Display type</p>
+                </div>
+                <div class="property-card not-inherited">
+                    <h3>✗ position</h3>
+                    <p>Positioning</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Overriding Inherited Values</h2>
+            <p class="description">Child elements can override inherited properties.</p>
+
+            <div class="demo-container">
+                <div class="override-parent">
+                    <p class="inherit-example">I inherit the blue color from parent</p>
+                    <p class="override-example">I override with my own green color</p>
+                </div>
+            </div>
+
+            <pre><code>.parent {
+  color: blue;
+}
+
+.child {
+  color: green; /* Overrides inherited blue */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> Directly applied styles always override inherited styles.
+            </div>
+        </section>
+
+        <section>
+            <h2>5. The inherit Keyword</h2>
+            <p class="description">Force a property to inherit from its parent, even if it normally wouldn't.</p>
+
+            <div class="demo-container">
+                <div class="inherit-keyword-parent">
+                    <div class="inherit-keyword-child">
+                        This div inherits the border from its parent using <code>border: inherit;</code>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.parent {
+  border: 3px solid #667eea;
+}
+
+.child {
+  border: inherit; /* Forces inheritance */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Best Practices</h2>
+
+            <div class="best-practices">
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Set typography on body</strong>
+                        <p>Font properties on body will cascade to all text</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Use inheritance for consistency</strong>
+                        <p>Reduces repetition and maintains consistency</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">⚠️</span>
+                    <div>
+                        <strong>Don't rely on inheritance for layout</strong>
+                        <p>Box model properties don't inherit for good reason</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

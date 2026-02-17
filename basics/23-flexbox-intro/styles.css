@@ -1,0 +1,77 @@
+/* ===== FLEX CONTAINERS ===== */
+.flex-container {
+    display: flex;
+    gap: 12px;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.flex-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    flex-basis: 150px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.flex-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+}
+
+/* No wrap - default behavior */
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
+/* With wrapping */
+.with-wrap {
+    flex-wrap: wrap;
+}
+
+/* Column direction */
+.column-direction {
+    flex-direction: column;
+    max-width: 300px;
+}
+
+/* ===== PROPERTIES LIST ===== */
+.properties-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.property-item {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #667eea;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.property-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.property-item strong {
+    display: block;
+    color: #667eea;
+    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+}
+
+.property-item p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}

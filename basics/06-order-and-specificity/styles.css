@@ -1,0 +1,258 @@
+/* ===== DEMO TEXT STYLES ===== */
+
+/* Rule 1: Type selector (low specificity - 0,0,1) */
+p.demo-text {
+    color: red;
+}
+
+/* Rule 2: Class selector (medium specificity - 0,1,0) */
+.highlight {
+    color: blue;
+}
+
+/* Rule 3: ID selector (high specificity - 1,0,0) */
+#main-text {
+    color: green;
+    border: 3px solid #27ae60;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #d5f4e6 0%, #c8e6c9 100%);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Rule 4: Another rule with the same specificity as Rule 2, but appearing later */
+.highlight {
+    color: purple;
+}
+
+/* Rule 5: A more specific selector (0,1,1) */
+p.highlight {
+    color: orange;
+}
+
+/* ===== SPECIFICITY LIST ===== */
+
+.specificity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.spec-item {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+.spec-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.spec-id {
+    border-color: #27ae60;
+    background: linear-gradient(135deg, #d5f4e6 0%, #c8e6c9 100%);
+}
+
+.spec-compound {
+    border-color: #e67e22;
+}
+
+.spec-class {
+    border-color: #3498db;
+}
+
+.spec-type {
+    border-color: #e74c3c;
+}
+
+.spec-label {
+    background: #2c3e50;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.spec-item strong {
+    min-width: 180px;
+    color: #2c3e50;
+}
+
+.spec-item code {
+    flex: 1;
+    min-width: 200px;
+}
+
+.winner {
+    background: #27ae60;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+/* ===== CALCULATION GRID ===== */
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.calc-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.calc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.calc-card code {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.calc-value {
+    background: #667eea;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+.calc-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== SOURCE ORDER DEMO ===== */
+
+.order-demo {
+    color: blue;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border: 3px solid #2196f3;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Second rule with same specificity - this wins! */
+.order-demo {
+    color: #764ba2;
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-color: #764ba2;
+}
+
+.code-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.code-block {
+    position: relative;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+.loses {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.wins {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #27ae60;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ===== BEST PRACTICES ===== */
+
+.best-practices {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.practice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.practice-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.practice-item .icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.practice-item strong {
+    display: block;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.practice-item p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}

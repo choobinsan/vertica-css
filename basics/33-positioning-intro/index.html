@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Intro</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Positioning</h1>
+        <p class="intro">Control exactly where elements appear on the page 🎯</p>
+
+        <section>
+            <h2>1. Static Positioning (Default)</h2>
+            <p class="description">Elements flow in normal document order. Top, right, bottom, left properties have no effect.</p>
+
+            <div class="demo-container">
+                <div class="box static-box">
+                    <span class="position-label">position: static</span>
+                    <p>This is the default. Elements appear in normal flow.</p>
+                </div>
+            </div>
+
+            <pre><code>.element {
+  position: static; /* default */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>2. Relative Positioning</h2>
+            <p class="description">Element is positioned relative to its normal position. Original space is preserved.</p>
+
+            <div class="demo-container">
+                <div class="box static-box">Normal box</div>
+                <div class="box relative-box">
+                    <span class="position-label">position: relative</span>
+                    <p>Moved 20px down and 20px right from normal position</p>
+                    <code>top: 20px; left: 20px;</code>
+                </div>
+                <div class="box static-box">Notice the gap above</div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> The element's original space is still reserved in the document flow.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Absolute Positioning</h2>
+            <p class="description">Element is removed from normal flow and positioned relative to its nearest positioned ancestor.</p>
+
+            <div class="demo-container positioned-parent">
+                <span class="parent-label">Positioned Parent (position: relative)</span>
+                <div class="box static-box">Normal box</div>
+                <div class="box absolute-box">
+                    <span class="position-label">position: absolute</span>
+                    <p>Positioned relative to parent</p>
+                    <code>top: 20px; right: 20px;</code>
+                </div>
+                <div class="box static-box">Normal box</div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> Element is removed from flow. Other elements act as if it doesn't exist.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Fixed Positioning</h2>
+            <p class="description">Element is positioned relative to the viewport. Stays in place when scrolling.</p>
+
+            <div class="note-box">
+                <strong>Look at the bottom-right corner!</strong> There's a fixed box that stays visible as you scroll.
+            </div>
+
+            <pre><code>.element {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Sticky Positioning</h2>
+            <p class="description">Hybrid of relative and fixed. Element is relative until it reaches a threshold, then becomes fixed.</p>
+
+            <div class="demo-container sticky-container">
+                <div class="box sticky-box">
+                    <span class="position-label">position: sticky</span>
+                    <p>Scroll within this container to see sticky behavior</p>
+                    <code>top: 0;</code>
+                </div>
+                <div class="scroll-content">
+                    <p>Scroll down...</p>
+                    <p>Keep scrolling...</p>
+                    <p>The sticky box stays at the top!</p>
+                    <p>More content...</p>
+                    <p>Even more content...</p>
+                    <p>Last line of content</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Quick Reference</h2>
+
+            <div class="reference-grid">
+                <div class="reference-card">
+                    <h3>static</h3>
+                    <p>Default flow</p>
+                    <p class="use-case">Use: Default behavior</p>
+                </div>
+                <div class="reference-card">
+                    <h3>relative</h3>
+                    <p>Offset from normal position</p>
+                    <p class="use-case">Use: Small adjustments, anchor for absolute children</p>
+                </div>
+                <div class="reference-card">
+                    <h3>absolute</h3>
+                    <p>Removed from flow</p>
+                    <p class="use-case">Use: Overlays, tooltips, dropdowns</p>
+                </div>
+                <div class="reference-card">
+                    <h3>fixed</h3>
+                    <p>Relative to viewport</p>
+                    <p class="use-case">Use: Headers, floating buttons</p>
+                </div>
+                <div class="reference-card">
+                    <h3>sticky</h3>
+                    <p>Relative + fixed hybrid</p>
+                    <p class="use-case">Use: Table headers, navigation</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fixed box demo -->
+    <div class="box fixed-box">
+        <span class="position-label">position: fixed</span>
+        <p>I stay here!</p>
+    </div>
+</body>
+</html>

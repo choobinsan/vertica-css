@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Media Queries</h1>
+        <p class="intro">Apply different styles based on device characteristics 📱💻</p>
+
+        <section>
+            <h2>1. What are Media Queries?</h2>
+            <p class="description">Media queries allow you to apply CSS only when certain conditions are met (like screen width, orientation, or resolution).</p>
+
+            <pre><code>@media (min-width: 600px) {
+  /* Styles for screens 600px and wider */
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>How it works:</strong> The styles inside the @media block only apply when the condition is true.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Responsive Grid Demo</h2>
+            <p class="description">This grid changes from 1 column (mobile) to 2 columns (tablet) to 3 columns (desktop). <strong>Try resizing your browser!</strong></p>
+
+            <div class="demo-container">
+                <div class="responsive-grid">
+                    <div class="grid-card">Card 1</div>
+                    <div class="grid-card">Card 2</div>
+                    <div class="grid-card">Card 3</div>
+                    <div class="grid-card">Card 4</div>
+                    <div class="grid-card">Card 5</div>
+                    <div class="grid-card">Card 6</div>
+                </div>
+            </div>
+
+            <pre><code>/* Mobile first: 1 column */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Common Media Features</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Width</h3>
+                    <code>min-width: 600px</code>
+                    <p>Screens 600px or wider</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Width</h3>
+                    <code>max-width: 600px</code>
+                    <p>Screens 600px or narrower</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Orientation</h3>
+                    <code>orientation: landscape</code>
+                    <p>Landscape mode</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Orientation</h3>
+                    <code>orientation: portrait</code>
+                    <p>Portrait mode</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Resolution</h3>
+                    <code>min-resolution: 2dppx</code>
+                    <p>High-DPI screens (Retina)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Hover</h3>
+                    <code>hover: hover</code>
+                    <p>Device supports hover</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Combining Conditions</h2>
+            <p class="description">Use logical operators to combine multiple conditions.</p>
+
+            <pre><code>/* AND: Both conditions must be true */
+@media (min-width: 600px) and (max-width: 900px) {
+  /* Styles for tablets only */
+}
+
+/* OR: At least one condition must be true */
+@media (orientation: landscape), (min-width: 1200px) {
+  /* Styles for landscape OR large screens */
+}
+
+/* NOT: Condition must be false */
+@media not (orientation: portrait) {
+  /* Styles for non-portrait (landscape) */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Mobile-First vs Desktop-First</h2>
+
+            <div class="comparison-grid">
+                <div class="comp-card">
+                    <h3>✅ Mobile-First (Recommended)</h3>
+                    <pre><code>/* Base: Mobile */
+.box {
+  font-size: 14px;
+}
+
+/* Add for larger */
+@media (min-width: 600px) {
+  .box {
+    font-size: 16px;
+  }
+}</code></pre>
+                    <p>Start simple, enhance progressively</p>
+                </div>
+
+                <div class="comp-card">
+                    <h3>❌ Desktop-First</h3>
+                    <pre><code>/* Base: Desktop */
+.box {
+  font-size: 16px;
+}
+
+/* Override for smaller */
+@media (max-width: 600px) {
+  .box {
+    font-size: 14px;
+  }
+}</code></pre>
+                    <p>Start complex, strip down</p>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>💡 Why mobile-first?</strong> It's easier to add complexity than remove it. Mobile-first also improves performance on mobile devices.
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Common Breakpoints</h2>
+
+            <div class="breakpoints-table">
+                <div class="bp-row">
+                    <div class="bp-device">📱 Mobile</div>
+                    <div class="bp-code"><code>@media (min-width: 0px)</code></div>
+                    <div class="bp-desc">Base styles</div>
+                </div>
+                <div class="bp-row">
+                    <div class="bp-device">📱 Large Mobile</div>
+                    <div class="bp-code"><code>@media (min-width: 480px)</code></div>
+                    <div class="bp-desc">Large phones</div>
+                </div>
+                <div class="bp-row">
+                    <div class="bp-device">📱 Tablet</div>
+                    <div class="bp-code"><code>@media (min-width: 768px)</code></div>
+                    <div class="bp-desc">Tablets, small laptops</div>
+                </div>
+                <div class="bp-row">
+                    <div class="bp-device">💻 Desktop</div>
+                    <div class="bp-code"><code>@media (min-width: 1024px)</code></div>
+                    <div class="bp-desc">Desktops, laptops</div>
+                </div>
+                <div class="bp-row">
+                    <div class="bp-device">🖥️ Large Desktop</div>
+                    <div class="bp-code"><code>@media (min-width: 1440px)</code></div>
+                    <div class="bp-desc">Large monitors</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Remember:</strong> These are guidelines. Choose breakpoints based on your content, not specific devices!
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Print Styles</h2>
+            <p class="description">Media queries aren't just for screen sizes - you can target print too!</p>
+
+            <pre><code>@media print {
+  /* Hide navigation when printing */
+  nav {
+    display: none;
+  }
+
+  /* Ensure good contrast */
+  body {
+    color: black;
+    background: white;
+  }
+
+  /* Show link URLs */
+  a::after {
+    content: " (" attr(href) ")";
+  }
+}</code></pre>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Relative</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Position: Relative</h1>
+        <p class="intro">Offset elements from their normal position 📐</p>
+
+        <section>
+            <h2>1. What is position: relative?</h2>
+            <p class="description">Relative positioning allows you to offset an element from its normal position without affecting other elements.</p>
+
+            <div class="explanation-box">
+                <strong>Key behavior:</strong> The element's original space is preserved in the document flow, but it visually appears offset.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Visual Demonstration</h2>
+            <p class="description">The middle box is offset, but notice the gap where it originally was.</p>
+
+            <div class="demo-container">
+                <div class="boxes-demo">
+                    <div class="demo-box static-box">Static Box 1</div>
+                    <div class="demo-box relative-box">Relative Box<br>(offset 30px right, 20px down)</div>
+                    <div class="demo-box static-box">Static Box 3</div>
+                </div>
+            </div>
+
+            <pre><code>.relative-box {
+  position: relative;
+  top: 20px;    /* Move down 20px */
+  left: 30px;   /* Move right 30px */
+  /* Original space is preserved! */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Offset Properties</h2>
+
+            <div class="offset-grid">
+                <div class="offset-card">
+                    <code>top: 20px</code>
+                    <p>Moves element DOWN 20px</p>
+                </div>
+                <div class="offset-card">
+                    <code>bottom: 20px</code>
+                    <p>Moves element UP 20px</p>
+                </div>
+                <div class="offset-card">
+                    <code>left: 20px</code>
+                    <p>Moves element RIGHT 20px</p>
+                </div>
+                <div class="offset-card">
+                    <code>right: 20px</code>
+                    <p>Moves element LEFT 20px</p>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>💡 Remember:</strong> top/bottom and left/right work in opposite directions than you might expect!
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Common Use Case: Positioning Context</h2>
+            <p class="description">The most common use of position: relative is to create a positioning context for absolutely positioned children.</p>
+
+            <div class="demo-container">
+                <div class="parent-demo">
+                    <div class="parent-label">Parent (position: relative)</div>
+                    <div class="child-absolute top-right">Absolute<br>top: 0<br>right: 0</div>
+                    <div class="child-absolute bottom-left">Absolute<br>bottom: 0<br>left: 0</div>
+                    <p>This parent has position: relative, so its absolutely positioned children are positioned relative to it, not the viewport.</p>
+                </div>
+            </div>
+
+            <pre><code>.parent {
+  position: relative; /* Creates positioning context */
+}
+
+.child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* Positioned relative to .parent, not viewport */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Interactive Examples</h2>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>No Offset</h3>
+                    <div class="example-box">
+                        <div class="box-item">Box 1</div>
+                        <div class="box-item relative-no-offset">Relative<br>(no offset)</div>
+                        <div class="box-item">Box 3</div>
+                    </div>
+                    <code>position: relative;</code>
+                </div>
+
+                <div class="example-card">
+                    <h3>Top Offset</h3>
+                    <div class="example-box">
+                        <div class="box-item">Box 1</div>
+                        <div class="box-item relative-top">Relative<br>top: 30px</div>
+                        <div class="box-item">Box 3</div>
+                    </div>
+                    <code>top: 30px;</code>
+                </div>
+
+                <div class="example-card">
+                    <h3>Left Offset</h3>
+                    <div class="example-box">
+                        <div class="box-item">Box 1</div>
+                        <div class="box-item relative-left">Relative<br>left: 40px</div>
+                        <div class="box-item">Box 3</div>
+                    </div>
+                    <code>left: 40px;</code>
+                </div>
+
+                <div class="example-card">
+                    <h3>Both Offsets</h3>
+                    <div class="example-box">
+                        <div class="box-item">Box 1</div>
+                        <div class="box-item relative-both">Relative<br>top: 20px<br>left: 30px</div>
+                        <div class="box-item">Box 3</div>
+                    </div>
+                    <code>top: 20px; left: 30px;</code>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Key Points</h2>
+
+            <div class="key-points">
+                <div class="point-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Stays in flow</strong>
+                        <p>Original space is preserved in the document</p>
+                    </div>
+                </div>
+                <div class="point-item">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>Creates context</strong>
+                        <p>Becomes positioning reference for absolute children</p>
+                    </div>
+                </div>
+                <div class="point-item">
+                    <span class="icon">📏</span>
+                    <div>
+                        <strong>Visual offset only</strong>
+                        <p>Doesn't affect layout of other elements</p>
+                    </div>
+                </div>
+                <div class="point-item">
+                    <span class="icon">🔄</span>
+                    <div>
+                        <strong>Can overlap</strong>
+                        <p>Offset elements can overlap other content</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

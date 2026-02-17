@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Intro</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Responsive Design Intro</h1>
+        <p class="intro">Create layouts that adapt to any screen size 📱💻🖥️</p>
+
+        <section>
+            <h2>1. What is Responsive Design?</h2>
+            <p class="description">Responsive design ensures your website looks good and functions well on all devices - from phones to tablets to desktops.</p>
+
+            <div class="explanation-box">
+                <strong>Core principle:</strong> One website that adapts to different screen sizes, rather than separate mobile and desktop sites.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. The Viewport Meta Tag</h2>
+            <p class="description">Essential for responsive design - tells browsers how to handle page dimensions.</p>
+
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+
+            <div class="note-box">
+                <strong>💡 Always include this:</strong> Without it, mobile browsers will zoom out to show the full desktop site.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Flexible Images</h2>
+            <p class="description">Images should scale with their container.</p>
+
+            <div class="demo-container">
+                <div class="image-demo">
+                    <img src="https://picsum.photos/id/1015/800/600" alt="Responsive landscape">
+                    <p class="caption">This image scales with the container (try resizing your browser)</p>
+                </div>
+            </div>
+
+            <pre><code>img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Fluid Layouts</h2>
+            <p class="description">Use relative units (%, fr, vw) instead of fixed pixels.</p>
+
+            <div class="comparison-grid">
+                <div class="comp-card">
+                    <h3>❌ Fixed Width</h3>
+                    <pre><code>.container {
+  width: 960px;
+}</code></pre>
+                    <p>Breaks on small screens</p>
+                </div>
+
+                <div class="comp-card">
+                    <h3>✅ Fluid Width</h3>
+                    <pre><code>.container {
+  width: 90%;
+  max-width: 1200px;
+}</code></pre>
+                    <p>Adapts to screen size</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Responsive Grid Example</h2>
+            <p class="description">This grid adapts from 1 column on mobile to 2 columns on tablets to 3 columns on desktop.</p>
+
+            <div class="demo-container">
+                <div class="responsive-grid">
+                    <div class="grid-card">Card 1</div>
+                    <div class="grid-card">Card 2</div>
+                    <div class="grid-card">Card 3</div>
+                    <div class="grid-card">Card 4</div>
+                    <div class="grid-card">Card 5</div>
+                    <div class="grid-card">Card 6</div>
+                </div>
+            </div>
+
+            <pre><code>/* Mobile first */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Common Breakpoints</h2>
+
+            <div class="breakpoints-grid">
+                <div class="breakpoint-card">
+                    <span class="icon">📱</span>
+                    <h3>Mobile</h3>
+                    <code>< 600px</code>
+                    <p>Phones in portrait</p>
+                </div>
+                <div class="breakpoint-card">
+                    <span class="icon">📱</span>
+                    <h3>Tablet</h3>
+                    <code>600px - 900px</code>
+                    <p>Tablets, large phones</p>
+                </div>
+                <div class="breakpoint-card">
+                    <span class="icon">💻</span>
+                    <h3>Desktop</h3>
+                    <code>900px - 1200px</code>
+                    <p>Laptops, small desktops</p>
+                </div>
+                <div class="breakpoint-card">
+                    <span class="icon">🖥️</span>
+                    <h3>Large Desktop</h3>
+                    <code>> 1200px</code>
+                    <p>Large monitors</p>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>💡 Tip:</strong> These are guidelines. Choose breakpoints based on your content, not specific devices.
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Mobile-First Approach</h2>
+            <p class="description">Start with mobile styles, then add complexity for larger screens.</p>
+
+            <div class="approach-comparison">
+                <div class="approach-card">
+                    <h3>✅ Mobile-First (Recommended)</h3>
+                    <pre><code>/* Base: Mobile */
+.container {
+  padding: 1rem;
+}
+
+/* Add for larger screens */
+@media (min-width: 600px) {
+  .container {
+    padding: 2rem;
+  }
+}</code></pre>
+                </div>
+
+                <div class="approach-card">
+                    <h3>❌ Desktop-First</h3>
+                    <pre><code>/* Base: Desktop */
+.container {
+  padding: 2rem;
+}
+
+/* Override for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>8. Key Principles</h2>
+
+            <div class="principles-grid">
+                <div class="principle">
+                    <span class="icon">📐</span>
+                    <div>
+                        <strong>Flexible Grids</strong>
+                        <p>Use relative units, not fixed pixels</p>
+                    </div>
+                </div>
+                <div class="principle">
+                    <span class="icon">🖼️</span>
+                    <div>
+                        <strong>Flexible Images</strong>
+                        <p>Images scale with their containers</p>
+                    </div>
+                </div>
+                <div class="principle">
+                    <span class="icon">📱</span>
+                    <div>
+                        <strong>Media Queries</strong>
+                        <p>Apply different styles at different sizes</p>
+                    </div>
+                </div>
+                <div class="principle">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>Mobile-First</strong>
+                        <p>Start simple, enhance for larger screens</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

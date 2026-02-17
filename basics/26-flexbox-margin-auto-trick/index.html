@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Margin Auto Trick</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Flexbox Margin Auto Trick</h1>
+        <p class="intro">Push flex items to opposite ends with margin: auto 🎯</p>
+
+        <section>
+            <h2>1. The Problem</h2>
+            <p class="description">You want to push one item to the opposite end of a flex container.</p>
+
+            <div class="explanation-box">
+                <strong>Common scenario:</strong> A navbar with logo on the left, links in the middle, and a button on the right.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. The Solution: margin-left: auto</h2>
+            <p class="description">Use <code>margin-left: auto</code> to push an element to the right.</p>
+
+            <div class="demo-container">
+                <nav class="navbar-demo">
+                    <a href="#" class="logo">Logo</a>
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <a href="#" class="cta-button">Sign Up</a>
+                </nav>
+            </div>
+
+            <pre><code>.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.cta-button {
+  margin-left: auto; /* Pushes button to the right! */
+}</code></pre>
+
+            <div class="note-box">
+                <strong>💡 How it works:</strong> <code>margin-left: auto</code> consumes all available space on the left, pushing the element to the right.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. All Four Directions</h2>
+
+            <div class="directions-grid">
+                <div class="direction-demo">
+                    <div class="demo-label">margin-left: auto</div>
+                    <div class="flex-row">
+                        <div class="box">Box 1</div>
+                        <div class="box">Box 2</div>
+                        <div class="box push-right">Pushed Right</div>
+                    </div>
+                </div>
+
+                <div class="direction-demo">
+                    <div class="demo-label">margin-right: auto</div>
+                    <div class="flex-row">
+                        <div class="box push-left">Pushed Left</div>
+                        <div class="box">Box 2</div>
+                        <div class="box">Box 3</div>
+                    </div>
+                </div>
+
+                <div class="direction-demo">
+                    <div class="demo-label">margin-top: auto (column)</div>
+                    <div class="flex-column">
+                        <div class="box">Box 1</div>
+                        <div class="box">Box 2</div>
+                        <div class="box push-bottom">Pushed Bottom</div>
+                    </div>
+                </div>
+
+                <div class="direction-demo">
+                    <div class="demo-label">margin-bottom: auto (column)</div>
+                    <div class="flex-column">
+                        <div class="box push-top">Pushed Top</div>
+                        <div class="box">Box 2</div>
+                        <div class="box">Box 3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Centering with margin: auto</h2>
+            <p class="description">Use <code>margin: auto</code> on both sides to center an element.</p>
+
+            <div class="demo-container">
+                <div class="flex-row-demo">
+                    <div class="box">Left</div>
+                    <div class="box centered">Centered</div>
+                    <div class="box">Right</div>
+                </div>
+            </div>
+
+            <pre><code>.centered {
+  margin-left: auto;
+  margin-right: auto;
+  /* or just: margin: auto; */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Splitting Groups</h2>
+            <p class="description">Create distinct groups within a flex container.</p>
+
+            <div class="demo-container">
+                <div class="split-demo">
+                    <div class="group">
+                        <div class="box">A</div>
+                        <div class="box">B</div>
+                    </div>
+                    <div class="group split-group">
+                        <div class="box">C</div>
+                        <div class="box">D</div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.navbar {
+  display: flex;
+}
+
+.right-group {
+  margin-left: auto; /* Pushes this group to the right */
+  display: flex;
+  gap: 1rem;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Comparison with justify-content</h2>
+
+            <div class="comparison-grid">
+                <div class="comp-card">
+                    <h3>justify-content: space-between</h3>
+                    <div class="flex-row justify-between">
+                        <div class="box">1</div>
+                        <div class="box">2</div>
+                        <div class="box">3</div>
+                    </div>
+                    <p>Distributes all items evenly</p>
+                </div>
+
+                <div class="comp-card">
+                    <h3>margin-left: auto</h3>
+                    <div class="flex-row">
+                        <div class="box">1</div>
+                        <div class="box">2</div>
+                        <div class="box push-right">3</div>
+                    </div>
+                    <p>Pushes specific item to the end</p>
+                </div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Key difference:</strong> <code>justify-content</code> affects all items, while <code>margin: auto</code> targets specific items.
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Real-World Examples</h2>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>🧭 Navigation Bar</h3>
+                    <p>Logo left, links center, button right</p>
+                    <code>margin-left: auto</code>
+                </div>
+                <div class="example-card">
+                    <h3>💬 Chat Messages</h3>
+                    <p>Align own messages to the right</p>
+                    <code>margin-left: auto</code>
+                </div>
+                <div class="example-card">
+                    <h3>📊 Dashboard Cards</h3>
+                    <p>Action button at bottom of card</p>
+                    <code>margin-top: auto</code>
+                </div>
+                <div class="example-card">
+                    <h3>🎨 Toolbar</h3>
+                    <p>Tools left, settings right</p>
+                    <code>margin-left: auto</code>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

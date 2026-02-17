@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Properties</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Custom Properties (Variables)</h1>
+        <p class="intro">Reusable values that make your CSS more maintainable 🎨</p>
+
+        <section>
+            <h2>1. Defining Custom Properties</h2>
+            <p class="description">Define variables in <code>:root</code> to make them available globally.</p>
+
+            <pre><code>:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --spacing: 1.5rem;
+  --border-radius: 8px;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Syntax:</strong> Custom properties start with <code>--</code> and are accessed with <code>var()</code>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Using Custom Properties</h2>
+            <p class="description">Reference variables using the <code>var()</code> function.</p>
+
+            <div class="demo-container">
+                <div class="themed-box">
+                    <h3>Themed Box</h3>
+                    <p>This box uses custom properties for colors, spacing, and border-radius.</p>
+                </div>
+            </div>
+
+            <pre><code>.themed-box {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Scoped Custom Properties</h2>
+            <p class="description">Override custom properties within specific elements to create variations.</p>
+
+            <div class="demo-container">
+                <div class="scoped-container">
+                    <p class="scoped-text">This uses the global primary color (blue)</p>
+                </div>
+
+                <div class="scoped-container theme-green">
+                    <p class="scoped-text">This container redefines --primary-color to green</p>
+                </div>
+
+                <div class="scoped-container theme-orange">
+                    <p class="scoped-text">This container redefines --primary-color to orange</p>
+                </div>
+            </div>
+
+            <pre><code>.scoped-container {
+  --primary-color: #667eea; /* default */
+}
+
+.theme-green {
+  --primary-color: #27ae60; /* override */
+}
+
+.theme-orange {
+  --primary-color: #e67e22; /* override */
+}
+
+.scoped-text {
+  color: var(--primary-color);
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> Custom properties cascade and can be overridden in child elements.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Fallback Values</h2>
+            <p class="description">Provide fallback values in case a custom property is not defined.</p>
+
+            <div class="demo-container">
+                <div class="fallback-demo">
+                    <p>This uses a fallback value</p>
+                </div>
+            </div>
+
+            <pre><code>.fallback-demo {
+  /* If --undefined-color doesn't exist, use #999 */
+  color: var(--undefined-color, #999);
+
+  /* Can also reference another variable as fallback */
+  background: var(--custom-bg, var(--primary-color));
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Real-World Example: Theme System</h2>
+
+            <div class="theme-grid">
+                <div class="theme-card light-theme">
+                    <h3>Light Theme</h3>
+                    <p>Background: var(--bg-color)</p>
+                    <p>Text: var(--text-color)</p>
+                    <button class="theme-button">Button</button>
+                </div>
+
+                <div class="theme-card dark-theme">
+                    <h3>Dark Theme</h3>
+                    <p>Background: var(--bg-color)</p>
+                    <p>Text: var(--text-color)</p>
+                    <button class="theme-button">Button</button>
+                </div>
+            </div>
+
+            <pre><code>.light-theme {
+  --bg-color: #ffffff;
+  --text-color: #2c3e50;
+  --accent-color: #667eea;
+}
+
+.dark-theme {
+  --bg-color: #2c3e50;
+  --text-color: #ecf0f1;
+  --accent-color: #3498db;
+}
+
+.theme-card {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.theme-button {
+  background: var(--accent-color);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Benefits of Custom Properties</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔄</span>
+                    <h3>Reusability</h3>
+                    <p>Define once, use everywhere</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎨</span>
+                    <h3>Theming</h3>
+                    <p>Easy to create theme variations</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🛠️</span>
+                    <h3>Maintainability</h3>
+                    <p>Update values in one place</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Dynamic</h3>
+                    <p>Can be changed with JavaScript</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Alignment and Justification</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Grid Alignment & Justification</h1>
+        <p class="intro">Control how grid items and tracks are positioned ⚖️</p>
+
+        <section>
+            <h2>1. justify-items (Horizontal Alignment)</h2>
+            <p class="description">Aligns items horizontally within their grid cells.</p>
+
+            <div class="demo-grid">
+                <div class="align-demo justify-start">
+                    <div class="demo-label">justify-items: start</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+                <div class="align-demo justify-center">
+                    <div class="demo-label">justify-items: center</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+                <div class="align-demo justify-end">
+                    <div class="demo-label">justify-items: end</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+            </div>
+
+            <pre><code>.grid {
+  display: grid;
+  justify-items: center; /* start | center | end | stretch */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>2. align-items (Vertical Alignment)</h2>
+            <p class="description">Aligns items vertically within their grid cells.</p>
+
+            <div class="demo-grid">
+                <div class="align-demo align-start">
+                    <div class="demo-label">align-items: start</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+                <div class="align-demo align-center">
+                    <div class="demo-label">align-items: center</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+                <div class="align-demo align-end">
+                    <div class="demo-label">align-items: end</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. place-items (Shorthand)</h2>
+            <p class="description">Combines align-items and justify-items.</p>
+
+            <pre><code>/* Shorthand for both */
+.grid {
+  place-items: center; /* Both axes */
+  /* or */
+  place-items: center start; /* align-items justify-items */
+}</code></pre>
+
+            <div class="demo-container">
+                <div class="place-items-demo">
+                    <div class="demo-label">place-items: center</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. justify-content (Grid Track Alignment)</h2>
+            <p class="description">Aligns the entire grid horizontally within the container.</p>
+
+            <div class="content-demos">
+                <div class="content-demo justify-content-start">
+                    <div class="demo-label">justify-content: start</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+                <div class="content-demo justify-content-center">
+                    <div class="demo-label">justify-content: center</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+                <div class="content-demo justify-content-space-between">
+                    <div class="demo-label">justify-content: space-between</div>
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Quick Reference</h2>
+
+            <div class="reference-table">
+                <div class="ref-row">
+                    <code>justify-items</code>
+                    <p>Horizontal alignment of items in cells</p>
+                </div>
+                <div class="ref-row">
+                    <code>align-items</code>
+                    <p>Vertical alignment of items in cells</p>
+                </div>
+                <div class="ref-row">
+                    <code>place-items</code>
+                    <p>Shorthand for both (align justify)</p>
+                </div>
+                <div class="ref-row">
+                    <code>justify-content</code>
+                    <p>Horizontal alignment of grid tracks</p>
+                </div>
+                <div class="ref-row">
+                    <code>align-content</code>
+                    <p>Vertical alignment of grid tracks</p>
+                </div>
+                <div class="ref-row">
+                    <code>place-content</code>
+                    <p>Shorthand for content (align justify)</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+/* ===== MEDIA QUERY DEMO ===== */
+
+.media-query-demo {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.media-query-demo h1 {
+    margin: 0 0 1rem 0;
+    color: #667eea;
+    font-size: 24px;
+}
+
+.media-query-demo p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .media-query-demo h1 {
+        font-size: 32px;
+    }
+
+    .media-query-demo p {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .media-query-demo h1 {
+        font-size: 48px;
+    }
+
+    .media-query-demo p {
+        font-size: 18px;
+    }
+}
+
+/* ===== VIEWPORT WIDTH DEMO ===== */
+
+.vw-demo {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.vw-demo h1 {
+    margin: 0 0 1rem 0;
+    color: #51cf66;
+    font-size: 5vw;
+}
+
+.vw-demo p {
+    margin: 0;
+    color: #666;
+    font-size: 2vw;
+}
+
+/* ===== CLAMP DEMO ===== */
+
+.clamp-demo {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.clamp-demo h1 {
+    margin: 0 0 1rem 0;
+    color: #ff6b6b;
+    font-size: clamp(24px, 5vw, 64px);
+}
+
+.clamp-demo p {
+    margin: 0;
+    color: #666;
+    font-size: clamp(14px, 2vw, 20px);
+}
+
+/* ===== COMPARISON GRID ===== */
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.comp-card {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.comp-card h3 {
+    margin: 0 0 1rem 0;
+    color: #667eea;
+}
+
+.demo-text {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    padding: 2rem;
+    margin: 1rem 0;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.mq-text {
+    font-size: 20px;
+}
+
+@media (min-width: 768px) {
+    .mq-text {
+        font-size: 28px;
+    }
+}
+
+.vw-text {
+    font-size: 3vw;
+}
+
+.clamp-text {
+    font-size: clamp(16px, 3vw, 32px);
+}
+
+.comp-card p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== EXAMPLES GRID ===== */
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.example {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.example h3 {
+    margin: 0 0 1rem 0;
+    color: #667eea;
+    text-align: center;
+}
+
+.example pre {
+    margin: 0;
+}
+
+/* ===== BEST PRACTICES ===== */
+
+.best-practices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.practice {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.practice:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.practice .icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.practice strong {
+    display: block;
+    color: #667eea;
+    margin-bottom: 0.25rem;
+}
+
+.practice p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}

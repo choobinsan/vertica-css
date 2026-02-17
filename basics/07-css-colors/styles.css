@@ -1,0 +1,196 @@
+/* ===== COLOR GRID ===== */
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.color-box {
+    padding: 2rem 1.5rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 120px;
+    justify-content: center;
+}
+
+.color-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.color-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    font-family: 'Monaco', 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* ===== COLOR KEYWORDS ===== */
+
+.color-keyword-red {
+    background-color: red;
+}
+
+.color-keyword-blue {
+    background-color: blue;
+}
+
+.color-keyword-green {
+    background-color: green;
+}
+
+.color-keyword-purple {
+    background-color: purple;
+}
+
+/* ===== HEXADECIMAL COLORS ===== */
+
+.hex-color-1 {
+    background-color: #FF0000;
+}
+
+.hex-color-2 {
+    background-color: #0000FF;
+}
+
+.hex-color-3 {
+    background-color: #00FF00;
+}
+
+.hex-color-4 {
+    background-color: #667eea;
+}
+
+/* ===== RGB COLORS ===== */
+
+.rgb-color-1 {
+    background-color: rgb(255, 0, 0);
+}
+
+.rgb-color-2 {
+    background-color: rgb(0, 128, 0);
+}
+
+.rgb-color-3 {
+    background-color: rgb(0, 0, 255);
+}
+
+.rgb-color-4 {
+    background-color: rgb(102, 126, 234);
+}
+
+/* ===== RGBA COLORS ===== */
+
+.rgba-demo {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background-image:
+        repeating-linear-gradient(45deg, #ddd 0px, #ddd 10px, #fff 10px, #fff 20px);
+}
+
+.rgba-color-1 {
+    background-color: rgba(255, 0, 0, 1.0);
+}
+
+.rgba-color-2 {
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+.rgba-color-3 {
+    background-color: rgba(255, 0, 0, 0.4);
+}
+
+.rgba-color-4 {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #333;
+}
+
+/* ===== HSL COLORS ===== */
+
+.hsl-color-1 {
+    background-color: hsl(0, 100%, 50%);
+}
+
+.hsl-color-2 {
+    background-color: hsl(120, 100%, 50%);
+}
+
+.hsl-color-3 {
+    background-color: hsl(240, 100%, 50%);
+}
+
+.hsl-color-4 {
+    background-color: hsl(60, 100%, 50%);
+    color: #333;
+}
+
+/* ===== HSLA COLORS ===== */
+
+.hsla-color-1 {
+    background-color: hsla(240, 100%, 50%, 1.0);
+}
+
+.hsla-color-2 {
+    background-color: hsla(240, 100%, 50%, 0.7);
+}
+
+.hsla-color-3 {
+    background-color: hsla(240, 100%, 50%, 0.4);
+}
+
+.hsla-color-4 {
+    background-color: hsla(240, 100%, 50%, 0.1);
+    color: #333;
+}
+
+/* ===== COMPARISON TABLE ===== */
+
+.comparison-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 200px;
+    gap: 1rem;
+    align-items: center;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.comparison-row:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.comparison-label {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.comparison-value {
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.comparison-note {
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: right;
+}

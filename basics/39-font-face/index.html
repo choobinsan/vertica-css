@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@font-face</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>@font-face Rule</h1>
+        <p class="intro">Load custom fonts into your web pages 🔤</p>
+
+        <section>
+            <h2>1. What is @font-face?</h2>
+            <p class="description">The @font-face rule allows you to load custom fonts from a server and use them in your CSS.</p>
+
+            <div class="explanation-box">
+                <strong>Why use it?</strong> You're not limited to web-safe fonts. Load any font you want!
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Basic Syntax</h2>
+
+            <pre><code>@font-face {
+  font-family: 'MyCustomFont';
+  src: url('fonts/mycustomfont.woff2') format('woff2'),
+       url('fonts/mycustomfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'MyCustomFont', sans-serif;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Font Formats</h2>
+
+            <div class="formats-grid">
+                <div class="format-card">
+                    <h3>WOFF2</h3>
+                    <p><strong>Best choice</strong></p>
+                    <p>Modern, compressed, widely supported</p>
+                </div>
+                <div class="format-card">
+                    <h3>WOFF</h3>
+                    <p><strong>Fallback</strong></p>
+                    <p>Good support, slightly larger</p>
+                </div>
+                <div class="format-card">
+                    <h3>TTF/OTF</h3>
+                    <p><strong>Legacy</strong></p>
+                    <p>Older browsers, larger file size</p>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>💡 Recommendation:</strong> Use WOFF2 as primary, WOFF as fallback.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Using Google Fonts</h2>
+            <p class="description">The easiest way to use custom fonts is with Google Fonts.</p>
+
+            <div class="method-comparison">
+                <div class="method">
+                    <h3>Method 1: Link Tag</h3>
+                    <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;</code></pre>
+                </div>
+                <div class="method">
+                    <h3>Method 2: @import</h3>
+                    <pre><code>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');</code></pre>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Performance:</strong> Link tag is faster than @import. Prefer link tags in HTML.
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Font Weights & Styles</h2>
+            <p class="description">Define different weights and styles for the same font family.</p>
+
+            <pre><code>/* Regular */
+@font-face {
+  font-family: 'MyFont';
+  src: url('myfont-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'MyFont';
+  src: url('myfont-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: 'MyFont';
+  src: url('myfont-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Font Display Property</h2>
+            <p class="description">Control how fonts are displayed while loading.</p>
+
+            <div class="display-options">
+                <div class="option-card">
+                    <code>font-display: swap;</code>
+                    <p><strong>Recommended</strong> - Show fallback immediately, swap when loaded</p>
+                </div>
+                <div class="option-card">
+                    <code>font-display: block;</code>
+                    <p>Hide text briefly, then show custom font</p>
+                </div>
+                <div class="option-card">
+                    <code>font-display: fallback;</code>
+                    <p>Brief block period, swap if loaded quickly</p>
+                </div>
+                <div class="option-card">
+                    <code>font-display: optional;</code>
+                    <p>Use custom font only if already cached</p>
+                </div>
+            </div>
+
+            <pre><code>@font-face {
+  font-family: 'MyFont';
+  src: url('myfont.woff2') format('woff2');
+  font-display: swap; /* Recommended for performance */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>7. Live Example</h2>
+            <p class="description">This page uses Google Fonts to demonstrate custom typography.</p>
+
+            <div class="font-demo">
+                <div class="demo-text default-font">
+                    <h3>System Font (Default)</h3>
+                    <p>The quick brown fox jumps over the lazy dog.</p>
+                    <p class="numbers">0123456789</p>
+                </div>
+                <div class="demo-text custom-font">
+                    <h3>Custom Font (Loaded)</h3>
+                    <p>The quick brown fox jumps over the lazy dog.</p>
+                    <p class="numbers">0123456789</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>8. Best Practices</h2>
+
+            <div class="best-practices">
+                <div class="practice">
+                    <span class="icon">⚡</span>
+                    <div>
+                        <strong>Limit font weights</strong>
+                        <p>Only load the weights you actually use (e.g., 400 and 700)</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">📦</span>
+                    <div>
+                        <strong>Use WOFF2</strong>
+                        <p>Best compression and modern browser support</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>Subset fonts</strong>
+                        <p>Include only the characters you need</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">🔄</span>
+                    <div>
+                        <strong>Use font-display: swap</strong>
+                        <p>Prevent invisible text during font loading</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">💾</span>
+                    <div>
+                        <strong>Self-host when possible</strong>
+                        <p>Better performance and privacy</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">📊</span>
+                    <div>
+                        <strong>Provide fallbacks</strong>
+                        <p>Always specify fallback fonts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+/* ===== RESPONSIVE GRID DEMO ===== */
+
+.responsive-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 600px) {
+    .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .responsive-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-card {
+    background: linear-gradient(135deg, #4dabf7 0%, #339af0 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* ===== FEATURES GRID ===== */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.feature-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: #667eea;
+    font-size: 1rem;
+}
+
+.feature-card code {
+    display: block;
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin: 0.75rem 0;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.feature-card p {
+    margin: 0.75rem 0 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== COMPARISON GRID ===== */
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.comp-card {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.comp-card h3 {
+    margin: 0 0 1rem 0;
+    color: #2c3e50;
+}
+
+.comp-card pre {
+    margin: 0 0 1rem 0;
+}
+
+.comp-card p {
+    margin: 0;
+    color: #666;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ===== BREAKPOINTS TABLE ===== */
+
+.breakpoints-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.bp-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 200px;
+    gap: 1rem;
+    align-items: center;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.bp-row:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.bp-device {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.bp-code code {
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.bp-desc {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments for the table */
+@media (max-width: 768px) {
+    .bp-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .bp-device {
+        font-size: 1.1rem;
+    }
+}

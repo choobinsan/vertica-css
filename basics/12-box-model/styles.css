@@ -1,0 +1,118 @@
+/* ===== BOX MODEL VISUAL ===== */
+.box-model-visual {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.margin-layer {
+    background: #ffe0b2;
+    padding: 30px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.border-layer {
+    background: #90caf9;
+    padding: 10px;
+    position: relative;
+    border-radius: 6px;
+}
+
+.padding-layer {
+    background: #a5d6a7;
+    padding: 20px;
+    position: relative;
+    border-radius: 4px;
+}
+
+.content-layer {
+    background: #ce93d8;
+    padding: 40px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}
+
+.layer-label {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+}
+
+/* ===== INTERACTIVE BOX ===== */
+.box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 200px;
+    padding: 20px;
+    border: 10px solid #2c3e50;
+    margin: 30px auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+    font-weight: 600;
+}
+
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 30px rgba(255, 193, 7, 0.2);
+}
+
+.box-info {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.box-info code {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== PARTS GRID ===== */
+.parts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.part-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.part-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.part-card h3 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.part-card p {
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.part-card code {
+    display: block;
+    margin-top: 0.75rem;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Modes</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Layout Modes</h1>
+        <p class="intro">Different ways to arrange elements on a page 📐</p>
+
+        <section>
+            <h2>1. Block Layout</h2>
+            <p class="description">Block elements stack vertically and take full width.</p>
+
+            <div class="demo-container">
+                <div class="block-demo">
+                    <div class="block-box">Block Element 1</div>
+                    <div class="block-box">Block Element 2</div>
+                    <div class="block-box">Block Element 3</div>
+                </div>
+            </div>
+
+            <pre><code>div {
+  display: block; /* default for div */
+  /* Takes full width available */
+  /* Stacks vertically */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Block elements:</strong> div, p, h1-h6, section, article, header, footer, etc.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Inline Layout</h2>
+            <p class="description">Inline elements flow horizontally like text.</p>
+
+            <div class="demo-container">
+                <div class="inline-demo">
+                    <span class="inline-box">Inline 1</span>
+                    <span class="inline-box">Inline 2</span>
+                    <span class="inline-box">Inline 3</span>
+                    <span class="inline-box">Inline 4</span>
+                </div>
+            </div>
+
+            <pre><code>span {
+  display: inline; /* default for span */
+  /* Only takes needed width */
+  /* Flows horizontally */
+  /* Width/height don't apply */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Inline elements:</strong> span, a, strong, em, img, button, etc.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Inline-Block</h2>
+            <p class="description">Flows like inline but respects width/height like block.</p>
+
+            <div class="demo-container">
+                <div class="inline-block-demo">
+                    <div class="inline-block-box">Box 1</div>
+                    <div class="inline-block-box">Box 2</div>
+                    <div class="inline-block-box">Box 3</div>
+                </div>
+            </div>
+
+            <pre><code>.box {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  /* Flows horizontally but respects dimensions */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Flexbox Layout</h2>
+            <p class="description">One-dimensional layout (row or column) with flexible sizing.</p>
+
+            <div class="demo-container">
+                <div class="flex-demo">
+                    <div class="flex-box">Flex 1</div>
+                    <div class="flex-box">Flex 2</div>
+                    <div class="flex-box">Flex 3</div>
+                </div>
+            </div>
+
+            <pre><code>.container {
+  display: flex;
+  gap: 1rem;
+  /* Children become flex items */
+  /* Flexible, responsive layout */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Best for:</strong> Navigation bars, card layouts, centering, distributing space.
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Grid Layout</h2>
+            <p class="description">Two-dimensional layout with rows and columns.</p>
+
+            <div class="demo-container">
+                <div class="grid-demo">
+                    <div class="grid-box">Grid 1</div>
+                    <div class="grid-box">Grid 2</div>
+                    <div class="grid-box">Grid 3</div>
+                    <div class="grid-box">Grid 4</div>
+                    <div class="grid-box">Grid 5</div>
+                    <div class="grid-box">Grid 6</div>
+                </div>
+            </div>
+
+            <pre><code>.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  /* Creates a 3-column grid */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Best for:</strong> Page layouts, image galleries, complex multi-dimensional layouts.
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Quick Comparison</h2>
+
+            <div class="comparison-table">
+                <div class="comparison-row">
+                    <div class="mode-name">Block</div>
+                    <div class="mode-desc">Vertical stacking, full width</div>
+                    <div class="mode-use">Default document flow</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="mode-name">Inline</div>
+                    <div class="mode-desc">Horizontal flow, no width/height</div>
+                    <div class="mode-use">Text-level elements</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="mode-name">Inline-Block</div>
+                    <div class="mode-desc">Horizontal flow, respects dimensions</div>
+                    <div class="mode-use">Buttons, badges</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="mode-name">Flexbox</div>
+                    <div class="mode-desc">1D flexible layout</div>
+                    <div class="mode-use">Navigation, cards, centering</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="mode-name">Grid</div>
+                    <div class="mode-desc">2D grid layout</div>
+                    <div class="mode-use">Page layouts, galleries</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

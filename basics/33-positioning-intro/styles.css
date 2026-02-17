@@ -1,0 +1,158 @@
+/* ===== POSITIONING EXAMPLES ===== */
+
+.box {
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: white;
+    border: 2px solid #dee2e6;
+}
+
+.position-label {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.box p {
+    margin: 0.5rem 0;
+}
+
+.box code {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Static positioning */
+.static-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-color: #dee2e6;
+}
+
+/* Relative positioning */
+.relative-box {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-color: #2196f3;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+/* Absolute positioning */
+.positioned-parent {
+    position: relative;
+    min-height: 300px;
+    background: #f0f4ff;
+    border: 3px dashed #667eea;
+}
+
+.parent-label {
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    background: #667eea;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.absolute-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+    border-color: #4caf50;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    max-width: 250px;
+}
+
+/* Fixed positioning */
+.fixed-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+    border-color: #f44336;
+    box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
+    z-index: 1000;
+    max-width: 200px;
+}
+
+/* Sticky positioning */
+.sticky-container {
+    height: 300px;
+    overflow: auto;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
+}
+
+.sticky-box {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe082 100%);
+    border-color: #ffc107;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+    z-index: 10;
+}
+
+.scroll-content {
+    padding: 1rem;
+}
+
+.scroll-content p {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+/* Reference grid */
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.reference-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.reference-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.reference-card h3 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.reference-card p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.use-case {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #dee2e6;
+    font-style: italic;
+    color: #667eea;
+}

@@ -1,0 +1,277 @@
+/* ===== AUTO-FIT DEMO ===== */
+
+.auto-fit-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: linear-gradient(135deg, #4dabf7 0%, #339af0 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ===== COMPARISON DEMOS ===== */
+
+.comparison-demos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.demo-section {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.demo-section h3 {
+    margin: 0 0 1rem 0;
+    color: #667eea;
+    text-align: center;
+}
+
+.caption {
+    margin: 1rem 0 0 0;
+    color: #666;
+    text-align: center;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.auto-fill-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.5rem;
+}
+
+.auto-fit-demo-small {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+}
+
+/* ===== RAM PATTERN DEMO ===== */
+
+.ram-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 1rem;
+}
+
+/* ===== SIDEBAR PATTERN ===== */
+
+.sidebar-pattern {
+    display: grid;
+    grid-template-columns: minmax(200px, 25%) 1fr;
+    gap: 1rem;
+    min-height: 300px;
+}
+
+.sidebar {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.main-content {
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .sidebar-pattern {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== PANCAKE STACK PATTERN ===== */
+
+.pancake-demo {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 400px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pancake-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.pancake-main {
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.pancake-footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ===== HOLY GRAIL PATTERN ===== */
+
+.holy-grail-demo {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 400px;
+    gap: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.hg-header {
+    grid-area: header;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.hg-sidebar {
+    grid-area: sidebar;
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.hg-main {
+    grid-area: main;
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.hg-footer {
+    grid-area: footer;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ===== TECHNIQUES GRID ===== */
+
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.technique {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.technique:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.technique .icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.technique strong {
+    display: block;
+    color: #667eea;
+    margin-bottom: 0.25rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.technique p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== BENEFITS GRID ===== */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.benefit {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.benefit:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #51cf66;
+}
+
+.benefit h3 {
+    margin: 0 0 0.75rem 0;
+    color: #51cf66;
+    font-size: 1.1rem;
+}
+
+.benefit p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}

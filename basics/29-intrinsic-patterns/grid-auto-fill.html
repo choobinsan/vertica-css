@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Auto-Fill Example</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      .explanation {
+        background: #f4f4f4;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      /* 
+           EXPLANATION:
+           'auto-fill' tells the browser to create as many columns as will fit 
+           into the container without overflowing it. 
+           
+           Even if there aren't enough items to fill the space, 'auto-fill' 
+           will keep the empty column tracks in the grid, effectively 
+           leaving a gap at the end of the row.
+        */
+      .grid-container {
+        display: grid;
+        /* Create columns that are at least 200px, but expand to fill available space */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        border: 2px dashed #333;
+        padding: 10px;
+      }
+
+      .card {
+        background-color: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Grid auto-fill Pattern</h1>
+
+    <div class="grid-container">
+      <div class="card">Item 1</div>
+      <div class="card">Item 2</div>
+      <div class="card">Item 3</div>
+    </div>
+
+
+    <div class="explanation">
+      <strong>What does <code>auto-fill</code> do?</strong>
+      <p>
+        It fills the row with as many column tracks as possible based on the
+        minimum width provided (200px in this case). If the container is wide
+        enough for 5 columns but there are only 2 items,
+        <code>auto-fill</code> will still create those 3 extra empty tracks.
+      </p>
+    </div>
+  </body>
+</html>

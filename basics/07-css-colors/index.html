@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Colors</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Colors</h1>
+        <p class="intro">Multiple ways to define colors in CSS 🎨</p>
+
+        <section>
+            <h2>1. Color Keywords</h2>
+            <p class="description">Use predefined color names like red, blue, green, etc.</p>
+
+            <div class="demo-container">
+                <div class="color-grid">
+                    <div class="color-box color-keyword-red">red</div>
+                    <div class="color-box color-keyword-blue">blue</div>
+                    <div class="color-box color-keyword-green">green</div>
+                    <div class="color-box color-keyword-purple">purple</div>
+                </div>
+            </div>
+
+            <pre><code>.element {
+  background-color: red;
+  color: white;
+}</code></pre>
+
+            <div class="note-box">
+                <strong>Note:</strong> There are 147 named colors in CSS. Easy to remember but limited palette.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Hexadecimal Colors</h2>
+            <p class="description">Use hex codes with # followed by 6 digits (RRGGBB) or 3 digits shorthand.</p>
+
+            <div class="demo-container">
+                <div class="color-grid">
+                    <div class="color-box hex-color-1">
+                        <span class="color-label">#FF0000</span>
+                        Red
+                    </div>
+                    <div class="color-box hex-color-2">
+                        <span class="color-label">#0000FF</span>
+                        Blue
+                    </div>
+                    <div class="color-box hex-color-3">
+                        <span class="color-label">#00FF00</span>
+                        Green
+                    </div>
+                    <div class="color-box hex-color-4">
+                        <span class="color-label">#667eea</span>
+                        Purple
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>/* Full form */
+.element {
+  background-color: #FF0000;
+}
+
+/* Shorthand (when pairs match) */
+.element {
+  background-color: #F00; /* same as #FF0000 */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>How it works:</strong> #RRGGBB where RR=red, GG=green, BB=blue (00-FF in hexadecimal)
+            </div>
+        </section>
+
+        <section>
+            <h2>3. RGB Colors</h2>
+            <p class="description">Define colors using Red, Green, Blue values (0-255).</p>
+
+            <div class="demo-container">
+                <div class="color-grid">
+                    <div class="color-box rgb-color-1">
+                        <span class="color-label">rgb(255, 0, 0)</span>
+                        Red
+                    </div>
+                    <div class="color-box rgb-color-2">
+                        <span class="color-label">rgb(0, 128, 0)</span>
+                        Green
+                    </div>
+                    <div class="color-box rgb-color-3">
+                        <span class="color-label">rgb(0, 0, 255)</span>
+                        Blue
+                    </div>
+                    <div class="color-box rgb-color-4">
+                        <span class="color-label">rgb(102, 126, 234)</span>
+                        Purple
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.element {
+  background-color: rgb(255, 0, 0);
+  /* R=255, G=0, B=0 */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. RGBA Colors (with Transparency)</h2>
+            <p class="description">RGB plus Alpha channel for transparency (0.0 = transparent, 1.0 = opaque).</p>
+
+            <div class="demo-container rgba-demo">
+                <div class="color-grid">
+                    <div class="color-box rgba-color-1">
+                        <span class="color-label">rgba(255, 0, 0, 1.0)</span>
+                        100% Opaque
+                    </div>
+                    <div class="color-box rgba-color-2">
+                        <span class="color-label">rgba(255, 0, 0, 0.7)</span>
+                        70% Opaque
+                    </div>
+                    <div class="color-box rgba-color-3">
+                        <span class="color-label">rgba(255, 0, 0, 0.4)</span>
+                        40% Opaque
+                    </div>
+                    <div class="color-box rgba-color-4">
+                        <span class="color-label">rgba(255, 0, 0, 0.1)</span>
+                        10% Opaque
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.element {
+  background-color: rgba(255, 165, 0, 0.7);
+  /* Orange with 70% opacity */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. HSL Colors</h2>
+            <p class="description">Hue (0-360°), Saturation (0-100%), Lightness (0-100%).</p>
+
+            <div class="demo-container">
+                <div class="color-grid">
+                    <div class="color-box hsl-color-1">
+                        <span class="color-label">hsl(0, 100%, 50%)</span>
+                        Red
+                    </div>
+                    <div class="color-box hsl-color-2">
+                        <span class="color-label">hsl(120, 100%, 50%)</span>
+                        Green
+                    </div>
+                    <div class="color-box hsl-color-3">
+                        <span class="color-label">hsl(240, 100%, 50%)</span>
+                        Blue
+                    </div>
+                    <div class="color-box hsl-color-4">
+                        <span class="color-label">hsl(60, 100%, 50%)</span>
+                        Yellow
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.element {
+  background-color: hsl(60, 100%, 50%);
+  /* Hue=60° (yellow), Saturation=100%, Lightness=50% */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>HSL is intuitive:</strong> Hue is the color wheel position, Saturation is color intensity, Lightness is brightness.
+            </div>
+        </section>
+
+        <section>
+            <h2>6. HSLA Colors (with Transparency)</h2>
+            <p class="description">HSL plus Alpha channel for transparency.</p>
+
+            <div class="demo-container rgba-demo">
+                <div class="color-grid">
+                    <div class="color-box hsla-color-1">
+                        <span class="color-label">hsla(240, 100%, 50%, 1.0)</span>
+                        100% Opaque
+                    </div>
+                    <div class="color-box hsla-color-2">
+                        <span class="color-label">hsla(240, 100%, 50%, 0.7)</span>
+                        70% Opaque
+                    </div>
+                    <div class="color-box hsla-color-3">
+                        <span class="color-label">hsla(240, 100%, 50%, 0.4)</span>
+                        40% Opaque
+                    </div>
+                    <div class="color-box hsla-color-4">
+                        <span class="color-label">hsla(240, 100%, 50%, 0.1)</span>
+                        10% Opaque
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Quick Comparison</h2>
+
+            <div class="comparison-table">
+                <div class="comparison-row">
+                    <div class="comparison-label">Keyword</div>
+                    <div class="comparison-value"><code>red</code></div>
+                    <div class="comparison-note">Easy, limited</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">Hex</div>
+                    <div class="comparison-value"><code>#FF0000</code></div>
+                    <div class="comparison-note">Common, compact</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">RGB</div>
+                    <div class="comparison-value"><code>rgb(255, 0, 0)</code></div>
+                    <div class="comparison-note">Intuitive numbers</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">RGBA</div>
+                    <div class="comparison-value"><code>rgba(255, 0, 0, 0.5)</code></div>
+                    <div class="comparison-note">With transparency</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">HSL</div>
+                    <div class="comparison-value"><code>hsl(0, 100%, 50%)</code></div>
+                    <div class="comparison-note">Color wheel based</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-label">HSLA</div>
+                    <div class="comparison-value"><code>hsla(0, 100%, 50%, 0.5)</code></div>
+                    <div class="comparison-note">HSL + transparency</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

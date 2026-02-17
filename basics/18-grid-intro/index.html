@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Intro</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Introduction to CSS Grid</h1>
+        <p class="intro">CSS Grid is a powerful two-dimensional layout system 📐</p>
+
+        <section>
+            <h2>1. Using fr Units</h2>
+            <p class="description">The <code>fr</code> unit represents a fraction of available space in the grid container.</p>
+
+            <div class="demo-label">1fr 2fr 1fr (middle column gets twice the space)</div>
+            <div class="grid-container fr-units">
+                <div class="grid-item">1fr</div>
+                <div class="grid-item">2fr</div>
+                <div class="grid-item">1fr</div>
+                <div class="grid-item">1fr</div>
+                <div class="grid-item">2fr</div>
+                <div class="grid-item">1fr</div>
+            </div>
+
+            <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 15px;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>How it works:</strong> Total is 4fr (1+2+1). First column gets 25%, middle gets 50%, last gets 25%.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Using repeat()</h2>
+            <p class="description">The <code>repeat()</code> function creates equal columns without repetition.</p>
+
+            <div class="demo-label">repeat(3, 1fr) - three equal columns</div>
+            <div class="grid-container repeat-function">
+                <div class="grid-item">1</div>
+                <div class="grid-item">2</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+            </div>
+
+            <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Shorthand:</strong> <code>repeat(3, 1fr)</code> is the same as <code>1fr 1fr 1fr</code>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Mixed Units</h2>
+            <p class="description">Combine fixed widths (px) with flexible units (fr) for powerful layouts.</p>
+
+            <div class="demo-label">100px 1fr 2fr (fixed sidebar + flexible content)</div>
+            <div class="grid-container mixed-units">
+                <div class="grid-item">100px</div>
+                <div class="grid-item">1fr</div>
+                <div class="grid-item">2fr</div>
+            </div>
+
+            <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: 100px 1fr 2fr;
+  gap: 15px;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Common pattern:</strong> Fixed sidebar (100px) + flexible content areas that share remaining space.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Quick Reference</h2>
+
+            <div class="grid-properties">
+                <div class="property-card">
+                    <h3>display: grid</h3>
+                    <p>Creates a grid container</p>
+                </div>
+                <div class="property-card">
+                    <h3>grid-template-columns</h3>
+                    <p>Defines column sizes</p>
+                    <code>1fr 2fr 1fr</code>
+                </div>
+                <div class="property-card">
+                    <h3>repeat()</h3>
+                    <p>Repeats a pattern</p>
+                    <code>repeat(3, 1fr)</code>
+                </div>
+                <div class="property-card">
+                    <h3>gap</h3>
+                    <p>Space between items</p>
+                    <code>gap: 15px;</code>
+                </div>
+                <div class="property-card">
+                    <h3>fr unit</h3>
+                    <p>Fraction of available space</p>
+                    <code>1fr = 1 part</code>
+                </div>
+                <div class="property-card">
+                    <h3>Mixed units</h3>
+                    <p>Combine px, fr, %, etc.</p>
+                    <code>100px 1fr 2fr</code>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

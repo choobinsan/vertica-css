@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Queries</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Container Queries</h1>
+        <p class="intro">Style components based on their container size, not viewport 📦✨</p>
+
+        <section>
+            <h2>1. The Problem with Media Queries</h2>
+            <p class="description">Media queries respond to the viewport size, not the container size. This makes it hard to create truly reusable components.</p>
+
+            <div class="explanation-box">
+                <strong>Example:</strong> A card component might be in a narrow sidebar or a wide main area. Media queries can't tell the difference - they only know the viewport size.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Container Queries to the Rescue!</h2>
+            <p class="description">Container queries let components respond to their container's size, making them truly modular and reusable.</p>
+
+            <pre><code>.container {
+  container-type: inline-size;
+  /* or container-name: sidebar; */
+}
+
+@container (min-width: 400px) {
+  .card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Live Demo</h2>
+            <p class="description">The same card component in different container sizes. Notice how the card layout changes based on its container, not the viewport!</p>
+
+            <div class="demo-layout">
+                <div class="demo-container wide-container">
+                    <h3>Wide Container (600px)</h3>
+                    <div class="responsive-card">
+                        <img src="https://picsum.photos/id/1018/300/200" alt="Nature">
+                        <div class="card-content">
+                            <h4>Card Title</h4>
+                            <p>This card is in a wide container, so it displays in a horizontal layout with the image on the left.</p>
+                            <button>Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-container narrow-container">
+                    <h3>Narrow Container (300px)</h3>
+                    <div class="responsive-card">
+                        <img src="https://picsum.photos/id/1018/300/200" alt="Nature">
+                        <div class="card-content">
+                            <h4>Card Title</h4>
+                            <p>This card is in a narrow container, so it stacks vertically.</p>
+                            <button>Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Setting Up Container Queries</h2>
+
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Define the container</strong>
+                        <pre><code>.container {
+  container-type: inline-size;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Write container query</strong>
+                        <pre><code>@container (min-width: 400px) {
+  .card {
+    /* styles */
+  }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Optional: Name it</strong>
+                        <pre><code>.sidebar {
+  container-name: sidebar;
+}
+
+@container sidebar (min-width: 300px) {
+  /* styles */
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Container Types</h2>
+
+            <div class="types-grid">
+                <div class="type-card">
+                    <code>inline-size</code>
+                    <p>Queries the inline dimension (width in horizontal writing modes)</p>
+                    <span class="badge">Most Common</span>
+                </div>
+                <div class="type-card">
+                    <code>size</code>
+                    <p>Queries both inline and block dimensions</p>
+                    <span class="badge">Both Axes</span>
+                </div>
+                <div class="type-card">
+                    <code>normal</code>
+                    <p>Element is not a query container</p>
+                    <span class="badge">Default</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Container vs Media Queries</h2>
+
+            <div class="comparison-table">
+                <div class="comp-row">
+                    <div class="comp-label">Media Queries</div>
+                    <div class="comp-desc">
+                        <p>✅ Global layout changes</p>
+                        <p>✅ Viewport-based breakpoints</p>
+                        <p>❌ Component reusability</p>
+                    </div>
+                </div>
+                <div class="comp-row">
+                    <div class="comp-label">Container Queries</div>
+                    <div class="comp-desc">
+                        <p>✅ Component-level changes</p>
+                        <p>✅ True modularity</p>
+                        <p>✅ Reusable anywhere</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>💡 Best practice:</strong> Use media queries for global layout, container queries for components!
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Browser Support</h2>
+
+            <div class="browser-support">
+                <div class="browser">
+                    <span class="icon">✅</span>
+                    <strong>Chrome 105+</strong>
+                </div>
+                <div class="browser">
+                    <span class="icon">✅</span>
+                    <strong>Safari 16+</strong>
+                </div>
+                <div class="browser">
+                    <span class="icon">✅</span>
+                    <strong>Firefox 110+</strong>
+                </div>
+                <div class="browser">
+                    <span class="icon">✅</span>
+                    <strong>Edge 105+</strong>
+                </div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Good news!</strong> Container queries are now supported in all modern browsers (as of 2023).
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intrinsic Patterns</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Intrinsic Responsive Patterns</h1>
+        <p class="intro">Layouts that adapt automatically without media queries 🎯✨</p>
+
+        <section>
+            <h2>1. What are Intrinsic Patterns?</h2>
+            <p class="description">Intrinsic patterns use CSS properties that automatically adapt to available space, eliminating the need for media queries.</p>
+
+            <div class="explanation-box">
+                <strong>Key benefit:</strong> The layout responds to its container size, not just the viewport. This makes components truly reusable!
+            </div>
+        </section>
+
+        <section>
+            <h2>2. auto-fit Pattern</h2>
+            <p class="description">Automatically fits as many columns as possible based on the minimum size.</p>
+
+            <div class="demo-container">
+                <div class="auto-fit-demo">
+                    <div class="card">Card 1</div>
+                    <div class="card">Card 2</div>
+                    <div class="card">Card 3</div>
+                    <div class="card">Card 4</div>
+                    <div class="card">Card 5</div>
+                    <div class="card">Card 6</div>
+                </div>
+            </div>
+
+            <pre><code>.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}</code></pre>
+
+            <div class="note-box">
+                <strong>💡 Try resizing:</strong> The grid automatically adjusts the number of columns!
+            </div>
+        </section>
+
+        <section>
+            <h2>3. auto-fill vs auto-fit</h2>
+            <p class="description">Both create responsive grids, but behave differently with extra space.</p>
+
+            <div class="comparison-demos">
+                <div class="demo-section">
+                    <h3>auto-fill</h3>
+                    <div class="auto-fill-demo">
+                        <div class="card">1</div>
+                        <div class="card">2</div>
+                        <div class="card">3</div>
+                    </div>
+                    <p class="caption">Creates empty columns if there's space</p>
+                </div>
+
+                <div class="demo-section">
+                    <h3>auto-fit</h3>
+                    <div class="auto-fit-demo-small">
+                        <div class="card">1</div>
+                        <div class="card">2</div>
+                        <div class="card">3</div>
+                    </div>
+                    <p class="caption">Expands items to fill available space</p>
+                </div>
+            </div>
+
+            <pre><code>/* auto-fill: keeps empty columns */
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+/* auto-fit: collapses empty columns */
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));</code></pre>
+        </section>
+
+        <section>
+            <h2>4. The RAM Pattern</h2>
+            <p class="description"><strong>R</strong>epeat, <strong>A</strong>uto-fit, <strong>M</strong>inmax - a powerful combination!</p>
+
+            <div class="demo-container">
+                <div class="ram-demo">
+                    <div class="card">Product 1</div>
+                    <div class="card">Product 2</div>
+                    <div class="card">Product 3</div>
+                    <div class="card">Product 4</div>
+                    <div class="card">Product 5</div>
+                </div>
+            </div>
+
+            <pre><code>/* The RAM pattern */
+.grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: 1rem;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Why min(250px, 100%)?</strong> Prevents overflow on very small screens by allowing columns to shrink below 250px if needed.
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Flexible Sidebar Pattern</h2>
+            <p class="description">A sidebar that automatically stacks on small screens.</p>
+
+            <div class="demo-container">
+                <div class="sidebar-pattern">
+                    <aside class="sidebar">Sidebar</aside>
+                    <main class="main-content">Main Content</main>
+                </div>
+            </div>
+
+            <pre><code>.container {
+  display: grid;
+  grid-template-columns: minmax(200px, 25%) 1fr;
+  gap: 1rem;
+}
+
+/* Automatically stacks when sidebar can't fit */
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>6. Pancake Stack Pattern</h2>
+            <p class="description">Header, flexible content, footer - stacks vertically with content filling space.</p>
+
+            <div class="demo-container">
+                <div class="pancake-demo">
+                    <header class="pancake-header">Header</header>
+                    <main class="pancake-main">Main Content (grows to fill space)</main>
+                    <footer class="pancake-footer">Footer</footer>
+                </div>
+            </div>
+
+            <pre><code>.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>7. Holy Grail Layout</h2>
+            <p class="description">The classic layout with header, footer, sidebar, and main content.</p>
+
+            <div class="demo-container">
+                <div class="holy-grail-demo">
+                    <header class="hg-header">Header</header>
+                    <aside class="hg-sidebar">Sidebar</aside>
+                    <main class="hg-main">Main Content</main>
+                    <footer class="hg-footer">Footer</footer>
+                </div>
+            </div>
+
+            <pre><code>.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 400px;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>8. Key Techniques</h2>
+
+            <div class="techniques-grid">
+                <div class="technique">
+                    <span class="icon">🔄</span>
+                    <div>
+                        <strong>repeat(auto-fit, ...)</strong>
+                        <p>Automatically adjusts column count</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <span class="icon">📏</span>
+                    <div>
+                        <strong>minmax(min, max)</strong>
+                        <p>Sets flexible size constraints</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>min(value, 100%)</strong>
+                        <p>Prevents overflow on small screens</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <span class="icon">📐</span>
+                    <div>
+                        <strong>1fr units</strong>
+                        <p>Distributes available space</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>9. Benefits</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <h3>✅ Less Code</h3>
+                    <p>No media queries needed for basic responsiveness</p>
+                </div>
+                <div class="benefit">
+                    <h3>✅ Container-Aware</h3>
+                    <p>Responds to container size, not just viewport</p>
+                </div>
+                <div class="benefit">
+                    <h3>✅ Truly Reusable</h3>
+                    <p>Components work anywhere in your layout</p>
+                </div>
+                <div class="benefit">
+                    <h3>✅ Maintainable</h3>
+                    <p>Fewer breakpoints to manage and update</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

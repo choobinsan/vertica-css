@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Resets</title>
+    <!-- The reset should be the first stylesheet to be loaded -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Resets</h1>
+        <p class="intro">Removing browser default styles for consistency 🔄</p>
+
+        <section>
+            <h2>1. Why CSS Resets?</h2>
+            <p class="description">Different browsers apply different default styles. Resets create a consistent baseline.</p>
+
+            <div class="explanation-box">
+                <strong>The Problem:</strong> Browsers add default margins, padding, and styles that vary between Chrome, Firefox, Safari, etc.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Common Default Styles</h2>
+            <p class="description">Examples of browser defaults that resets remove:</p>
+
+            <div class="defaults-grid">
+                <div class="default-item">
+                    <code>body</code>
+                    <p>Has default margin (usually 8px)</p>
+                </div>
+                <div class="default-item">
+                    <code>h1, h2, p</code>
+                    <p>Have default margins</p>
+                </div>
+                <div class="default-item">
+                    <code>ul, ol</code>
+                    <p>Have padding and list-style</p>
+                </div>
+                <div class="default-item">
+                    <code>button</code>
+                    <p>Has browser-specific styling</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Simple Reset Example</h2>
+            <p class="description">A minimal reset to remove common defaults:</p>
+
+            <pre><code>/* Simple CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Better approach - preserve useful defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Comparison: With vs Without Reset</h2>
+            <p class="description">See the difference a reset makes:</p>
+
+            <div class="comparison-container">
+                <div class="comparison-side with-reset">
+                    <h3>With Reset</h3>
+                    <div class="demo-content">
+                        <h4>Heading</h4>
+                        <p>Paragraph text with no default margin.</p>
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2</li>
+                        </ul>
+                        <button>Button</button>
+                    </div>
+                </div>
+                <div class="comparison-side without-reset-demo">
+                    <h3>Without Reset (iframe)</h3>
+                    <iframe src="no-reset.html" width="100%" height="250px"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Popular Reset Libraries</h2>
+
+            <div class="libraries-grid">
+                <div class="library-card">
+                    <h3>Normalize.css</h3>
+                    <p>Preserves useful defaults while fixing inconsistencies</p>
+                    <code>npm install normalize.css</code>
+                </div>
+                <div class="library-card">
+                    <h3>Reset CSS</h3>
+                    <p>Removes all default styles (more aggressive)</p>
+                    <code>Eric Meyer's Reset</code>
+                </div>
+                <div class="library-card">
+                    <h3>Modern Reset</h3>
+                    <p>Minimal, modern approach with best practices</p>
+                    <code>Josh Comeau's Reset</code>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Best Practices</h2>
+
+            <div class="best-practices">
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Load reset first</strong>
+                        <p>Reset should be the first stylesheet loaded</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Use box-sizing: border-box</strong>
+                        <p>Apply to all elements for predictable sizing</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Consider Normalize over Reset</strong>
+                        <p>Normalize preserves useful defaults</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">⚠️</span>
+                    <div>
+                        <strong>Don't reset everything to 0</strong>
+                        <p>Some defaults are useful (like button cursor)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

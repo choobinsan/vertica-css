@@ -1,0 +1,182 @@
+/* ===== MARGIN DEMO ===== */
+
+.margin-demo-box {
+    background: #f8f9fa;
+    padding: 2rem;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+}
+
+.box-with-margin {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    margin: 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===== CENTERING ===== */
+
+.centered-box {
+    width: 300px;
+    margin-inline: auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ===== MARGIN COLLAPSE DEMO ===== */
+
+.collapse-demo {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.collapse-box1 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    padding: 1.5rem;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}
+
+.collapse-box2 {
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+    color: white;
+    padding: 1.5rem;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}
+
+.margin-label {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.collapse-note {
+    text-align: center;
+    color: #667eea;
+    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* ===== PARENT-CHILD COLLAPSE ===== */
+
+.parent-demo {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    border: 3px solid #adb5bd;
+    border-radius: 8px;
+    /* No padding - allows margin collapse */
+}
+
+.child-demo {
+    background: linear-gradient(135deg, #ffd43b 0%, #fab005 100%);
+    padding: 1.5rem;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===== NO COLLAPSE ===== */
+
+.parent-no-collapse {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    border: 3px solid #adb5bd;
+    border-radius: 8px;
+    padding-top: 1px; /* Prevents collapse */
+}
+
+.child-no-collapse {
+    background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%);
+    padding: 1.5rem;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+}
+
+/* ===== NEGATIVE MARGINS ===== */
+
+.negative-margin-demo {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.negative-box1 {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.negative-box2 {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+    padding: 1.5rem;
+    margin-top: -20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== REFERENCE GRID ===== */
+
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.ref-item {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.ref-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.ref-item code {
+    display: block;
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.ref-item p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}

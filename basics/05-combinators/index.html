@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Combinators</h1>
+        <p class="intro">Combinators define relationships between selectors 🔗</p>
+
+        <section>
+            <h2>1. Child Combinator (>)</h2>
+            <p class="description">Selects elements that are <strong>direct children</strong> only (not grandchildren).</p>
+
+            <div class="demo-container">
+                <div class="parent-box">
+                    <p class="child-example">Direct child paragraph ✓</p>
+                    <span class="nested-wrapper">
+                        <p class="child-example">Nested paragraph (grandchild) ✗</p>
+                    </span>
+                    <p class="child-example">Another direct child ✓</p>
+                </div>
+            </div>
+
+            <pre><code>/* Selects only direct children */
+div > p {
+  color: #667eea;
+  background: #f0f4ff;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> The nested paragraph inside the span is NOT selected because it's a grandchild, not a direct child.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Adjacent Sibling Combinator (+)</h2>
+            <p class="description">Selects the <strong>first element</strong> that comes immediately after another element (same parent).</p>
+
+            <div class="demo-container">
+                <div class="sibling-box">
+                    <h3 class="trigger">Heading</h3>
+                    <p class="adjacent-example">First paragraph after heading ✓</p>
+                    <p class="adjacent-example">Second paragraph (not selected) ✗</p>
+                    <h3 class="trigger">Another Heading</h3>
+                    <p class="adjacent-example">First paragraph after second heading ✓</p>
+                </div>
+            </div>
+
+            <pre><code>/* Selects only the immediately following sibling */
+h3 + p {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> Only the paragraph <em>immediately</em> after each h3 is selected. The second paragraph is not adjacent to h3.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. General Sibling Combinator (~)</h2>
+            <p class="description">Selects <strong>all elements</strong> that are siblings and come after another element.</p>
+
+            <div class="demo-container">
+                <div class="general-sibling-box">
+                    <p class="general-example">Paragraph before heading (not selected) ✗</p>
+                    <h3 class="trigger">Heading</h3>
+                    <p class="general-example">First paragraph after heading ✓</p>
+                    <p class="general-example">Second paragraph after heading ✓</p>
+                    <div>A div (not selected)</div>
+                    <p class="general-example">Third paragraph after heading ✓</p>
+                </div>
+            </div>
+
+            <pre><code>/* Selects ALL following siblings */
+h3 ~ p {
+  border: 2px solid #e74c3c;
+  background: #ffebee;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> All paragraphs that come <em>after</em> the h3 are selected, not just the first one. Paragraphs before h3 are not selected.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Descendant Combinator (space)</h2>
+            <p class="description">Selects elements at <strong>any depth</strong> inside another element (already covered, but included for completeness).</p>
+
+            <div class="demo-container">
+                <div class="descendant-box">
+                    <p class="descendant-example">Direct child ✓</p>
+                    <div>
+                        <p class="descendant-example">Grandchild ✓</p>
+                        <div>
+                            <p class="descendant-example">Great-grandchild ✓</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>/* Selects at ANY depth */
+div p {
+  background: #e3f2fd;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Quick Reference</h2>
+
+            <div class="combinator-grid">
+                <div class="combinator-card">
+                    <h3>A B</h3>
+                    <p class="combinator-name">Descendant</p>
+                    <p>Any depth</p>
+                    <code>div p</code>
+                </div>
+                <div class="combinator-card">
+                    <h3>A > B</h3>
+                    <p class="combinator-name">Child</p>
+                    <p>Direct children only</p>
+                    <code>div > p</code>
+                </div>
+                <div class="combinator-card">
+                    <h3>A + B</h3>
+                    <p class="combinator-name">Adjacent Sibling</p>
+                    <p>Immediately after</p>
+                    <code>h2 + p</code>
+                </div>
+                <div class="combinator-card">
+                    <h3>A ~ B</h3>
+                    <p class="combinator-name">General Sibling</p>
+                    <p>All following siblings</p>
+                    <code>h2 ~ p</code>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+/* ===== MAIN HEADER ===== */
+
+.main-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid #dee2e6;
+}
+
+.main-header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #442aaa 0%, #5a3bb8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.main-header .intro {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+}
+
+/* ===== CATEGORY SECTIONS ===== */
+
+.category {
+    margin-bottom: 3rem;
+}
+
+.category h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* ===== EXAMPLES GRID ===== */
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ===== EXAMPLE CARDS ===== */
+
+.example-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.example-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #442aaa 0%, #5a3bb8 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.example-card:hover::before {
+    transform: scaleX(1);
+}
+
+.example-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(68, 42, 170, 0.2);
+    border-color: #442aaa;
+}
+
+/* Visited state - subtle but noticeable */
+.example-card:visited {
+    background: linear-gradient(135deg, #faf9ff 0%, #f5f3ff 100%);
+    border-color: #c4b5fd;
+}
+
+.example-card:visited .number {
+    background: linear-gradient(135deg, #8b7fc7 0%, #9d91d4 100%);
+    opacity: 0.85;
+}
+
+.example-card:visited h3 {
+    color: #6b5b95;
+}
+
+.example-card:visited p {
+    color: #7a7a9d;
+}
+
+.example-card:visited::after {
+    content: '✓';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(81, 207, 102, 0.3);
+}
+
+/* Hover on visited cards */
+.example-card:visited:hover {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border-color: #a78bfa;
+    transform: translateY(-8px);
+}
+
+.example-card .number {
+    display: inline-block;
+    background: linear-gradient(135deg, #442aaa 0%, #5a3bb8 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.example-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.example-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
+
+.main-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 3px solid #dee2e6;
+    text-align: center;
+}
+
+.main-footer p {
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+.main-footer .count {
+    font-weight: 600;
+    color: #442aaa;
+    font-size: 1.1rem;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    
+    .main-header .intro {
+        font-size: 1rem;
+    }
+    
+    .category h2 {
+        font-size: 1.5rem;
+    }
+    
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1400px) {
+    .examples-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+

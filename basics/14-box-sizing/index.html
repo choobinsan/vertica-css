@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-sizing</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Box-Sizing</h1>
+        <p class="intro">Control how width and height are calculated 📦</p>
+
+        <section>
+            <h2>1. The Problem</h2>
+            <p class="description">By default, width and height only apply to content, making sizing unpredictable.</p>
+
+            <div class="demo-container">
+                <div class="problem-demo">
+                    <div class="problem-box">
+                        <div class="box-label">width: 200px</div>
+                        <div class="box-content">Content</div>
+                        <div class="box-breakdown">
+                            + 40px padding<br>
+                            + 20px border<br>
+                            = <strong>260px total!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Surprise!</strong> Setting width: 200px doesn't mean the element is 200px wide!
+            </div>
+        </section>
+
+        <section>
+            <h2>2. content-box (Default)</h2>
+            <p class="description">Width and height apply ONLY to the content area.</p>
+
+            <div class="demo-container">
+                <div class="comparison-grid">
+                    <div class="content-box-demo">
+                        <div class="size-label">width: 200px</div>
+                        <div class="content-area">Content: 200px</div>
+                        <div class="padding-area">+ Padding: 40px</div>
+                        <div class="border-area">+ Border: 20px</div>
+                        <div class="total-size">Total: 260px</div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.box {
+  box-sizing: content-box; /* default */
+  width: 200px;
+  padding: 20px;
+  border: 10px solid blue;
+}
+
+/* Total width = 200 + 40 + 20 = 260px */</code></pre>
+        </section>
+
+        <section>
+            <h2>3. border-box (Recommended)</h2>
+            <p class="description">Width and height include padding and border.</p>
+
+            <div class="demo-container">
+                <div class="comparison-grid">
+                    <div class="border-box-demo">
+                        <div class="size-label">width: 200px</div>
+                        <div class="total-size-first">Total: 200px</div>
+                        <div class="content-area-bb">Content: 140px</div>
+                        <div class="padding-area-bb">Padding: 40px (included)</div>
+                        <div class="border-area-bb">Border: 20px (included)</div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.box {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 20px;
+  border: 10px solid blue;
+}
+
+/* Total width = 200px (as specified!) */</code></pre>
+
+            <div class="explanation-box">
+                <strong>Much better!</strong> The element is exactly 200px wide, as expected.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Side-by-Side Comparison</h2>
+            <p class="description">Both boxes have the same CSS, except for box-sizing.</p>
+
+            <div class="demo-container">
+                <div class="side-by-side">
+                    <div class="comparison-box content-box-example">
+                        <div class="box-title">content-box</div>
+                        <div class="box-body">
+                            width: 200px<br>
+                            padding: 20px<br>
+                            border: 10px
+                        </div>
+                        <div class="actual-width">Actual: 260px</div>
+                    </div>
+                    <div class="comparison-box border-box-example">
+                        <div class="box-title">border-box</div>
+                        <div class="box-body">
+                            width: 200px<br>
+                            padding: 20px<br>
+                            border: 10px
+                        </div>
+                        <div class="actual-width">Actual: 200px ✓</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Best Practice: Universal Border-Box</h2>
+            <p class="description">Apply border-box to all elements for predictable sizing.</p>
+
+            <pre><code>/* Add this to the top of your CSS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}</code></pre>
+
+            <div class="note-box">
+                <strong>✅ Recommended:</strong> This is considered a CSS best practice and is used in most modern projects.
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Why border-box is Better</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Predictable Sizing</h3>
+                    <p>Width means total width, not just content</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧮</div>
+                    <h3>Easier Math</h3>
+                    <p>No need to calculate padding + border</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Percentages work as expected</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Flexible Styling</h3>
+                    <p>Add padding/border without breaking layout</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

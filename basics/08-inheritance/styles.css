@@ -1,0 +1,168 @@
+/* ===== INHERITANCE DEMO ===== */
+
+.parent-demo {
+    color: #667eea;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    border: 3px solid #667eea;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+    border-radius: 8px;
+}
+
+.parent-demo p {
+    margin: 0.75rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 6px;
+}
+
+.child-demo {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(118, 75, 162, 0.1);
+    border: 2px dashed #764ba2;
+    border-radius: 6px;
+}
+
+.child-demo p {
+    background: white;
+}
+
+/* ===== PROPERTY GRID ===== */
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.property-card {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.property-card.inherited {
+    background: linear-gradient(135deg, #d5f4e6 0%, #c8e6c9 100%);
+    border-color: #27ae60;
+}
+
+.property-card.not-inherited {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-color: #e74c3c;
+}
+
+.property-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.property-card.inherited h3 {
+    color: #27ae60;
+}
+
+.property-card.not-inherited h3 {
+    color: #e74c3c;
+}
+
+.property-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* ===== OVERRIDE DEMO ===== */
+
+.override-parent {
+    color: #2196f3;
+    font-size: 1.1rem;
+    border: 3px solid #2196f3;
+    padding: 2rem;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 8px;
+}
+
+.inherit-example {
+    padding: 1rem;
+    background: white;
+    border-radius: 6px;
+    margin: 0.75rem 0;
+}
+
+.override-example {
+    color: #27ae60;
+    padding: 1rem;
+    background: white;
+    border-radius: 6px;
+    margin: 0.75rem 0;
+    font-weight: 600;
+}
+
+/* ===== INHERIT KEYWORD ===== */
+
+.inherit-keyword-parent {
+    border: 3px solid #667eea;
+    padding: 2rem;
+    background: #f0f4ff;
+    border-radius: 8px;
+}
+
+.inherit-keyword-child {
+    border: inherit;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+/* ===== BEST PRACTICES ===== */
+
+.best-practices {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.practice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.practice-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.practice-item .icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.practice-item strong {
+    display: block;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.practice-item p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}

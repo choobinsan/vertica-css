@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Box Model</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>The CSS Box Model</h1>
+        <p class="intro">Every element in CSS is a rectangular box with content, padding, border, and margin 📦</p>
+
+        <section>
+            <h2>1. The Four Parts of the Box Model</h2>
+            <p class="description">From inside to outside: <strong>Content</strong> → <strong>Padding</strong> → <strong>Border</strong> → <strong>Margin</strong></p>
+
+            <div class="demo-container">
+                <div class="box-model-visual">
+                    <div class="margin-layer">
+                        <span class="layer-label">Margin</span>
+                        <div class="border-layer">
+                            <span class="layer-label">Border</span>
+                            <div class="padding-layer">
+                                <span class="layer-label">Padding</span>
+                                <div class="content-layer">
+                                    <span class="layer-label">Content</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Interactive Example</h2>
+            <p class="description">Hover over the box to see the box model in action.</p>
+
+            <div class="demo-container">
+                <div class="box">
+                    This is the content of the box.
+                    <div class="box-info">
+                        <code>width: 200px</code>
+                        <code>padding: 20px</code>
+                        <code>border: 10px</code>
+                        <code>margin: 30px</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Total width calculation:</strong> 200px (content) + 40px (padding) + 20px (border) = 260px<br>
+                <strong>Total space taken:</strong> 260px + 60px (margin) = 320px
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Each Part Explained</h2>
+
+            <div class="parts-grid">
+                <div class="part-card">
+                    <h3>Content</h3>
+                    <p>The actual content of the element (text, images, etc.)</p>
+                    <code>width: 200px;<br>height: 100px;</code>
+                </div>
+
+                <div class="part-card">
+                    <h3>Padding</h3>
+                    <p>Space between content and border. Inherits background color.</p>
+                    <code>padding: 20px;</code>
+                </div>
+
+                <div class="part-card">
+                    <h3>Border</h3>
+                    <p>A line around the padding. Can have color, width, and style.</p>
+                    <code>border: 10px solid blue;</code>
+                </div>
+
+                <div class="part-card">
+                    <h3>Margin</h3>
+                    <p>Space outside the border. Creates distance from other elements.</p>
+                    <code>margin: 30px;</code>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Shorthand Properties</h2>
+            <p class="description">You can set all four sides at once or individually.</p>
+
+            <pre><code>/* All four sides */
+padding: 20px;
+
+/* Vertical | Horizontal */
+padding: 10px 20px;
+
+/* Top | Horizontal | Bottom */
+padding: 10px 20px 30px;
+
+/* Top | Right | Bottom | Left (clockwise) */
+padding: 10px 20px 30px 40px;</code></pre>
+        </section>
+    </div>
+</body>
+</html>

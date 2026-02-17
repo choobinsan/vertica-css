@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Typography</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Responsive Typography</h1>
+        <p class="intro">Make text scale beautifully across all screen sizes 📝✨</p>
+
+        <section>
+            <h2>1. The Problem</h2>
+            <p class="description">Fixed font sizes don't work well across different screen sizes. Text that's readable on desktop might be too small on mobile, or too large on huge monitors.</p>
+
+            <div class="warning-box">
+                <strong>⚠️ Avoid this:</strong> Using fixed pixel sizes like <code>font-size: 16px;</code> everywhere makes text inflexible.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Media Query Approach</h2>
+            <p class="description">Use media queries to change font sizes at different breakpoints.</p>
+
+            <div class="demo-container">
+                <div class="media-query-demo">
+                    <h1>Media Query Heading</h1>
+                    <p>This text changes size at specific breakpoints. Try resizing your browser!</p>
+                </div>
+            </div>
+
+            <pre><code>h1 {
+  font-size: 24px; /* Mobile */
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 48px; /* Desktop */
+  }
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>Pros:</strong> Precise control at each breakpoint<br>
+                <strong>Cons:</strong> Jumps between sizes, requires multiple breakpoints
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Viewport Units (vw)</h2>
+            <p class="description">Use viewport width units for fluid scaling.</p>
+
+            <div class="demo-container">
+                <div class="vw-demo">
+                    <h1>Viewport Width Heading</h1>
+                    <p>This text scales smoothly with the viewport width.</p>
+                </div>
+            </div>
+
+            <pre><code>h1 {
+  font-size: 5vw; /* 5% of viewport width */
+}</code></pre>
+
+            <div class="warning-box">
+                <strong>⚠️ Problem:</strong> Can become too small on mobile or too large on desktop without limits.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. clamp() - The Modern Solution ✨</h2>
+            <p class="description">The <code>clamp()</code> function provides fluid typography with minimum and maximum limits.</p>
+
+            <div class="demo-container">
+                <div class="clamp-demo">
+                    <h1>clamp() Heading</h1>
+                    <p>This text scales fluidly but never gets too small or too large. Perfect!</p>
+                </div>
+            </div>
+
+            <pre><code>h1 {
+  font-size: clamp(24px, 5vw, 64px);
+  /*             min   ideal  max */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>How it works:</strong><br>
+                • <strong>24px</strong> = minimum size (mobile)<br>
+                • <strong>5vw</strong> = ideal size (scales with viewport)<br>
+                • <strong>64px</strong> = maximum size (large screens)
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Comparison</h2>
+
+            <div class="comparison-grid">
+                <div class="comp-card">
+                    <h3>Media Queries</h3>
+                    <div class="demo-text mq-text">Sample Text</div>
+                    <p>✅ Precise control</p>
+                    <p>❌ Jumps between sizes</p>
+                </div>
+
+                <div class="comp-card">
+                    <h3>Viewport Units</h3>
+                    <div class="demo-text vw-text">Sample Text</div>
+                    <p>✅ Smooth scaling</p>
+                    <p>❌ No size limits</p>
+                </div>
+
+                <div class="comp-card">
+                    <h3>clamp()</h3>
+                    <div class="demo-text clamp-text">Sample Text</div>
+                    <p>✅ Smooth scaling</p>
+                    <p>✅ Size limits</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Practical Examples</h2>
+
+            <div class="examples-grid">
+                <div class="example">
+                    <h3>Body Text</h3>
+                    <pre><code>body {
+  font-size: clamp(
+    16px,
+    1rem + 0.5vw,
+    20px
+  );
+}</code></pre>
+                </div>
+
+                <div class="example">
+                    <h3>Headings</h3>
+                    <pre><code>h1 {
+  font-size: clamp(
+    2rem,
+    5vw,
+    4rem
+  );
+}</code></pre>
+                </div>
+
+                <div class="example">
+                    <h3>Line Height</h3>
+                    <pre><code>p {
+  line-height: clamp(
+    1.5,
+    1.5 + 0.5vw,
+    2
+  );
+}</code></pre>
+                </div>
+
+                <div class="example">
+                    <h3>Letter Spacing</h3>
+                    <pre><code>h1 {
+  letter-spacing: clamp(
+    -0.02em,
+    -0.01em + 0.1vw,
+    0.02em
+  );
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Best Practices</h2>
+
+            <div class="best-practices">
+                <div class="practice">
+                    <span class="icon">📏</span>
+                    <div>
+                        <strong>Use rem for base sizes</strong>
+                        <p>Respects user's font size preferences</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>Set reasonable min/max</strong>
+                        <p>Ensure readability on all devices</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">📱</span>
+                    <div>
+                        <strong>Test on real devices</strong>
+                        <p>Browser resize isn't always accurate</p>
+                    </div>
+                </div>
+                <div class="practice">
+                    <span class="icon">♿</span>
+                    <div>
+                        <strong>Consider accessibility</strong>
+                        <p>Minimum 16px for body text</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

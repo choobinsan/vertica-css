@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Responsive Images</h1>
+        <p class="intro">Making images work well at any size 🖼️</p>
+
+        <section>
+            <h2>1. The Problem with Images</h2>
+            <p class="description">By default, images can overflow their containers.</p>
+
+            <div class="demo-container">
+                <div class="narrow-container">
+                    <p class="demo-label">Container (300px wide)</p>
+                    <img src="https://picsum.photos/id/237/800/400" alt="A cute dog" class="default-image">
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Problem:</strong> The image is wider than its container and overflows!
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Responsive Images</h2>
+            <p class="description">Use <code>max-width: 100%</code> to make images responsive.</p>
+
+            <div class="demo-container">
+                <div class="responsive-container">
+                    <img src="https://picsum.photos/id/237/800/400" alt="A cute dog" class="responsive-image">
+                </div>
+            </div>
+
+            <pre><code>img {
+  max-width: 100%;
+  height: auto; /* Maintains aspect ratio */
+  display: block;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>How it works:</strong> The image will never be wider than its container, but can be smaller.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Modern Syntax</h2>
+            <p class="description">Use logical properties for better internationalization.</p>
+
+            <pre><code>img {
+  max-inline-size: 100%; /* Modern */
+  block-size: auto;
+
+  /* vs older syntax */
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+
+            <div class="note-box">
+                <strong>Note:</strong> <code>max-inline-size</code> adapts to writing direction (LTR/RTL).
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Object-fit Property</h2>
+            <p class="description">Control how images fill their containers.</p>
+
+            <div class="demo-container">
+                <div class="object-fit-grid">
+                    <div class="fit-demo">
+                        <img src="https://picsum.photos/id/237/800/400" alt="Dog" class="fit-fill">
+                        <p class="fit-label">object-fit: fill</p>
+                    </div>
+                    <div class="fit-demo">
+                        <img src="https://picsum.photos/id/237/800/400" alt="Dog" class="fit-contain">
+                        <p class="fit-label">object-fit: contain</p>
+                    </div>
+                    <div class="fit-demo">
+                        <img src="https://picsum.photos/id/237/800/400" alt="Dog" class="fit-cover">
+                        <p class="fit-label">object-fit: cover</p>
+                    </div>
+                    <div class="fit-demo">
+                        <img src="https://picsum.photos/id/237/800/400" alt="Dog" class="fit-none">
+                        <p class="fit-label">object-fit: none</p>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>.avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* Fills container, crops if needed */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Object-position</h2>
+            <p class="description">Control which part of the image is visible when cropped.</p>
+
+            <div class="demo-container">
+                <div class="position-grid">
+                    <div class="pos-demo">
+                        <img src="https://picsum.photos/id/237/800/400" alt="Dog" class="pos-top">
+                        <p class="pos-label">object-position: top</p>
+                    </div>
+                    <div class="pos-demo">
+                        <img src="https://picsum.photos/id/237/800/400" alt="Dog" class="pos-center">
+                        <p class="pos-label">object-position: center</p>
+                    </div>
+                    <div class="pos-demo">
+                        <img src="https://picsum.photos/id/237/800/400" alt="Dog" class="pos-bottom">
+                        <p class="pos-label">object-position: bottom</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Best Practices</h2>
+
+            <div class="best-practices">
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Always set max-width: 100%</strong>
+                        <p>Prevents images from overflowing containers</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Use height: auto</strong>
+                        <p>Maintains aspect ratio when resizing</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Add alt text</strong>
+                        <p>Essential for accessibility and SEO</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Use display: block</strong>
+                        <p>Removes unwanted space below inline images</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

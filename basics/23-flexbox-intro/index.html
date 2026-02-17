@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Intro</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Introduction to Flexbox</h1>
+        <p class="intro">Flexbox is a one-dimensional layout system for arranging items in rows or columns 📐</p>
+
+        <section>
+            <h2>1. Basic Flexbox Container</h2>
+            <p class="description">Add <code>display: flex</code> to a container to make its children flex items.</p>
+
+            <div class="demo-label">Default behavior (no wrap)</div>
+            <div class="flex-container no-wrap">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+            </div>
+
+            <pre><code>.flex-container {
+  display: flex;
+  /* flex-wrap: nowrap; (default) */
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>What's happening?</strong> Items shrink to fit on one line. Try resizing your browser window!
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Flex Wrap</h2>
+            <p class="description">Use <code>flex-wrap: wrap</code> to allow items to wrap to multiple lines.</p>
+
+            <div class="demo-label">With wrapping enabled</div>
+            <div class="flex-container with-wrap">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+                <div class="flex-item">4</div>
+                <div class="flex-item">5</div>
+                <div class="flex-item">6</div>
+            </div>
+
+            <pre><code>.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}</code></pre>
+
+            <div class="explanation-box">
+                <strong>What's happening?</strong> Items maintain their size and wrap to new lines when needed.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Flex Direction</h2>
+            <p class="description">Control the direction items flow: row (default) or column.</p>
+
+            <div class="demo-label">Column direction</div>
+            <div class="flex-container column-direction">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+
+            <pre><code>.flex-container {
+  display: flex;
+  flex-direction: column;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Key Flexbox Properties</h2>
+
+            <div class="properties-list">
+                <div class="property-item">
+                    <strong>display: flex</strong>
+                    <p>Creates a flex container</p>
+                </div>
+                <div class="property-item">
+                    <strong>flex-direction</strong>
+                    <p>row | row-reverse | column | column-reverse</p>
+                </div>
+                <div class="property-item">
+                    <strong>flex-wrap</strong>
+                    <p>nowrap | wrap | wrap-reverse</p>
+                </div>
+                <div class="property-item">
+                    <strong>gap</strong>
+                    <p>Space between flex items</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

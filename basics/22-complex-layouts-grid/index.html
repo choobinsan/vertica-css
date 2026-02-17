@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Layouts with Grid</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Complex Layouts with Grid</h1>
+        <p class="intro">Build sophisticated layouts with spanning and positioning 🏗️</p>
+
+        <section>
+            <h2>1. Basic Spanning Example</h2>
+            <p class="description">Items can span multiple columns or rows using grid-column and grid-row.</p>
+
+            <div class="demo-container">
+                <div class="grid-demo-1">
+                    <div class="item item-1">1 (spans 2 columns)</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3 (spans 2 rows)</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5 (spans 2 columns)</div>
+                    <div class="item item-6">6</div>
+                    <div class="item item-7">7 (full width)</div>
+                </div>
+            </div>
+
+            <pre><code>.item-1 {
+  grid-column: 1 / span 2; /* Spans 2 columns */
+}
+
+.item-3 {
+  grid-row: 2 / span 2; /* Spans 2 rows */
+}
+
+.item-7 {
+  grid-column: 1 / -1; /* Full width */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>2. Magazine Layout</h2>
+            <p class="description">A common pattern with a featured article and sidebar items.</p>
+
+            <div class="demo-container">
+                <div class="magazine-layout">
+                    <div class="featured">Featured Article</div>
+                    <div class="sidebar-1">Sidebar 1</div>
+                    <div class="sidebar-2">Sidebar 2</div>
+                    <div class="article-1">Article 1</div>
+                    <div class="article-2">Article 2</div>
+                    <div class="article-3">Article 3</div>
+                </div>
+            </div>
+
+            <pre><code>.magazine-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.featured {
+  grid-column: 1;
+  grid-row: 1 / span 2; /* Tall featured article */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Dashboard Layout</h2>
+            <p class="description">A dashboard with header, sidebar, main content, and widgets.</p>
+
+            <div class="demo-container">
+                <div class="dashboard-layout">
+                    <div class="dash-header">Header</div>
+                    <div class="dash-sidebar">Sidebar</div>
+                    <div class="dash-main">Main Content</div>
+                    <div class="dash-widget-1">Widget 1</div>
+                    <div class="dash-widget-2">Widget 2</div>
+                    <div class="dash-footer">Footer</div>
+                </div>
+            </div>
+
+            <pre><code>.dashboard-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  min-height: 400px;
+}
+
+.dash-header {
+  grid-column: 1 / -1; /* Full width */
+}
+
+.dash-footer {
+  grid-column: 1 / -1; /* Full width */
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Asymmetric Grid</h2>
+            <p class="description">Create visual interest with varying sizes.</p>
+
+            <div class="demo-container">
+                <div class="asymmetric-grid">
+                    <div class="asym-1">1</div>
+                    <div class="asym-2">2</div>
+                    <div class="asym-3">3</div>
+                    <div class="asym-4">4</div>
+                    <div class="asym-5">5</div>
+                    <div class="asym-6">6</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Key Techniques</h2>
+
+            <div class="techniques-grid">
+                <div class="technique">
+                    <span class="icon">📏</span>
+                    <div>
+                        <strong>grid-column: 1 / span 2</strong>
+                        <p>Span multiple columns</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <span class="icon">📐</span>
+                    <div>
+                        <strong>grid-row: 1 / span 3</strong>
+                        <p>Span multiple rows</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <span class="icon">↔️</span>
+                    <div>
+                        <strong>grid-column: 1 / -1</strong>
+                        <p>Full width (start to end)</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <strong>grid-area</strong>
+                        <p>Shorthand for row/column placement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

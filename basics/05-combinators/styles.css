@@ -1,0 +1,196 @@
+/* ===== CHILD COMBINATOR ===== */
+
+.parent-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px dashed #667eea;
+}
+
+/* Selects only direct children */
+.parent-box > p {
+    color: #667eea;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+    padding: 1rem;
+    margin: 0.75rem 0;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+    font-weight: 600;
+}
+
+.nested-wrapper {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 1rem;
+    background: rgba(118, 75, 162, 0.1);
+    border-radius: 6px;
+    border: 2px dashed #764ba2;
+}
+
+.nested-wrapper p {
+    color: #999;
+    background: white;
+    border-left: 4px solid #dee2e6;
+    font-style: italic;
+}
+
+/* ===== ADJACENT SIBLING COMBINATOR ===== */
+
+.sibling-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.sibling-box h3 {
+    background: #667eea;
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0 0 0;
+    border-radius: 6px;
+}
+
+.sibling-box h3:first-child {
+    margin-top: 0;
+}
+
+/* Selects only the immediately following sibling */
+.sibling-box h3 + p {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe082 100%);
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    margin: 0.75rem 0;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.sibling-box p {
+    padding: 1rem;
+    margin: 0.75rem 0;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #dee2e6;
+}
+
+/* ===== GENERAL SIBLING COMBINATOR ===== */
+
+.general-sibling-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.general-sibling-box h3 {
+    background: #667eea;
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+}
+
+.general-sibling-box p {
+    padding: 1rem;
+    margin: 0.75rem 0;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #dee2e6;
+}
+
+/* Selects ALL following siblings */
+.general-sibling-box h3 ~ p {
+    border: 2px solid #e74c3c;
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    font-weight: 600;
+}
+
+.general-sibling-box div {
+    padding: 1rem;
+    margin: 0.75rem 0;
+    background: #e9ecef;
+    border-radius: 6px;
+    text-align: center;
+    color: #666;
+}
+
+/* ===== DESCENDANT COMBINATOR ===== */
+
+.descendant-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.descendant-box > div {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background: rgba(33, 150, 243, 0.05);
+    border-radius: 6px;
+    border: 1px dashed #2196f3;
+}
+
+.descendant-box > div > div {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background: rgba(33, 150, 243, 0.1);
+    border-radius: 6px;
+    border: 1px dashed #1976d2;
+}
+
+/* Selects at ANY depth */
+.descendant-box p {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    padding: 1rem;
+    margin: 0.75rem 0;
+    border-radius: 6px;
+    border-left: 4px solid #2196f3;
+    font-weight: 600;
+}
+
+/* ===== COMBINATOR GRID ===== */
+
+.combinator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.combinator-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.combinator-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.combinator-card h3 {
+    color: #667eea;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.combinator-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0.5rem 0;
+}
+
+.combinator-card p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.combinator-card code {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order and Specificity</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CSS Order & Specificity</h1>
+        <p class="intro">Understanding how CSS determines which styles to apply ⚖️</p>
+
+        <section>
+            <h2>1. The Specificity Hierarchy</h2>
+            <p class="description">When multiple rules target the same element, specificity determines the winner.</p>
+
+            <div class="demo-container">
+                <p class="demo-text highlight" id="main-text">This paragraph has multiple competing styles!</p>
+            </div>
+
+            <div class="specificity-list">
+                <div class="spec-item spec-id">
+                    <span class="spec-label">Highest</span>
+                    <strong>ID Selector</strong>
+                    <code>#main-text { color: green; }</code>
+                    <span class="winner">✓ WINS</span>
+                </div>
+                <div class="spec-item spec-compound">
+                    <strong>Compound Selector</strong>
+                    <code>p.highlight { color: orange; }</code>
+                </div>
+                <div class="spec-item spec-class">
+                    <strong>Class Selector (later)</strong>
+                    <code>.highlight { color: purple; }</code>
+                </div>
+                <div class="spec-item spec-class">
+                    <strong>Class Selector (earlier)</strong>
+                    <code>.highlight { color: blue; }</code>
+                </div>
+                <div class="spec-item spec-type">
+                    <span class="spec-label">Lowest</span>
+                    <strong>Type Selector</strong>
+                    <code>p { color: red; }</code>
+                </div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Result:</strong> The text is green because the ID selector (#main-text) has the highest specificity.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Specificity Calculation</h2>
+            <p class="description">Specificity is calculated as a three-part value: (IDs, Classes, Elements)</p>
+
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <code>p</code>
+                    <div class="calc-value">(0, 0, 1)</div>
+                    <p>1 element</p>
+                </div>
+                <div class="calc-card">
+                    <code>.highlight</code>
+                    <div class="calc-value">(0, 1, 0)</div>
+                    <p>1 class</p>
+                </div>
+                <div class="calc-card">
+                    <code>p.highlight</code>
+                    <div class="calc-value">(0, 1, 1)</div>
+                    <p>1 class + 1 element</p>
+                </div>
+                <div class="calc-card">
+                    <code>#main-text</code>
+                    <div class="calc-value">(1, 0, 0)</div>
+                    <p>1 ID</p>
+                </div>
+                <div class="calc-card">
+                    <code>div p.highlight</code>
+                    <div class="calc-value">(0, 1, 2)</div>
+                    <p>1 class + 2 elements</p>
+                </div>
+                <div class="calc-card">
+                    <code>#main-text.highlight</code>
+                    <div class="calc-value">(1, 1, 0)</div>
+                    <p>1 ID + 1 class</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Source Order Matters</h2>
+            <p class="description">When specificity is equal, the last rule wins.</p>
+
+            <div class="demo-container">
+                <p class="order-demo">This text demonstrates source order</p>
+            </div>
+
+            <div class="code-comparison">
+                <div class="code-block">
+                    <pre><code>/* First rule */
+.order-demo {
+  color: blue;
+}</code></pre>
+                    <span class="loses">✗ Loses</span>
+                </div>
+                <div class="code-block">
+                    <pre><code>/* Second rule (same specificity) */
+.order-demo {
+  color: purple;
+}</code></pre>
+                    <span class="wins">✓ Wins</span>
+                </div>
+            </div>
+
+            <div class="explanation-box">
+                <strong>Key Point:</strong> Both rules have the same specificity (0, 1, 0), so the later rule wins.
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Best Practices</h2>
+
+            <div class="best-practices">
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Use classes for styling</strong>
+                        <p>Classes are reusable and have good specificity</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">⚠️</span>
+                    <div>
+                        <strong>Avoid IDs for styling</strong>
+                        <p>IDs have very high specificity and are hard to override</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">✅</span>
+                    <div>
+                        <strong>Keep specificity low</strong>
+                        <p>Easier to maintain and override when needed</p>
+                    </div>
+                </div>
+                <div class="practice-item">
+                    <span class="icon">❌</span>
+                    <div>
+                        <strong>Avoid !important</strong>
+                        <p>Only use as a last resort; makes debugging difficult</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
