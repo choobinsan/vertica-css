@@ -21,8 +21,8 @@
   text-transform: uppercase;
   letter-spacing: var(--uppercase-kerning);
   text-decoration: none;
-  font-size: var(--size-step-00);
-  font-weight: var(--font-bold);
+  font-size: var(--text-step-0);
+  font-weight: var(--font-weight-bold);
 }
 
 .button:hover {

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Cards</title>
+  </head>
+  <body>
+    <section class="card-list">
+      <article class="card">
+        <figure>
+          <img src="https://picsum.photos/id/10/600/400" alt="Landscape" />
+        </figure>
+        <div class="content flow">
+          <header>
+            <span class="tag">Layout</span>
+            <h3>The Content is the Boss</h3>
+          </header>
+          <p>
+            Intrinsic design means we stop trying to control every pixel and
+            start setting rules that let content flow naturally.
+          </p>
+          <footer>
+            <button class="button" popovertarget="popover-layout">Quick View</button>
+          </footer>
+        </div>
+        <div id="popover-layout" popover>
+          <button class="button" popovertarget="popover-layout" popovertargetaction="hide">
+            ×
+          </button>
+          <h4>Intrinsic Layout</h4>
+          <p>
+            This approach uses Flexbox and Grid properties like
+            <code>min-content</code> and <code>max-content</code> to let the
+            layout adapt without media queries.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure>
+          <img src="https://picsum.photos/id/160/600/400" alt="Typography" />
+        </figure>
+        <div class="content flow">
+          <header>
+            <span class="tag">Typography</span>
+            <h3>Fluid Type Scales</h3>
+          </header>
+          <p>
+            Ditch the rigid font sizes. Use clamp() to create text that scales
+            seamlessly between mobile and desktop environments.
+          </p>
+          <footer>
+            <button class="button" popovertarget="popover-type">Quick View</button>
+          </footer>
+        </div>
+        <div id="popover-type" popover>
+          <button class="button" popovertarget="popover-type" popovertargetaction="hide">
+            ×
+          </button>
+          <h4>Fluid Typography</h4>
+          <p>
+            By using <code>clamp(minimum, preferred, maximum)</code>, your text
+            stays legible on any screen size without manual intervention.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure>
+          <img src="https://picsum.photos/id/180/600/400" alt="CSS Grid" />
+        </figure>
+        <div class="content flow">
+          <header>
+            <span class="tag">CSS Grid</span>
+            <h3>Auto-Placement Magic</h3>
+          </header>
+          <p>
+            Leverage <code>auto-fit</code> and <code>auto-fill</code> to create
+            responsive grids that rearrange themselves without a single media
+            query.
+          </p>
+          <footer>
+            <button class="button" popovertarget="popover-grid">Quick View</button>
+          </footer>
+        </div>
+        <div id="popover-grid" popover>
+          <button class="button" popovertarget="popover-grid" popovertargetaction="hide">
+            ×
+          </button>
+          <h4>The Power of Repeat</h4>
+          <p>
+            Combining <code>repeat(auto-fit, minmax(200px, 1fr))</code> allows
+            cards to wrap naturally based on the container width.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure>
+          <img src="https://picsum.photos/id/201/600/400" alt="Speed" />
+        </figure>
+        <div class="content flow">
+          <header>
+            <span class="tag">Performance</span>
+            <h3>Native Over Scripts</h3>
+          </header>
+          <p>
+            Intrinsic design reduces the need for heavy JavaScript layout
+            calculations, resulting in faster paint times and smoother UX.
+          </p>
+          <footer>
+            <button class="button" popovertarget="popover-perf">Quick View</button>
+          </footer>
+        </div>
+        <div id="popover-perf" popover>
+          <button class="button" popovertarget="popover-perf" popovertargetaction="hide">
+            ×
+          </button>
+          <h4>Efficiency First</h4>
+          <p>
+            Native CSS features like Aspect Ratio and Logical Properties ensure
+            your site is fast and accessible by default.
+          </p>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>

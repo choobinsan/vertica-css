@@ -1,0 +1,125 @@
+@import "../styles.css";
+@import "./themes.css";
+
+@layer cards {
+  .card-list {
+    --card-min-width: 320px;
+    --card-bg: #ffffff;
+    --card-padding: 1.5rem;
+    --card-radius: 12px;
+    --card-direction: column;
+    --accent-color: #6366f1;
+    --title-font: system-ui, sans-serif;
+    --title-size: 1.5rem;
+    --img-ratio: 16 / 9;
+    --img-display: block;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+    gap: 2rem;
+    padding: 2rem;
+
+    .button {
+      --button-bg: var(--accent-color);
+      --button-text: var(--color-white);
+      --button-x-padding: 1rem;
+      --button-y-padding: 0.5rem;
+    }
+
+    .card {
+        --flow-space: 1rem;
+      background: var(--card-bg);
+      padding: var(--card-padding);
+      border-radius: var(--card-radius);
+      display: flex;
+      flex-direction: var(--card-direction);
+      gap: 1.5rem;
+      border: var(--card-border, 1px solid #eee);
+      box-shadow: var(--card-shadow, 0 4px 12px rgba(0, 0, 0, 0.05));
+      align-items: start;
+
+      figure {
+        margin: 0;
+        flex: 1;
+        display: var(--img-display);
+        width: 100%;
+
+        img {
+          width: 100%;
+          aspect-ratio: var(--img-ratio);
+          object-fit: cover;
+          border-radius: calc(var(--card-radius) / 2);
+        }
+      }
+
+      .content {
+        flex: 1.5;
+
+        h3 {
+          font-family: var(--title-font);
+          font-size: var(--title-size);
+          line-height: 1.2;
+        }
+
+        .tag {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--accent-color);
+          font-weight: 700;
+        }
+
+        
+      }
+    }
+    [popover] {
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 500px;
+      max-width: 90vw;
+      margin: auto;
+      gap: 1rem;
+
+      .button {
+        --button-bg: var(--color-black);
+        --button-text: var(--color-white);
+        --button-x-padding: 0.5rem;
+        --button-y-padding: 0.125rem;
+        justify-self: end;
+      }
+    }
+
+    [popover]:popover-open::backdrop {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    [popover]:popover-open {
+      animation: slide-up 0.3s ease-out;
+      display: grid;
+    }
+
+    @keyframes slide-up {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* button[popovertarget] {
+    anchor-name: --card-button;
+    }
+
+    [popover] {
+        position-anchor: --card-button;
+        bottom: anchor(top);
+        left: anchor(left);
+        } */
+  }
+}

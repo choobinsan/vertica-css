@@ -1,0 +1,20 @@
+.theme-editorial {
+  --card-direction: row;
+  --card-min-width: 600px;
+  --card-bg: transparent;
+  --card-border: none;
+  --card-shadow: none;
+  --img-ratio: 4 / 5;
+  --title-font: "Playfair Display", serif;
+  --title-size: 2.2rem;
+}
+
+.theme-brutalist {
+  --card-bg: #fff;
+  --card-radius: 0;
+  --card-border: 3px solid #000;
+  --card-shadow: 10px 10px 0px #000;
+  --accent-color: #000;
+  --link-deco: underline;
+  --title-font: "Archivo Black", sans-serif;
+}
