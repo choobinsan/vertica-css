@@ -3,24 +3,83 @@
     --mouse-y: 0px;
 }
 
-body {
-    margin: 0;
-    background: #0f172a;
-    height: 100vh;
+@property --gradient-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 120deg;
 }
 
+@property --gradient-shift {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 40%;
+}
 
+@property --gradient-hue {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    position: relative;
+    height: 100vh;
+    --gradient-angle: 120deg;
+    --gradient-shift: 40%;
+    --gradient-hue: 0;
+    background:
+        radial-gradient(circle at var(--gradient-shift) 25%, hsl(calc(320 + var(--gradient-hue)) 85% 68% / 0.85), transparent 45%),
+        radial-gradient(circle at calc(100% - var(--gradient-shift)) 80%, hsl(calc(190 + var(--gradient-hue)) 80% 62% / 0.8), transparent 52%),
+        linear-gradient(var(--gradient-angle), hsl(calc(260 + var(--gradient-hue)) 70% 18%), hsl(calc(210 + var(--gradient-hue)) 65% 12%));
+    animation: main-gradient-motion 10s ease-in-out infinite alternate;
+}
+
+@keyframes main-gradient-motion {
+    0% {
+        --gradient-angle: 120deg;
+        --gradient-shift: 32%;
+        --gradient-hue: 0;
+    }
+
+    50% {
+        --gradient-angle: 260deg;
+        --gradient-shift: 62%;
+        --gradient-hue: 24;
+    }
+
+    100% {
+        --gradient-angle: 380deg;
+        --gradient-shift: 45%;
+        --gradient-hue: 52;
+    }
+}
 
 .dot {
+    --shift-x: calc(var(--offset) * -20px);
+    --shift-y: calc(var(--offset) * 16px);
+    --transition-time: calc(700ms + var(--offset) * 450ms);
+    --dot-width: calc(25px - var(--offset) * 2px);
+    --dot-opacity: calc(1 - var(--offset) * 0.15);
+    --dot-filter: blur(calc(var(--offset) * 0.5px));
+
     position: absolute;
     top: 0;
     left: 0;
-    width: 25px;
+    width: var(--dot-width);
     aspect-ratio: 1;
     border-radius: 50%;
-    pointer-events: none;
     background-color: pink;
-    transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
-    transform: translate(var(--mouse-x), var(--mouse-y));
+    opacity: var(--dot-opacity);
+    filter: var(--dot-filter);
+    
+    transition: transform var(--transition-time) cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translate(
+        calc(var(--mouse-x) + var(--shift-x)),
+        calc(var(--mouse-y) + var(--shift-y))
+    );
 }
 
