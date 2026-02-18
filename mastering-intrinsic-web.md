@@ -51,7 +51,7 @@ HTML is the skeleton of accessibility. If your HTML structure is weak, the brows
 ## 9. Modern State Management (CSS vs. JS)
 Identify which UI states (hover, focus, open/closed, valid/invalid) can be handled natively. By 2026, using JS to toggle a simple dropdown visibility is often over-tooling. Use the `<details>` and `<summary>` tags or the Popover API.
 
-## 10. Performance Budgeting (Core Web Vitals)
-This is the measuring tape in your toolbelt. Analyze Interaction to Next Paint (INP) and Cumulative Layout Shift (CLS). You aren’t just building a UI; you’re building a fast, stable experience.
+## 10. Brilliant basics
+Let the basics be your superpower! ❤️
 
 > **Note:** The most senior frontend developers in 2026 aren’t the ones who know the most frameworks; they are the ones who know how to make the browser do the heavy lifting for them.

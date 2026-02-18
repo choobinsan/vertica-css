@@ -1,0 +1,24 @@
+@import "../styles.css";
+@scope (.card) to (.content-slot) {
+  :scope {
+    max-width: 400px;
+    border: 2px solid var(--color-gray-500);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .title {
+    color: royalblue;
+    margin-top: 0;
+  }
+
+  p {
+    font-style: italic;
+    color: var(--color-gray-500);
+  }
+}
+
+.title {
+  color: black;
+  font-size: 1.5rem;
+}

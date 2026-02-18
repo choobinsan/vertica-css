@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="scope.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>@scope</title>
+  </head>
+  <body>
+    <div class="p-16 flow">
+      <div>
+        <h3 class="title">Global Heading</h3>
+        <p>This text is outside the card's scope.</p>
+      </div>
+      <div class="card flow">
+        <div>
+          <h2 class="title">Card Heading</h2>
+          <p>This text is scoped to the card.</p>
+        </div>
+
+        <div class="content-slot">
+          <h2 class="title">Global Heading</h2>
+          <p>This text ignores the card's scope.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

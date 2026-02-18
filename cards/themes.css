@@ -4,12 +4,17 @@
   --card-bg: transparent;
   --card-border: none;
   --card-shadow: none;
+  --accent-color: purple;
   --img-ratio: 4 / 5;
   --title-font: "Playfair Display", serif;
   --title-size: 2.2rem;
+
+  .button {
+   --button-radius: 0.25rem;
+  }
 }
 
-.theme-brutalist {
+.theme-brutalism {
   --card-bg: #fff;
   --card-radius: 0;
   --card-border: 3px solid #000;
