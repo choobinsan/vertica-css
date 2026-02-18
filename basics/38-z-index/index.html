@@ -1,264 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Z-Index and Stacking Contexts</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="wrapper">
-        <h1>Understanding z-index and Stacking Contexts</h1>
-        <p class="intro">Master the third dimension of CSS! 📚</p>
+      <h1>Understanding z-index and Stacking Contexts</h1>
+      <p class="intro">Master the third dimension of CSS! 📚</p>
 
-        <!-- SECTION 1: Basic z-index -->
-        <section>
-            <h2>1. The Basics: z-index Controls Layering</h2>
-            <p class="description">Higher z-index values appear on top. But z-index only works on <strong>positioned elements</strong> (position: relative, absolute, fixed, or sticky).</p>
+      <!-- SECTION 1: Basic z-index -->
+      <section>
+        <h2>1. The Basics: z-index Controls Layering</h2>
+        <p class="description">
+          Higher z-index values appear on top. But z-index only works on
+          <strong>positioned elements</strong> (position: relative, absolute,
+          fixed, or sticky).
+        </p>
 
-            <div class="demo-label">Three overlapping boxes with different z-index values</div>
-            <div class="demo-container basic-demo">
-                <div class="card card-red z-index-one">
-                    <span class="card-label">z-index: 1</span>
-                    <span class="card-position">position: absolute</span>
-                </div>
-                <div class="card card-orange z-index-two">
-                    <span class="card-label">z-index: 2</span>
-                    <span class="card-position">position: absolute</span>
-                </div>
-                <div class="card card-yellow z-index-three">
-                    <span class="card-label">z-index: 3</span>
-                    <span class="card-position">position: absolute</span>
-                </div>
+        <div class="demo-label">
+          Three overlapping boxes with different z-index values
+        </div>
+        <div class="demo-container basic-demo">
+          <div class="card card-red z-index-one">
+            <span class="card-label">z-index: 1</span>
+            <span class="card-position">position: absolute</span>
+          </div>
+          <div class="card card-orange z-index-two">
+            <span class="card-label">z-index: 2</span>
+            <span class="card-position">position: absolute</span>
+          </div>
+          <div class="card card-yellow z-index-three">
+            <span class="card-label">z-index: 3</span>
+            <span class="card-position">position: absolute</span>
+          </div>
+        </div>
+
+        <div class="demo-label">Without position, z-index has no effect</div>
+        <div class="demo-container basic-demo">
+          <div class="card card-red no-position z-index-high">
+            <span class="card-label">z-index: 999</span>
+            <span class="card-position">position: static ❌</span>
+          </div>
+          <div class="card card-orange no-position offset-small">
+            <span class="card-label">z-index: 1</span>
+            <span class="card-position">position: static ❌</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Stacking Contexts -->
+      <section>
+        <h2>2. Stacking Contexts: The Game Changer</h2>
+        <p class="description">
+          A <strong>stacking context</strong> is like a "layer group" in
+          Photoshop. Elements inside can't escape their parent's stacking order,
+          no matter how high their z-index!
+        </p>
+
+        <div class="demo-label">
+          Parent with z-index: 1 contains child with z-index: 9999
+        </div>
+        <div class="demo-container stacking-demo">
+          <div class="card card-blue z-index-two positioned">
+            <span class="card-label">Sibling</span>
+            <span class="card-position">z-index: 2</span>
+          </div>
+          <div class="parent-context z-index-one">
+            <span class="context-label">Parent (z-index: 1)</span>
+            <div class="card card-green z-index-super-high">
+              <span class="card-label">Child</span>
+              <span class="card-position">z-index: 9999</span>
+              <span class="card-note">Still behind sibling!</span>
             </div>
+          </div>
+        </div>
 
-            <div class="demo-label">Without position, z-index has no effect</div>
-            <div class="demo-container basic-demo">
-                <div class="card card-red no-position z-index-high">
-                    <span class="card-label">z-index: 999</span>
-                    <span class="card-position">position: static ❌</span>
-                </div>
-                <div class="card card-orange no-position offset-small">
-                    <span class="card-label">z-index: 1</span>
-                    <span class="card-position">position: static ❌</span>
-                </div>
+        <div class="explanation-box">
+          <strong>Why?</strong> The parent creates a stacking context (position
+          + z-index). The child's z-index only competes within that context, not
+          globally.
+        </div>
+      </section>
+
+      <!-- SECTION 3: What Creates Stacking Contexts -->
+      <section>
+        <h2>3. What Creates a Stacking Context?</h2>
+        <p class="description">
+          Many CSS properties create stacking contexts. Here are the most
+          common:
+        </p>
+
+        <div class="properties-grid">
+          <div class="property-card">
+            <h3>position + z-index</h3>
+            <code>position: relative;<br />z-index: 1;</code>
+            <p>Most common way</p>
+          </div>
+          <div class="property-card">
+            <h3>opacity</h3>
+            <code>opacity: 0.99;</code>
+            <p>Any value less than 1</p>
+          </div>
+          <div class="property-card">
+            <h3>transform</h3>
+            <code>transform: translateZ(0);</code>
+            <p>Any transform value</p>
+          </div>
+          <div class="property-card">
+            <h3>filter</h3>
+            <code>filter: blur(5px);</code>
+            <p>Any filter value</p>
+          </div>
+          <div class="property-card">
+            <h3>isolation</h3>
+            <code>isolation: isolate;</code>
+            <p>Explicit stacking context</p>
+          </div>
+          <div class="property-card">
+            <h3>will-change</h3>
+            <code>will-change: transform;</code>
+            <p>Performance hint</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Interactive Example -->
+      <section>
+        <h2>4. Real-World: Modal Overlay</h2>
+        <p class="description">
+          A common pattern: overlay with high z-index, modal on top of that.
+        </p>
+
+        <div class="demo-container modal-demo">
+          <div class="page-content">
+            <h3>Page Content</h3>
+            <p>
+              This is the main page content that should be covered by the modal.
+            </p>
+            <button class="demo-button">Regular Button (z-index: 1)</button>
+          </div>
+
+          <div class="overlay">
+            <span class="overlay-label">Overlay (z-index: 100)</span>
+          </div>
+
+          <div class="modal">
+            <h3>Modal Dialog</h3>
+            <p>This modal sits on top of the overlay.</p>
+            <code>z-index: 101</code>
+            <button class="modal-close">Close ✕</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: The Stacking Order -->
+      <section>
+        <h2>5. Stacking Order Within a Context</h2>
+        <p class="description">
+          When elements have the same z-index (or no z-index), this is the order
+          from back to front:
+        </p>
+
+        <div class="stacking-order-list">
+          <div class="order-item">
+            <span class="order-number">1</span>
+            <div class="order-content">
+              <strong>Background & Borders</strong>
+              <p>The stacking context's background and border</p>
             </div>
-        </section>
-
-        <!-- SECTION 2: Stacking Contexts -->
-        <section>
-            <h2>2. Stacking Contexts: The Game Changer</h2>
-            <p class="description">A <strong>stacking context</strong> is like a "layer group" in Photoshop. Elements inside can't escape their parent's stacking order, no matter how high their z-index!</p>
-
-            <div class="demo-label">Parent with z-index: 1 contains child with z-index: 9999</div>
-            <div class="demo-container stacking-demo">
-                <div class="card card-blue z-index-two positioned">
-                    <span class="card-label">Sibling</span>
-                    <span class="card-position">z-index: 2</span>
-                </div>
-                <div class="parent-context z-index-one">
-                    <span class="context-label">Parent (z-index: 1)</span>
-                    <div class="card card-green z-index-super-high">
-                        <span class="card-label">Child</span>
-                        <span class="card-position">z-index: 9999</span>
-                        <span class="card-note">Still behind sibling!</span>
-                    </div>
-                </div>
+          </div>
+          <div class="order-item">
+            <span class="order-number">2</span>
+            <div class="order-content">
+              <strong>Negative z-index</strong>
+              <p>Positioned elements with z-index &lt; 0</p>
             </div>
-
-            <div class="explanation-box">
-                <strong>Why?</strong> The parent creates a stacking context (position + z-index). The child's z-index only competes within that context, not globally.
+          </div>
+          <div class="order-item">
+            <span class="order-number">3</span>
+            <div class="order-content">
+              <strong>Block-level boxes</strong>
+              <p>Non-positioned, non-floated blocks</p>
             </div>
-        </section>
-
-        <!-- SECTION 3: What Creates Stacking Contexts -->
-        <section>
-            <h2>3. What Creates a Stacking Context?</h2>
-            <p class="description">Many CSS properties create stacking contexts. Here are the most common:</p>
-
-            <div class="properties-grid">
-                <div class="property-card">
-                    <h3>position + z-index</h3>
-                    <code>position: relative;<br>z-index: 1;</code>
-                    <p>Most common way</p>
-                </div>
-                <div class="property-card">
-                    <h3>opacity</h3>
-                    <code>opacity: 0.99;</code>
-                    <p>Any value less than 1</p>
-                </div>
-                <div class="property-card">
-                    <h3>transform</h3>
-                    <code>transform: translateZ(0);</code>
-                    <p>Any transform value</p>
-                </div>
-                <div class="property-card">
-                    <h3>filter</h3>
-                    <code>filter: blur(5px);</code>
-                    <p>Any filter value</p>
-                </div>
-                <div class="property-card">
-                    <h3>isolation</h3>
-                    <code>isolation: isolate;</code>
-                    <p>Explicit stacking context</p>
-                </div>
-                <div class="property-card">
-                    <h3>will-change</h3>
-                    <code>will-change: transform;</code>
-                    <p>Performance hint</p>
-                </div>
+          </div>
+          <div class="order-item">
+            <span class="order-number">4</span>
+            <div class="order-content">
+              <strong>Floated elements</strong>
+              <p>Float: left or right</p>
             </div>
-        </section>
-
-        <!-- SECTION 4: Interactive Example -->
-        <section>
-            <h2>4. Real-World: Modal Overlay</h2>
-            <p class="description">A common pattern: overlay with high z-index, modal on top of that.</p>
-
-            <div class="demo-container modal-demo">
-                <div class="page-content">
-                    <h3>Page Content</h3>
-                    <p>This is the main page content that should be covered by the modal.</p>
-                    <button class="demo-button">Regular Button (z-index: 1)</button>
-                </div>
-
-                <div class="overlay">
-                    <span class="overlay-label">Overlay (z-index: 100)</span>
-                </div>
-
-                <div class="modal">
-                    <h3>Modal Dialog</h3>
-                    <p>This modal sits on top of the overlay.</p>
-                    <code>z-index: 101</code>
-                    <button class="modal-close">Close ✕</button>
-                </div>
+          </div>
+          <div class="order-item">
+            <span class="order-number">5</span>
+            <div class="order-content">
+              <strong>Inline elements</strong>
+              <p>Non-positioned inline content</p>
             </div>
-        </section>
-
-        <!-- SECTION 5: The Stacking Order -->
-        <section>
-            <h2>5. Stacking Order Within a Context</h2>
-            <p class="description">When elements have the same z-index (or no z-index), this is the order from back to front:</p>
-
-            <div class="stacking-order-list">
-                <div class="order-item">
-                    <span class="order-number">1</span>
-                    <div class="order-content">
-                        <strong>Background & Borders</strong>
-                        <p>The stacking context's background and border</p>
-                    </div>
-                </div>
-                <div class="order-item">
-                    <span class="order-number">2</span>
-                    <div class="order-content">
-                        <strong>Negative z-index</strong>
-                        <p>Positioned elements with z-index &lt; 0</p>
-                    </div>
-                </div>
-                <div class="order-item">
-                    <span class="order-number">3</span>
-                    <div class="order-content">
-                        <strong>Block-level boxes</strong>
-                        <p>Non-positioned, non-floated blocks</p>
-                    </div>
-                </div>
-                <div class="order-item">
-                    <span class="order-number">4</span>
-                    <div class="order-content">
-                        <strong>Floated elements</strong>
-                        <p>Float: left or right</p>
-                    </div>
-                </div>
-                <div class="order-item">
-                    <span class="order-number">5</span>
-                    <div class="order-content">
-                        <strong>Inline elements</strong>
-                        <p>Non-positioned inline content</p>
-                    </div>
-                </div>
-                <div class="order-item">
-                    <span class="order-number">6</span>
-                    <div class="order-content">
-                        <strong>z-index: 0 / auto</strong>
-                        <p>Positioned elements with z-index: 0 or auto</p>
-                    </div>
-                </div>
-                <div class="order-item">
-                    <span class="order-number">7</span>
-                    <div class="order-content">
-                        <strong>Positive z-index</strong>
-                        <p>Positioned elements with z-index &gt; 0</p>
-                    </div>
-                </div>
+          </div>
+          <div class="order-item">
+            <span class="order-number">6</span>
+            <div class="order-content">
+              <strong>z-index: 0 / auto</strong>
+              <p>Positioned elements with z-index: 0 or auto</p>
             </div>
-        </section>
-
-        <!-- SECTION 6: Common Pitfalls -->
-        <section>
-            <h2>6. Common Pitfalls & Solutions</h2>
-
-            <div class="pitfall-grid">
-                <div class="pitfall-card">
-                    <h3>❌ Problem: z-index not working</h3>
-                    <p><strong>Cause:</strong> Element is not positioned</p>
-                    <code class="code-bad">div { z-index: 999; }</code>
-                    <p><strong>Solution:</strong> Add position property</p>
-                    <code class="code-good">div {<br>&nbsp;&nbsp;position: relative;<br>&nbsp;&nbsp;z-index: 999;<br>}</code>
-                </div>
-
-                <div class="pitfall-card">
-                    <h3>❌ Problem: Can't stack above parent's sibling</h3>
-                    <p><strong>Cause:</strong> Parent creates stacking context</p>
-                    <code class="code-bad">.parent { opacity: 0.9; }<br>.child { z-index: 9999; }</code>
-                    <p><strong>Solution:</strong> Move z-index to parent or restructure HTML</p>
-                    <code class="code-good">.parent {<br>&nbsp;&nbsp;opacity: 0.9;<br>&nbsp;&nbsp;z-index: 9999;<br>}</code>
-                </div>
-
-                <div class="pitfall-card">
-                    <h3>❌ Problem: Using z-index: 99999</h3>
-                    <p><strong>Cause:</strong> Fighting stacking contexts with brute force</p>
-                    <code class="code-bad">z-index: 999999;</code>
-                    <p><strong>Solution:</strong> Understand stacking contexts, use reasonable values</p>
-                    <code class="code-good">/* Use a scale */<br>z-index: 10; /* modals */<br>z-index: 5; /* dropdowns */<br>z-index: 1; /* tooltips */</code>
-                </div>
+          </div>
+          <div class="order-item">
+            <span class="order-number">7</span>
+            <div class="order-content">
+              <strong>Positive z-index</strong>
+              <p>Positioned elements with z-index &gt; 0</p>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- SECTION 7: Best Practices -->
-        <section>
-            <h2>7. Best Practices</h2>
-            <div class="best-practices">
-                <div class="practice-item">
-                    <span class="practice-icon">✅</span>
-                    <div>
-                        <strong>Use a z-index scale</strong>
-                        <p>Define standard values: 1 (base), 10 (dropdowns), 100 (modals), 1000 (tooltips)</p>
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <span class="practice-icon">✅</span>
-                    <div>
-                        <strong>Use isolation: isolate</strong>
-                        <p>Create stacking contexts explicitly when needed, makes intent clear</p>
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <span class="practice-icon">✅</span>
-                    <div>
-                        <strong>Keep it simple</strong>
-                        <p>Avoid deep nesting of stacking contexts when possible</p>
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <span class="practice-icon">✅</span>
-                    <div>
-                        <strong>Document your scale</strong>
-                        <p>Use CSS custom properties for z-index values</p>
-                        <code>--z-modal: 100;<br>--z-dropdown: 10;</code>
-                    </div>
-                </div>
+      <!-- SECTION 6: Common Pitfalls -->
+      <section>
+        <h2>6. Common Pitfalls & Solutions</h2>
+
+        <div class="pitfall-grid">
+          <div class="pitfall-card">
+            <h3>❌ Problem: z-index not working</h3>
+            <p><strong>Cause:</strong> Element is not positioned</p>
+            <code class="code-bad">div { z-index: 999; }</code>
+            <p><strong>Solution:</strong> Add position property</p>
+            <code class="code-good"
+              >div {<br />&nbsp;&nbsp;position: relative;<br />&nbsp;&nbsp;z-index:
+              999;<br />}</code
+            >
+          </div>
+
+          <div class="pitfall-card">
+            <h3>❌ Problem: Can't stack above parent's sibling</h3>
+            <p><strong>Cause:</strong> Parent creates stacking context</p>
+            <code class="code-bad"
+              >.parent { opacity: 0.9; }<br />.child { z-index: 9999; }</code
+            >
+            <p>
+              <strong>Solution:</strong> Move z-index to parent or restructure
+              HTML
+            </p>
+            <code class="code-good"
+              >.parent {<br />&nbsp;&nbsp;opacity: 0.9;<br />&nbsp;&nbsp;z-index:
+              9999;<br />}</code
+            >
+          </div>
+
+          <div class="pitfall-card">
+            <h3>❌ Problem: Using z-index: 99999</h3>
+            <p>
+              <strong>Cause:</strong> Fighting stacking contexts with brute
+              force
+            </p>
+            <code class="code-bad">z-index: 999999;</code>
+            <p>
+              <strong>Solution:</strong> Understand stacking contexts, use
+              reasonable values
+            </p>
+            <code class="code-good"
+              >/* Use a scale */<br />z-index: 1; /* base */<br />z-index: 10;
+              /* dropdowns */<br />z-index: 100; /* modals */<br />z-index:
+              1000; /* tooltips */</code
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: Best Practices -->
+      <section>
+        <h2>7. Best Practices</h2>
+        <div class="best-practices">
+          <div class="practice-item">
+            <span class="practice-icon">✅</span>
+            <div>
+              <strong>Use a z-index scale</strong>
+              <p>
+                Define standard values: 1 (base), 10 (dropdowns), 100 (modals),
+                1000 (tooltips)
+              </p>
             </div>
-        </section>
+          </div>
+          <div class="practice-item">
+            <span class="practice-icon">✅</span>
+            <div>
+              <strong>Use isolation: isolate</strong>
+              <p>
+                Create stacking contexts explicitly when needed, makes intent
+                clear
+              </p>
+            </div>
+          </div>
+          <div class="practice-item">
+            <span class="practice-icon">✅</span>
+            <div>
+              <strong>Keep it simple</strong>
+              <p>Avoid deep nesting of stacking contexts when possible</p>
+            </div>
+          </div>
+          <div class="practice-item">
+            <span class="practice-icon">✅</span>
+            <div>
+              <strong>Document your scale</strong>
+              <p>Use CSS custom properties for z-index values</p>
+              <code>--z-modal: 100;<br />--z-dropdown: 10;</code>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>
