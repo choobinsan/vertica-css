@@ -48,8 +48,8 @@ picture {
 }
 
 ::selection {
-  color: var(--color-dark);
-  background: var(--color-light);
+  color: var(--color-primary);
+  background: var(--color-black);
 }
 
 hr {
@@ -70,6 +70,6 @@ svg {
 svg[role='img'][width][height] {
   width: revert;
   height: revert;
-  background: var(--color-light);
+  background: var(--color-gray-100);
   padding: var(--space-xs);
 }

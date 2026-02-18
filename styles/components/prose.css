@@ -37,7 +37,7 @@
   border: var(--stroke-solid);
 }
 
-@media screen(md) {
+@media (width >= 768px) {
   .prose :is(h1, h2, h3) {
     overflow-wrap: unset;
     hyphens: unset;
