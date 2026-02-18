@@ -1,162 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Position Sticky</title>
-    <link rel="stylesheet" href="../shared-styles.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../shared-styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="wrapper">
-        <h1>Position: Sticky</h1>
-        <p class="intro">Elements that toggle between relative and fixed 🎯</p>
+      <h1>Position: Sticky</h1>
+      <p class="intro">Elements that toggle between relative and fixed 🎯</p>
 
-        <section>
-            <h2>1. What is position: sticky?</h2>
-            <p class="description">Sticky elements behave like relative positioning until they reach a threshold, then become fixed.</p>
+      <section>
+        <h2>1. What is position: sticky?</h2>
+        <p class="description">
+          Sticky elements behave like relative positioning until they reach a
+          threshold, then become fixed.
+        </p>
 
-            <div class="explanation-box">
-                <strong>Hybrid behavior:</strong> Sticky = Relative + Fixed. It's relative until you scroll past it, then it sticks!
-            </div>
-        </section>
+        <div class="explanation-box">
+          <strong>Hybrid behavior:</strong> Sticky = Relative + Fixed. It's
+          relative until you scroll past it, then it sticks!
+        </div>
+      </section>
 
-        <section>
-            <h2>2. How It Works</h2>
+      <section>
+        <h2>2. How It Works</h2>
 
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Scroll normally</h3>
-                    <p>Element behaves like position: relative</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Reach threshold</h3>
-                    <p>When you scroll to the specified offset (e.g., top: 0)</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Stick in place</h3>
-                    <p>Element becomes fixed at that position</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Scroll back</h3>
-                    <p>Returns to relative positioning</p>
-                </div>
-            </div>
-        </section>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Scroll normally</h3>
+            <p>Element behaves like position: relative</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Reach threshold</h3>
+            <p>When you scroll to the specified offset (e.g., top: 0)</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Stick in place</h3>
+            <p>Element becomes fixed at that position</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Scroll back</h3>
+            <p>Returns to relative positioning</p>
+          </div>
+        </div>
+      </section>
 
-        <section>
-            <h2>3. Basic Syntax</h2>
+      <section>
+        <h2>3. Basic Syntax</h2>
 
-            <pre><code>.sticky-element {
+        <pre><code>.sticky-element {
   position: sticky;
   top: 0; /* Stick when top reaches 0px from viewport */
   /* Element stays in document flow */
 }</code></pre>
-        </section>
+      </section>
 
-        <section>
-            <h2>4. Common Use Cases</h2>
+      <section>
+        <h2>4. Common Use Cases</h2>
 
-            <div class="use-cases">
-                <div class="use-case-card">
-                    <span class="icon">📌</span>
-                    <h3>Sticky Headers</h3>
-                    <p>Table headers that stay visible while scrolling data</p>
-                </div>
-                <div class="use-case-card">
-                    <span class="icon">🧭</span>
-                    <h3>Navigation Bars</h3>
-                    <p>Nav that sticks to top after scrolling past hero</p>
-                </div>
-                <div class="use-case-card">
-                    <span class="icon">📑</span>
-                    <h3>Section Headers</h3>
-                    <p>Category headers in long lists</p>
-                </div>
-                <div class="use-case-card">
-                    <span class="icon">🎨</span>
-                    <h3>Sidebars</h3>
-                    <p>Sidebar content that follows as you scroll</p>
-                </div>
-            </div>
-        </section>
+        <div class="use-cases">
+          <div class="use-case-card">
+            <span class="icon">📌</span>
+            <h3>Sticky Headers</h3>
+            <p>Table headers that stay visible while scrolling data</p>
+          </div>
+          <div class="use-case-card">
+            <span class="icon">🧭</span>
+            <h3>Navigation Bars</h3>
+            <p>Nav that sticks to top after scrolling past hero</p>
+          </div>
+          <div class="use-case-card">
+            <span class="icon">📑</span>
+            <h3>Section Headers</h3>
+            <p>Category headers in long lists</p>
+          </div>
+          <div class="use-case-card">
+            <span class="icon">🎨</span>
+            <h3>Sidebars</h3>
+            <p>Sidebar content that follows as you scroll</p>
+          </div>
+        </div>
+      </section>
 
-        <section>
-            <h2>5. Live Demo</h2>
-            <p class="description">Scroll down to see the sticky navigation in action!</p>
+      <section>
+        <h2>5. Live Demo</h2>
+        <p class="description">
+          Scroll down to see the sticky navigation in action!
+        </p>
 
-            <div class="note-box">
-                <strong>👀 Watch:</strong> The purple navigation bar below will stick to the top of this white container when you scroll.
-            </div>
-        </section>
+        <div class="note-box">
+          <strong>👀 Watch:</strong> The purple navigation bar below will stick
+          to the top of this white container when you scroll.
+        </div>
+      </section>
     </div>
 
     <!-- Demo area with sticky nav -->
     <div class="demo-wrapper">
-        <div class="demo-header">
-            <h2>Article Title</h2>
-            <p>This is a demo article with a sticky navigation</p>
-        </div>
+      <div class="demo-header">
+        <h2>Article Title</h2>
+        <p>This is a demo article with a sticky navigation</p>
+      </div>
 
-        <nav class="sticky-nav">
-            <a href="#intro">Introduction</a>
-            <a href="#content">Content</a>
-            <a href="#conclusion">Conclusion</a>
-        </nav>
+      <nav class="sticky-nav">
+        <a href="#intro">Introduction</a>
+        <a href="#content">Content</a>
+        <a href="#conclusion">Conclusion</a>
+      </nav>
 
-        <div class="demo-content">
-            <h3 id="intro">Introduction</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+      <div class="demo-content">
+        <h3 id="intro">Introduction</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident.
+        </p>
 
-            <h3 id="content">Main Content</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h3 id="content">Main Content</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat.
+        </p>
 
-            <h3 id="conclusion">Conclusion</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+        <h3 id="conclusion">Conclusion</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur.
+        </p>
+        <p>
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
     </div>
 
-    <div class="wrapper" style="margin-top: 2rem;">
-        <section>
-            <h2>6. Key Differences</h2>
+    <div class="wrapper" style="margin-top: 2rem">
+      <section>
+        <h2>6. Edge Case: Sticky in Flexbox</h2>
+        <p class="description">
+          Sticky doesn't work inside a flex container when the default
+          <code>align-self: stretch</code> makes the sidebar the same height as
+          the content — there's nothing to stick against.
+        </p>
 
-            <div class="comparison-table">
-                <div class="comp-row">
-                    <div class="comp-label">Fixed</div>
-                    <div class="comp-desc">Always fixed to viewport, removed from flow</div>
-                </div>
-                <div class="comp-row">
-                    <div class="comp-label">Sticky</div>
-                    <div class="comp-desc">Toggles between relative and fixed, stays in flow</div>
-                </div>
-                <div class="comp-row">
-                    <div class="comp-label">Relative</div>
-                    <div class="comp-desc">Always relative, never sticks</div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>7. Important Notes</h2>
-
-            <div class="warning-box">
-                <strong>⚠️ Parent container:</strong> Sticky elements only stick within their parent container. Once the parent scrolls out of view, the sticky element goes with it.
-            </div>
-
-            <div class="note-box" style="margin-top: 1rem;">
-                <strong>💡 Tip:</strong> You must specify at least one of: top, right, bottom, or left for sticky to work.
-            </div>
-        </section>
+        <a href="sticky-flex-bug.html" class="edge-case-link" target="_blank">
+          🐛 See the Flexbox + Sticky Bug Demo →
+        </a>
+      </section>
     </div>
-</body>
+
+    <div class="wrapper" style="margin-top: 2rem">
+      <section>
+        <h2>7. Key Differences</h2>
+
+        <div class="comparison-table">
+          <div class="comp-row">
+            <div class="comp-label">Fixed</div>
+            <div class="comp-desc">
+              Always fixed to viewport, removed from flow
+            </div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-label">Sticky</div>
+            <div class="comp-desc">
+              Toggles between relative and fixed, stays in flow
+            </div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-label">Relative</div>
+            <div class="comp-desc">Always relative, never sticks</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>8. Important Notes</h2>
+
+        <div class="warning-box">
+          <strong>⚠️ Parent container:</strong> Sticky elements only stick
+          within their parent container. Once the parent scrolls out of view,
+          the sticky element goes with it.
+        </div>
+
+        <div class="note-box" style="margin-top: 1rem">
+          <strong>💡 Tip:</strong> You must specify at least one of: top, right,
+          bottom, or left for sticky to work.
+        </div>
+      </section>
+
+      <div class="navigation-footer">
+        <a href="../36-position-relative/index.html" class="next-button">
+          Next: Position Relative
+        </a>
+      </div>
+    </div>
+  </body>
 </html>

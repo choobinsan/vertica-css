@@ -1,77 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Margins</title>
-    <link rel="stylesheet" href="../shared-styles.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../shared-styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="wrapper">
-        <h1>CSS Margins</h1>
-        <p class="intro">Understanding margins and margin collapse 📏</p>
+      <h1>CSS Margins</h1>
+      <p class="intro">Understanding margins and margin collapse 📏</p>
 
-        <section>
-            <h2>1. What are Margins?</h2>
-            <p class="description">Margins create space OUTSIDE an element's border, pushing other elements away.</p>
+      <section>
+        <h2>1. What are Margins?</h2>
+        <p class="description">
+          Margins create space OUTSIDE an element's border, pushing other
+          elements away.
+        </p>
 
-            <div class="demo-container">
-                <div class="margin-demo-box">
-                    <div class="box-with-margin">Box with 20px margin</div>
-                    <div class="box-with-margin">Box with 20px margin</div>
-                </div>
-            </div>
+        <div class="demo-container">
+          <div class="margin-demo-box">
+            <div class="box-with-margin">Box with 20px margin</div>
+            <div class="box-with-margin">Box with 20px margin</div>
+          </div>
+        </div>
 
-            <pre><code>.box {
+        <pre><code>.box {
   margin: 20px; /* All sides */
   margin-top: 10px;
   margin-right: 20px;
   margin-bottom: 10px;
   margin-left: 20px;
 }</code></pre>
-        </section>
+      </section>
 
-        <section>
-            <h2>2. Centering with Margins</h2>
-            <p class="description">Use <code>margin: auto</code> to horizontally center block elements.</p>
+      <section>
+        <h2>2. Centering with Margins</h2>
+        <p class="description">
+          Use <code>margin: auto</code> to horizontally center block elements.
+        </p>
 
-            <div class="demo-container">
-                <div class="centered-box">Centered with margin: auto</div>
-            </div>
+        <div class="demo-container">
+          <div class="centered-box">Centered with margin: auto</div>
+        </div>
 
-            <pre><code>.centered {
+        <pre><code>.centered {
   width: 300px;
   margin-inline: auto; /* Modern syntax */
   /* or margin: 0 auto; */
 }</code></pre>
 
-            <div class="explanation-box">
-                <strong>Key Point:</strong> Auto margins only work for horizontal centering on block elements with a defined width.
+        <div class="explanation-box">
+          <strong>Key Point:</strong> Auto margins only work for horizontal
+          centering on block elements with a defined width.
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Margin Collapse</h2>
+        <p class="description">
+          When two vertical margins meet, they collapse into a single margin
+          (the larger one).
+        </p>
+
+        <div class="demo-container">
+          <div class="collapse-demo">
+            <div class="collapse-box1">
+              <span class="margin-label">margin-bottom: 30px</span>
+              Box 1
             </div>
-        </section>
-
-        <section>
-            <h2>3. Margin Collapse</h2>
-            <p class="description">When two vertical margins meet, they collapse into a single margin (the larger one).</p>
-
-            <div class="demo-container">
-                <div class="collapse-demo">
-                    <div class="collapse-box1">
-                        <span class="margin-label">margin-bottom: 30px</span>
-                        Box 1
-                    </div>
-                    <div class="collapse-box2">
-                        <span class="margin-label">margin-top: 20px</span>
-                        Box 2
-                    </div>
-                    <div class="collapse-note">
-                        ⬆️ Actual space between boxes: 30px (not 50px!)
-                    </div>
-                </div>
+            <div class="collapse-box2">
+              <span class="margin-label">margin-top: 20px</span>
+              Box 2
             </div>
+            <div class="collapse-note">
+              ⬆️ Actual space between boxes: 30px (not 50px!)
+            </div>
+          </div>
+        </div>
 
-            <pre><code>.box1 {
+        <pre><code>.box1 {
   margin-bottom: 30px;
 }
 
@@ -81,25 +90,28 @@
 
 /* Result: 30px gap (larger margin wins) */</code></pre>
 
-            <div class="warning-box">
-                <strong>⚠️ Margin Collapse:</strong> Only happens with vertical margins (top/bottom), not horizontal (left/right).
-            </div>
-        </section>
+        <div class="warning-box">
+          <strong>⚠️ Margin Collapse:</strong> Only happens with vertical
+          margins (top/bottom), not horizontal (left/right).
+        </div>
+      </section>
 
-        <section>
-            <h2>4. Parent-Child Margin Collapse</h2>
-            <p class="description">A child's margin can collapse with its parent's margin.</p>
+      <section>
+        <h2>4. Parent-Child Margin Collapse</h2>
+        <p class="description">
+          A child's margin can collapse with its parent's margin.
+        </p>
 
-            <div class="demo-container">
-                <div class="parent-demo">
-                    <div class="child-demo">
-                        Child with margin-top: 20px
-                    </div>
-                </div>
-                <p class="demo-label">⬆️ The child's margin collapses through the parent!</p>
-            </div>
+        <div class="demo-container">
+          <div class="parent-demo">
+            <div class="child-demo">Child with margin-top: 20px</div>
+          </div>
+          <p class="demo-label">
+            ⬆️ The child's margin collapses through the parent!
+          </p>
+        </div>
 
-            <pre><code>.parent {
+        <pre><code>.parent {
   background: lightgray;
   /* No padding or border */
 }
@@ -107,22 +119,22 @@
 .child {
   margin-top: 20px; /* Collapses with parent */
 }</code></pre>
-        </section>
+      </section>
 
-        <section>
-            <h2>5. Preventing Margin Collapse</h2>
-            <p class="description">Several techniques can prevent margin collapse:</p>
+      <section>
+        <h2>5. Preventing Margin Collapse</h2>
+        <p class="description">
+          Several techniques can prevent margin collapse:
+        </p>
 
-            <div class="demo-container">
-                <div class="parent-no-collapse">
-                    <div class="child-no-collapse">
-                        Child margin doesn't collapse
-                    </div>
-                </div>
-                <p class="demo-label">⬆️ Parent has padding, so no collapse!</p>
-            </div>
+        <div class="demo-container">
+          <div class="parent-no-collapse">
+            <div class="child-no-collapse">Child margin doesn't collapse</div>
+          </div>
+          <p class="demo-label">⬆️ Parent has padding, so no collapse!</p>
+        </div>
 
-            <pre><code>/* Method 1: Add padding to parent */
+        <pre><code>/* Method 1: Add padding to parent */
 .parent {
   padding-top: 1px;
 }
@@ -138,61 +150,75 @@
   flex-direction: column;
 }</code></pre>
 
-            <div class="note-box">
-                <strong>Note:</strong> Flexbox and Grid containers don't have margin collapse!
-            </div>
-        </section>
+        <div class="note-box">
+          <strong>Note:</strong> Flexbox and Grid containers don't have margin
+          collapse!
+        </div>
+      </section>
 
-        <section>
-            <h2>6. Negative Margins</h2>
-            <p class="description">Negative margins pull elements closer or create overlaps.</p>
+      <section>
+        <h2>6. Negative Margins</h2>
+        <p class="description">
+          Negative margins pull elements closer or create overlaps.
+        </p>
 
-            <div class="demo-container">
-                <div class="negative-margin-demo">
-                    <div class="negative-box1">Box 1</div>
-                    <div class="negative-box2">Box 2 (margin-top: -20px)</div>
-                </div>
-            </div>
+        <div class="demo-container">
+          <div class="negative-margin-demo">
+            <div class="negative-box1">Box 1</div>
+            <div class="negative-box2">Box 2 (margin-top: -20px)</div>
+          </div>
+        </div>
 
-            <pre><code>.box {
+        <pre><code>.box {
   margin-top: -20px; /* Pulls element up */
 }</code></pre>
 
-            <div class="warning-box">
-                <strong>Use with caution:</strong> Negative margins can cause overlapping content.
-            </div>
-        </section>
+        <div class="warning-box">
+          <strong>Use with caution:</strong> Negative margins can cause
+          overlapping content.
+        </div>
+      </section>
 
-        <section>
-            <h2>7. Quick Reference</h2>
+      <section>
+        <h2>7. Quick Reference</h2>
 
-            <div class="reference-grid">
-                <div class="ref-item">
-                    <code>margin: 10px;</code>
-                    <p>All sides</p>
-                </div>
-                <div class="ref-item">
-                    <code>margin: 10px 20px;</code>
-                    <p>Top/Bottom, Left/Right</p>
-                </div>
-                <div class="ref-item">
-                    <code>margin: 10px 20px 30px;</code>
-                    <p>Top, Left/Right, Bottom</p>
-                </div>
-                <div class="ref-item">
-                    <code>margin: 10px 20px 30px 40px;</code>
-                    <p>Top, Right, Bottom, Left</p>
-                </div>
-                <div class="ref-item">
-                    <code>margin-inline: auto;</code>
-                    <p>Horizontal centering</p>
-                </div>
-                <div class="ref-item">
-                    <code>margin: 0 auto;</code>
-                    <p>Horizontal centering (old)</p>
-                </div>
-            </div>
-        </section>
+        <div class="reference-grid">
+          <div class="ref-item">
+            <code>margin: 10px;</code>
+            <p>All sides</p>
+          </div>
+          <div class="ref-item">
+            <code>margin: 10px 20px;</code>
+            <p>Top/Bottom, Left/Right</p>
+          </div>
+          <div class="ref-item">
+            <code>margin: 10px 20px 30px;</code>
+            <p>Top, Left/Right, Bottom</p>
+          </div>
+          <div class="ref-item">
+            <code>margin: 10px 20px 30px 40px;</code>
+            <p>Top, Right, Bottom, Left</p>
+          </div>
+          <div class="ref-item">
+            <code>margin-inline: auto;</code>
+            <p>Horizontal centering</p>
+          </div>
+          <div class="ref-item">
+            <code>margin: 0 auto;</code>
+            <p>Horizontal centering (old)</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>8. Demo margin collapse</h2>
+      </section>
+
+      <div class="navigation-footer">
+        <a href="../14-box-sizing/index.html" class="next-button">
+          Next: Box Sizing
+        </a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
