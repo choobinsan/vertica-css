@@ -3,10 +3,6 @@
 @import "./font-size.css";
 @import "./font-weight.css";
 @import "./spacing.css";
+@import "./stroke.css";
 
-:root {
-  --stroke-color: var(--color-gray-300);
-  --stroke-width: 1px;
-  --stroke: var(--stroke-width) dashed var(--stroke-color);
-  --stroke-solid: var(--stroke-width) solid var(--stroke-color);
-}
+

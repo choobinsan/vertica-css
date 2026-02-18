@@ -1,4 +1,7 @@
 table {
+  --stroke-color: #000;
+  --stroke: var(--stroke-width) dashed var(--stroke-color);
+  
   border: var(--stroke);
   border-collapse: collapse;
   width: 100%;

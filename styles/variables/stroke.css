@@ -1,0 +1,6 @@
+:root {
+  --stroke-color: var(--color-gray-300);
+  --stroke-width: 1px;
+  --stroke: var(--stroke-width) dashed var(--stroke-color);
+  --stroke-solid: var(--stroke-width) solid var(--stroke-color);
+}

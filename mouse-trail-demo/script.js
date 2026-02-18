@@ -8,13 +8,3 @@ window.addEventListener('mousemove', (e) => {
     document.documentElement.style.setProperty('--mouse-y', `${mouse.y}px`);
 });
 
-// const dot = document.querySelector(".dot");
-
-// function updateDomTrail() {
-    
-//   dot.style.transform = `translate(${mouse.x}px, ${mouse.y}px)`;
-
-//   requestAnimationFrame(updateDomTrail);
-// }
-
-// updateDomTrail();

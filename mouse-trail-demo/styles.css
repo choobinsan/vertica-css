@@ -3,6 +3,11 @@
     --mouse-y: 0px;
 }
 
+/*
+CSS Houdini Properties and Values API
+https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Properties_and_values_API/Houdini
+*/
+
 @property --gradient-angle {
     syntax: "<angle>";
     inherits: false;
@@ -20,6 +25,8 @@
     inherits: false;
     initial-value: 0;
 }
+
+
 
 body {
     margin: 0;
