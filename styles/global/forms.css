@@ -10,8 +10,8 @@ form > * + * {
   padding: 0.5em 0.8em;
   border-radius: var(--radius-s);
   border: var(--stroke-solid);
-  background: var(--color-gray-700);
-  color: var(--color-gray-200);
+  background: var(--color-gray-200);
+  color: var(--color-gray-700);
   width: 100%;
 
   &::placeholder {
