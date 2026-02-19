@@ -1,148 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flexbox Grow and Shrink</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="wrapper">
-        <h1>Understanding flex-grow and flex-shrink</h1>
-        <p class="intro">Resize your browser window to see how flex items grow and shrink! 📏</p>
+      <h1>Understanding flex-grow and flex-shrink</h1>
+      <p class="intro">
+        Resize your browser window to see how flex items grow and shrink! 📏
+      </p>
 
-        <!-- SECTION 1: The Basics -->
+      <!-- SECTION 1: The Basics -->
+      <section>
+        <h2>1. The Basics: Distributing Extra Space</h2>
+        <p class="description">
+          When there's <strong>extra space</strong>,
+          <code>flex-grow</code> determines how to distribute it.
+        </p>
+
+        <div class="demo-label">
+          All items: flex-grow: 0 (default - no growing)
+        </div>
+        <div class="flex-container">
+          <div class="flex-item flex-grow-zero">A</div>
+          <div class="flex-item flex-grow-zero">B</div>
+          <div class="flex-item flex-grow-zero">C</div>
+        </div>
+
+        <div class="demo-label">
+          All items: flex-grow: 1 (equal distribution)
+        </div>
+        <div class="flex-container">
+          <div class="flex-item flex-grow-one">
+            A<span class="ratio">1 part</span>
+          </div>
+          <div class="flex-item flex-grow-one">
+            B<span class="ratio">1 part</span>
+          </div>
+          <div class="flex-item flex-grow-one">
+            C<span class="ratio">1 part</span>
+          </div>
+        </div>
+
+        <div class="demo-label">
+          Different ratios: 1, 2, 1 (middle gets 2x the extra space)
+        </div>
+        <div class="flex-container">
+          <div class="flex-item flex-grow-one">
+            A<span class="ratio">1 part</span>
+          </div>
+          <div class="flex-item flex-grow-two">
+            B<span class="ratio">2 parts</span>
+          </div>
+          <div class="flex-item flex-grow-one">
+            C<span class="ratio">1 part</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Shrinking -->
+      <section>
+        <h2>2. Handling Tight Spaces</h2>
+        <p class="description">
+          When there's <strong>not enough space</strong>,
+          <code>flex-shrink</code> determines who gives up space.
+        </p>
+
+        <div class="demo-label">
+          All items: flex-shrink: 1 (default - equal shrinking)
+        </div>
+        <div class="flex-container shrink-demo">
+          <div class="flex-item wide flex-shrink-one">
+            Item A<span class="ratio">shrink: 1</span>
+          </div>
+          <div class="flex-item wide flex-shrink-one">
+            Item B<span class="ratio">shrink: 1</span>
+          </div>
+          <div class="flex-item wide flex-shrink-one">
+            Item C<span class="ratio">shrink: 1</span>
+          </div>
+        </div>
+
+        <div class="demo-label">Middle refuses to shrink: 1, 0, 1</div>
+        <div class="flex-container shrink-demo">
+          <div class="flex-item wide flex-shrink-one">
+            Item A<span class="ratio">shrink: 1</span>
+          </div>
+          <div class="flex-item wide flex-shrink-zero">
+            Item B<span class="ratio">shrink: 0</span>
+          </div>
+          <div class="flex-item wide flex-shrink-one">
+            Item C<span class="ratio">shrink: 1</span>
+          </div>
+        </div>
+
+        <div class="demo-label">Middle shrinks faster: 1, 3, 1</div>
+        <div class="flex-container shrink-demo">
+          <div class="flex-item wide flex-shrink-one">
+            Item A<span class="ratio">shrink: 1</span>
+          </div>
+          <div class="flex-item wide flex-shrink-three">
+            Item B<span class="ratio">shrink: 3</span>
+          </div>
+          <div class="flex-item wide flex-shrink-one">
+            Item C<span class="ratio">shrink: 1</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Real-World Example -->
+      <section>
+        <h2>3. Real-World: Navigation Bar</h2>
+        <p class="description">
+          A common pattern: logo stays fixed, nav grows to fill space, button
+          stays compact.
+        </p>
+
+        <nav class="navbar">
+          <div class="logo">Logo</div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <button class="cta-button">Sign Up</button>
+        </nav>
+
+        <div class="code-explanation">
+          <code>.logo { flex-grow: 0; }</code> — stays its natural size<br />
+          <code>.nav-links { flex-grow: 1; }</code> — takes all extra space<br />
+          <code>.cta-button { flex-grow: 0; }</code> — stays compact
+        </div>
+      </section>
+
+      <!-- SECTION 4: The Formula -->
+      <section>
+        <h2>4. How It Actually Works</h2>
+        <div class="formula-box">
+          <h3>flex-grow</h3>
+          <p>
+            Extra space is divided into <strong>total parts</strong> (sum of all
+            flex-grow values).
+          </p>
+          <p>
+            Each item gets:
+            <code>(extra space / total parts) × its flex-grow value</code>
+          </p>
+          <p class="example">
+            Example: If extra space = 300px and ratios are 1:2:1<br />
+            Total parts = 4, so each part = 75px<br />
+            Item A gets 75px, Item B gets 150px, Item C gets 75px
+          </p>
+        </div>
+
+        <div class="formula-box">
+          <h3>flex-shrink</h3>
+          <p>
+            When items overflow, the <strong>deficit</strong> is distributed
+            proportionally.
+          </p>
+          <p>Items with higher flex-shrink values give up more space.</p>
+          <p class="example">
+            Example: flex-shrink: 0 means "never shrink me"<br />
+            flex-shrink: 2 means "I'll shrink twice as fast as flex-shrink: 1"
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Quick Reference -->
+      <section>
+        <h2>5. Quick Reference</h2>
+        <table class="reference-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Default</th>
+              <th>Common Values</th>
+              <th>Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flex-grow</code></td>
+              <td>0</td>
+              <td>0, 1, 2</td>
+              <td>Distribute extra space proportionally</td>
+            </tr>
+            <tr>
+              <td><code>flex-shrink</code></td>
+              <td>1</td>
+              <td>0, 1, 2</td>
+              <td>Control how items shrink when space is tight</td>
+            </tr>
+            <tr>
+              <td><code>flex-basis</code></td>
+              <td>auto</td>
+              <td>0, auto, 200px</td>
+              <td>Starting size before growing/shrinking</td>
+            </tr>
+          </tbody>
+        </table>
+
         <section>
-            <h2>1. The Basics: Distributing Extra Space</h2>
-            <p class="description">When there's <strong>extra space</strong>, <code>flex-grow</code> determines how to distribute it.</p>
-
-            <div class="demo-label">All items: flex-grow: 0 (default - no growing)</div>
-            <div class="flex-container">
-                <div class="flex-item flex-grow-zero">A</div>
-                <div class="flex-item flex-grow-zero">B</div>
-                <div class="flex-item flex-grow-zero">C</div>
-            </div>
-
-            <div class="demo-label">All items: flex-grow: 1 (equal distribution)</div>
-            <div class="flex-container">
-                <div class="flex-item flex-grow-one">A<span class="ratio">1 part</span></div>
-                <div class="flex-item flex-grow-one">B<span class="ratio">1 part</span></div>
-                <div class="flex-item flex-grow-one">C<span class="ratio">1 part</span></div>
-            </div>
-
-            <div class="demo-label">Different ratios: 1, 2, 1 (middle gets 2x the extra space)</div>
-            <div class="flex-container">
-                <div class="flex-item flex-grow-one">A<span class="ratio">1 part</span></div>
-                <div class="flex-item flex-grow-two">B<span class="ratio">2 parts</span></div>
-                <div class="flex-item flex-grow-one">C<span class="ratio">1 part</span></div>
-            </div>
+          <h2>6. Demo</h2>
+          <div style="display: flex; gap:1rem;">
+            <div style="border: 1px solid red;">Abcd efg</div>
+            <div style="border: 1px solid red;">Bcd</div>
+            <div style="border: 1px solid red;">Coca cola</div>
+          </div>
         </section>
+      </section>
 
-        <!-- SECTION 2: Shrinking -->
-        <section>
-            <h2>2. Handling Tight Spaces</h2>
-            <p class="description">When there's <strong>not enough space</strong>, <code>flex-shrink</code> determines who gives up space.</p>
-
-            <div class="demo-label">All items: flex-shrink: 1 (default - equal shrinking)</div>
-            <div class="flex-container shrink-demo">
-                <div class="flex-item wide flex-shrink-one">Item A<span class="ratio">shrink: 1</span></div>
-                <div class="flex-item wide flex-shrink-one">Item B<span class="ratio">shrink: 1</span></div>
-                <div class="flex-item wide flex-shrink-one">Item C<span class="ratio">shrink: 1</span></div>
-            </div>
-
-            <div class="demo-label">Middle refuses to shrink: 1, 0, 1</div>
-            <div class="flex-container shrink-demo">
-                <div class="flex-item wide flex-shrink-one">Item A<span class="ratio">shrink: 1</span></div>
-                <div class="flex-item wide flex-shrink-zero">Item B<span class="ratio">shrink: 0</span></div>
-                <div class="flex-item wide flex-shrink-one">Item C<span class="ratio">shrink: 1</span></div>
-            </div>
-
-            <div class="demo-label">Middle shrinks faster: 1, 3, 1</div>
-            <div class="flex-container shrink-demo">
-                <div class="flex-item wide flex-shrink-one">Item A<span class="ratio">shrink: 1</span></div>
-                <div class="flex-item wide flex-shrink-three">Item B<span class="ratio">shrink: 3</span></div>
-                <div class="flex-item wide flex-shrink-one">Item C<span class="ratio">shrink: 1</span></div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: Real-World Example -->
-        <section>
-            <h2>3. Real-World: Navigation Bar</h2>
-            <p class="description">A common pattern: logo stays fixed, nav grows to fill space, button stays compact.</p>
-
-            <nav class="navbar">
-                <div class="logo">Logo</div>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <button class="cta-button">Sign Up</button>
-            </nav>
-
-            <div class="code-explanation">
-                <code>.logo { flex-grow: 0; }</code> — stays its natural size<br>
-                <code>.nav-links { flex-grow: 1; }</code> — takes all extra space<br>
-                <code>.cta-button { flex-grow: 0; }</code> — stays compact
-            </div>
-        </section>
-
-        <!-- SECTION 4: The Formula -->
-        <section>
-            <h2>4. How It Actually Works</h2>
-            <div class="formula-box">
-                <h3>flex-grow</h3>
-                <p>Extra space is divided into <strong>total parts</strong> (sum of all flex-grow values).</p>
-                <p>Each item gets: <code>(extra space / total parts) × its flex-grow value</code></p>
-                <p class="example">Example: If extra space = 300px and ratios are 1:2:1<br>
-                   Total parts = 4, so each part = 75px<br>
-                   Item A gets 75px, Item B gets 150px, Item C gets 75px</p>
-            </div>
-
-            <div class="formula-box">
-                <h3>flex-shrink</h3>
-                <p>When items overflow, the <strong>deficit</strong> is distributed proportionally.</p>
-                <p>Items with higher flex-shrink values give up more space.</p>
-                <p class="example">Example: flex-shrink: 0 means "never shrink me"<br>
-                   flex-shrink: 2 means "I'll shrink twice as fast as flex-shrink: 1"</p>
-            </div>
-        </section>
-
-        <!-- SECTION 5: Quick Reference -->
-        <section>
-            <h2>5. Quick Reference</h2>
-            <table class="reference-table">
-                <thead>
-                    <tr>
-                        <th>Property</th>
-                        <th>Default</th>
-                        <th>Common Values</th>
-                        <th>Use Case</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>flex-grow</code></td>
-                        <td>0</td>
-                        <td>0, 1, 2</td>
-                        <td>Distribute extra space proportionally</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-shrink</code></td>
-                        <td>1</td>
-                        <td>0, 1, 2</td>
-                        <td>Control how items shrink when space is tight</td>
-                    </tr>
-                    <tr>
-                        <td><code>flex-basis</code></td>
-                        <td>auto</td>
-                        <td>0, auto, 200px</td>
-                        <td>Starting size before growing/shrinking</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+      <div class="navigation-footer">
+        <a
+          href="../26-flexbox-margin-auto-trick/index.html"
+          class="next-button"
+        >
+          Next: Margin Auto Trick
+        </a>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  padding: 2rem;
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  line-height: 1.6;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: linear-gradient(135deg, #442aaa 0%, #5a3bb8 100%);
+}
+
+.profile {
+}
+
+.profile-name {
+}
+
+.profile-img {
+}
+
+.social-list {
+}
+
+.profile-position {
+}
+
+.profile-info {
+}
+
+@media (min-width: 675px) {
+}
+
+.profile {
+  background: linear-gradient(135deg, #1a1145 0%, #2d1b69 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  color: #efefef;
+  max-inline-size: 700px;
+}
+
+.profile > * {
+  margin: 0;
+}
+
+.profile-name {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.profile-img {
+  border-radius: 8px;
+}
+
+.profile-position {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #a78bfa;
+}
+
+.profile-info {
+  color: rgba(255, 255, 255, 0.65);
+}
+.social-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+
+  a {
+    color: #a78bfa;
+    font-size: 1.25rem;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: #c4b5fd;
+  }
+}

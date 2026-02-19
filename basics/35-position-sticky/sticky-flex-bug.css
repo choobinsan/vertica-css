@@ -1,0 +1,92 @@
+/* ===== FLEX + STICKY EDGE CASE ===== */
+
+.flex-sticky-demo-wrapper {
+    max-width: 1400px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+}
+
+.flex-sticky-demo-wrapper .panel-title {
+    margin: 0;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.flex-sticky-demo-wrapper .panel-title code {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.broken-title {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+}
+
+.flex-sticky-layout {
+    display: flex;
+}
+
+.flex-sticky-sidebar {
+    padding: 1rem;
+    width: 220px;
+    min-width: 220px;
+    background: linear-gradient(180deg, #fff5f5 0%, #ffe3e3 100%);
+    border-right: 3px solid #ffc9c9;
+    position: sticky;
+    top: 0;
+}
+
+.sticky-box {
+    position: sticky;
+    top: 0;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.broken-sticky {
+    background: #fff5f5;
+    color: #c92a2a;
+}
+
+
+.flex-sticky-main {
+    flex: 1;
+    padding: 2rem 2.5rem;
+}
+
+.flex-sticky-main h4 {
+    margin: 0 0 1rem 0;
+    color: #c92a2a;
+    font-size: 1.1rem;
+}
+
+.flex-sticky-main h4:not(:first-child) {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #dee2e6;
+}
+
+.flex-sticky-main p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #495057;
+    margin: 0 0 1rem 0;
+}
+
+.flex-sticky-main code {
+    background: #fff3f3;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    color: #c92a2a;
+}
+

@@ -128,19 +128,21 @@ li:nth-child(2) {
                     </div>
 
                     <div class="form-group">
-                        <input type="email" placeholder="Optional email">
+                        <input type="email" placeholder="Optional email" name="email" />
                     </div>
 
                     <div class="form-group">
-                        <input type="text" disabled placeholder="Disabled field">
+                        <input type="text" disabled placeholder="Disabled field" name="disabled" /> 
                     </div>
 
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" class="demo-checkbox">
+                            <input type="checkbox" class="demo-checkbox" name="checkbox" />
                             Check me (:checked)
                         </label>
                     </div>
+
+                    <button type="submit" class="demo-button">Submit</button>
                 </form>
             </div>
 
@@ -204,6 +206,12 @@ input:checked {
                 </div>
             </div>
         </section>
+
+        <div class="navigation-footer">
+            <a href="../10-typography/index.html" class="next-button">
+                Next: Typography
+            </a>
+        </div>
     </div>
 </body>
 </html>
