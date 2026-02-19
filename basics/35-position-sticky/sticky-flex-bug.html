@@ -13,13 +13,6 @@
       <p class="intro">Why position: sticky fails inside a flex container 🐛</p>
 
       <section>
-        <p class="description">
-          By default, flex items have <code>align-self: stretch</code>, which
-          makes all items the same height as the tallest sibling. This prevents
-          sticky from working because the sticky element's container is already
-          as tall as the scrollable area — there's nothing to stick against.
-        </p>
-
         <div class="warning-box">
           <strong>⚠️ The Problem:</strong> When a flex item is stretched to the
           same height as its sibling, <code>position: sticky</code> has no
@@ -30,9 +23,7 @@
 
     <!-- Flex + Sticky broken demo — full width, outside wrapper so it scrolls with the page -->
     <div class="flex-sticky-demo-wrapper">
-      <h3 class="panel-title broken-title">
-        ❌ Sticky Not Working — Default <code>align-self: stretch</code>
-      </h3>
+      <h3 class="panel-title broken-title">❌ Sticky Not Working</h3>
       <div class="flex-sticky-layout">
         <div class="flex-sticky-sidebar">
           I should be sticky...<br />but I'm not 😢
